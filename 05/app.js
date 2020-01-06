@@ -8,10 +8,33 @@ class App extends React.Component {
         text: '',
     }
 
+    getSnapshotBeforeUpdate(prevProps, prevState){
+        const textAreaHeight = this.textAreaRef.getHeight();
+        const scrollHeight = this.textAreaRef.getScrollHeight();  
+
+        if(scrollHeight > textAreaHeight && textAreaHeight < 100){
+            return {resize:true};     
+        } else {
+            return {resize:false};
+        }   
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(snapshot.resize){
+           this.textAreaRef.updateTextAreaSize();
+        }   
+    }
+    
+    onChange = e => {
+       this.setState({
+            text : e.target.value,
+       });  
+    }
+
     render() {
-        const { text } = this.state;
+        
         return (
-            <Textarea content={ text } />
+            <Textarea ref={ref => this.textAreaRef = ref} onChange={this.onChange} />
         )
     }
 }

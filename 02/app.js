@@ -9,12 +9,27 @@ class App extends React.Component {
         usersList: [],
     }
 
+    formRef = React.createRef();
+
+    handleSubmit = e =>{
+        e.preventDefault();
+        
+        const newUser = this.formRef.current.getUser();
+        this.addUser(newUser); 
+    }
+
+    addUser(newUser){
+        this.setState(state =>{
+            return {usersList : [...state.usersList, newUser]}
+        });
+    }
+
     render() {
         const  { usersList } = this.state;
-
+        console.log(usersList);
         return (
             <section>
-                <Form />
+                <Form onSubmit={ this.handleSubmit } ref={ this.formRef } />
                 <List items={ usersList } />
             </section>
         )
