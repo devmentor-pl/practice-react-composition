@@ -8,8 +8,8 @@ class Form extends React.Component {
 
   render() {
     return (
-      <form onSubmit={(e) => this.handleSubmitForm(e)}>
-        <input ref={(node) => (this.input = node)} />
+      <form onSubmit={e => this.handleSubmitForm(e)}>
+        <input ref={node => (this.input = node)} />
         <input type="submit" />
       </form>
     );
