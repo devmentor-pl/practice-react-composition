@@ -1,13 +1,12 @@
 import React from "react";
 
-export default function TableHeader() {
+export default function TableHeader({ headers }) {
   return (
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Total Price</th>
+        {headers.map((header) => {
+          return <th key={header}>{header}</th>;
+        })}
       </tr>
     </thead>
   );
