@@ -1,16 +1,10 @@
 import React from "react";
+import ListItem from "./ListItem";
 
 class List extends React.Component {
   render() {
-    const listItems = this.props.items.map((item) => {
-      return (
-        <li key={item.id}>
-          <h2>File name: {item.name}</h2>
-          <p>File size: {item.size}</p>
-          <h3>File content:</h3>
-          <p>{item.content}</p>
-        </li>
-      );
+    const listItems = this.props.items.map(item => {
+      return <ListItem key={item.id} item={item} />;
     });
 
     return (
