@@ -26,9 +26,9 @@ class Textarea extends React.Component {
 
     return (
       <textarea
-        ref={(node) => (this.textArea = node)}
+        ref={node => (this.textArea = node)}
         value={content}
-        onChange={(e) => this.props.onTextChange(e.target.value)}
+        onChange={e => this.props.onTextChange(e.target.value)}
       ></textarea>
     );
   }
