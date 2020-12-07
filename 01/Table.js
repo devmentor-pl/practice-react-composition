@@ -1,49 +1,23 @@
 import React from 'react';
+import TableHeader from './Components/TableHeader'
+import TableBody from './Components/TableBody'
+import TableFooter from './Components/TableFooter'
 
 class Table extends React.Component {
     render() {
         const {data} = this.props;
         const headerList = Object.keys(data[0]).map(key => {
-
-            return (
-                <td key={key}>{key}</td>
-            )
+            return <th key={key}>{key}</th>;
         })
 
-        const tableRow = data.map(row => {
-            return (
-                <tr key={row.id}>
-                    <td>{row.id}</td>
-                    <td>{row.name}</td>
-                    <td>{row.price}</td>
-                    <td>{row.quantity}</td>
-                </tr>
-            )
-        })
-
-        const totalSum = data.reduce((acc, item) => {
+        const totalBasketSum = data.reduce((acc, item) => {
             return acc + item.price * item.quantity}, 0)
 
         return (
         <table style={tableStyle}>
-            <thead>
-                <tr>
-                    {headerList}
-                </tr>
-            </thead>
-
-            <tbody>
-                    {tableRow}
-            </tbody>
-
-            <tfoot>
-                <tr>
-                    <td>
-                        {totalSum}
-                    </td>
-                </tr>
-            </tfoot>
-
+            <TableHeader headerList={headerList}/>
+            <TableBody data={data} />
+            <TableFooter totalBasketSum={totalBasketSum} />
         </table>
         )
     }
