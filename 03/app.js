@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Category from './Category';
-import Cart from './Cart';
+import Category from './components/Category';
+import Cart from './components/Cart';
 
 import data from './data.json';
 
