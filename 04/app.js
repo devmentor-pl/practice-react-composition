@@ -8,7 +8,7 @@ class App extends React.Component {
     state = {
         filesList: [],
     }
-    handleFilesSubmit(newObject) {
+    handleFilesSubmit = newObject => {
         this.setState(state => {
             return {
                 filesList: [...state.filesList, newObject]
@@ -18,7 +18,7 @@ class App extends React.Component {
     render() {
         return (
             <section>
-                <File getFile={ this.handleFilesSubmit.bind(this) }/>
+                <File getFile={ this.handleFilesSubmit }/>
                 <List files={ this.state.filesList }/>
             </section>
         )

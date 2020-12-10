@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import List from './List';
-import Form from './Form';
+import List from './components/List';
+import Form from './components/Form';
 
 class App extends React.Component {
     state = {

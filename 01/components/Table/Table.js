@@ -1,7 +1,7 @@
 import React from 'react';
-import TableHeader from './Components/TableHeader'
-import TableBody from './Components/TableBody'
-import TableFooter from './Components/TableFooter'
+import TableHeader from './TableHeader'
+import TableBody from './TableBody'
+import TableFooter from './TableFooter'
 
 class Table extends React.Component {
     render() {
@@ -15,9 +15,9 @@ class Table extends React.Component {
 
         return (
         <table style={tableStyle}>
-            <TableHeader headerList={headerList}/>
-            <TableBody data={data} />
-            <TableFooter totalBasketSum={totalBasketSum} />
+            <TableHeader headerList={ headerList }/>
+            <TableBody data={ data } />
+            <TableFooter totalBasketSum={ totalBasketSum } />
         </table>
         )
     }

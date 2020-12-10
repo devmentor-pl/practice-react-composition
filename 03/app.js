@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Category from './Components/Category';
-import Cart from './Components/Cart';
-import Product from './Components/Product';
+import Category from './components/Category';
+import Cart from './components/Cart';
+import Product from './components/Product';
 import data from './data.json';
 import { v4 as uuid } from 'uuid';
 
@@ -11,16 +11,13 @@ class App extends React.Component {
         cart: [],
     }
     addToBasket = newProduct => {
-        if (this.state.cart.includes(newProduct)) {
-            return
-        } else {
+        if (!this.state.cart.includes(newProduct)) {
             this.setState(state => {
                 return {
                     cart: [...state.cart, newProduct ]
                 }
             })
         }
-
     }
     removeFromBasket = id => {
         const cart = this.state.cart.filter(item => item.id !== id)
@@ -28,8 +25,6 @@ class App extends React.Component {
             cart
         })
     }
-    // ta funkcja zawsze zwraca mi to samo, czyli działa źle. gdzie szukać błędu?
-    getNewKey = () => this.state.cart.reduce((acc, item) => acc > item.id ? acc : item.id, 0) + 1;
 
     render() {
         const { products } = data;

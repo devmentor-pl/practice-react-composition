@@ -10,22 +10,9 @@ const Product = props => {
                 }
             </h3>
             <span>Price: {price}</span>
-
-            { !basketItem ?
-            (
-                <button
-                    onClick={ () => addToBasket(product) }
-                >
-            Add to Basket</button>
-            ) : 
-            (
-                <button
-                onClick={ () => removeFromBasket(product.id) }
-                >
-                Remove from basket</button>
-            )
-            }
-            
+            <button
+                onClick={ () => (basketItem ? addToBasket(product) : removeFromBasket(product.id)) }
+            > {basketItem ? 'Add to Basket' : 'Remove from basket'} </button>
         </div>
     )
 }
