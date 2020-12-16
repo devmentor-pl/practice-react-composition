@@ -23,8 +23,8 @@ class App extends React.Component {
         this.setState({ cart: updatedCart })
     }
 
-    render() {
-        const categoryProds = data.map(product => {
+    renderCategoryList() {
+        return data.map(product => {
             return (
                 <Product
                     key={product.id}
@@ -33,7 +33,10 @@ class App extends React.Component {
                     product={product} />
             )
         })
-        const cartProds = this.state.cart.map(product => {
+    }
+
+    renderCartList() {
+        return this.state.cart.map(product => {
             return (
                 <Product
                     key={product.id}
@@ -42,14 +45,16 @@ class App extends React.Component {
                     product={product} />
             )
         })
+    }
 
+    render() {
         return (
             <section>
                 <Category>
-                    {categoryProds}
+                    {this.renderCategoryList()}
                 </Category>
                 <Cart>
-                    {cartProds}
+                    {this.renderCartList()}
                 </Cart>
             </section>
         )
