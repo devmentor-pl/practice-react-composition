@@ -10,7 +10,7 @@ class App extends React.Component {
     }
 
     updateList = newUser => {
-        this.setState(({ usersList }) => { return { usersList: [...usersList, newUser] } })
+        this.setState(({ usersList }) => ({ usersList: [...usersList, newUser] }))
     }
 
     render() {
