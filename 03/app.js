@@ -12,11 +12,10 @@ class App extends React.Component {
     }
 
     isProductPurchased = (productId) => {
-        const cart = this.state.cart
+        const {cart} = this.state
 
-        for(let i=0; i<cart.length; i++) {
-            if(cart[i].id === productId) return true
-        }
+        if(cart.some(product => product.id === productId)) return true
+
         return false
     }
 

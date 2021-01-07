@@ -5,28 +5,30 @@ import TableBody from './TableBody'
 import TableFooter from './TableFooter'
 
 class Table extends React.Component {
-    render() {
-        const {data} = this.props;
-        const listPrices = data.map(item => {
-            return {
-                id: item.id,
-                name: item.name, 
-                price: item.price}
-            })
-        const orderList = data.map(item => {
+    data = this.props.data
+
+    orderList = () => {
+        return this.data.map(item => {
             return {
                 id: item.id,
                 name: item.name,
                 value: item.quantity * item.price
             }
         })
-        const orderValue = data.reduce(function (total, element) { return (total + element.price * element.quantity) }, 0)
-        console.log(data);
+    }
+
+    orderValue = () => {
+        return this.data.reduce(function (total, element) { 
+            return (total + element.price * element.quantity) }, 0)
+    }
+
+    render() {
+        console.log(this.data);
 
         return ( <table>
-            <TableHeader listPrices={ listPrices } />
-            <TableBody orderList={ orderList } />
-            <TableFooter orderValue={ orderValue } />
+            <TableHeader />
+            <TableBody orderList={ this.orderList() } />
+            <TableFooter orderValue={ this.orderValue() } />
         </table> )
     }
 }

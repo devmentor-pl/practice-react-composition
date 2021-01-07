@@ -5,7 +5,7 @@ import Product from './Product'
 function Cart(props) {
     const {cart, removeFromCart} = props
     const cartContent = cart.map(product => {
-        return <Product key={ product.id } isCart={ true } product={ product } removeFromCart={ removeFromCart } />
+        return <Product key={ product.id } product={ product } buttonContent={{ isDisabled: false, text: 'Usuń z koszyka', clickHandler: removeFromCart }} />
     })
 
     return <section>
