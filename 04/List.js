@@ -9,11 +9,12 @@ class List extends React.Component {
         const {files} = this.props;
 
         const filesList = files.map((file) => {
-            console.log('li')
-            console.log(filesList)
+        
             return (
                 <>
-                    <li > 
+
+                {/* /* tu powinien być ten klucz? bo w konsli mam, że powinnam mieć key a przecież mam /* */}
+                    <li key={uuid()} > 
                     <span>Name: {file.name} </span>
                     <span>Size: {file.size} </span>
                     <span>Content: {file.content} </span>

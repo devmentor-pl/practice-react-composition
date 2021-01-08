@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import File from './File';
 import List from './List';
-import {v4 as uuid} from 'uuid';
+// import {v4 as uuid} from 'uud';
 
 class App extends React.Component {
     state = {
@@ -20,6 +20,8 @@ class App extends React.Component {
     
 
     render() {
+       
+        
         return (
             <section>
                 <File getFile={this.handleFile}/>
