@@ -14,7 +14,7 @@ class App extends React.Component {
 
     addProductToCart = (product) => {
         product.alreadyAdded = true;
-        
+
         console.log('dodaje do cart')
         this.setState((state) => {
             return{
@@ -25,20 +25,13 @@ class App extends React.Component {
 
     removeProductFromCart = (product) => {
        product.alreadyAdded = false;
-      
-        console.log('usuwam')
-        this.setState((state) => {
-          
-            const newOrder =  state.cart.filter((item) => {
-                    item.id !== product.id
-             })
-             return {
+   
+       const newOrder =  this.state.cart.filter(item => 
+        item.id !== product.id )
+        this.setState({
                 cart: newOrder
-               }
-            
-            
-        })
-       
+         })
+
     }
 
 
