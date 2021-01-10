@@ -9,25 +9,34 @@ class App extends React.Component {
     filesList: [],
   };
 
-  readFile = () => {
-    console.log('READ');
-    console.log(this.fileRead.files);
+  saveFileIntoState = () => {
+    const fileList = this.fileReader.uploadFiles();
+    const filesListCopy = [...this.state.filesList];
+
+    fileList.map((file) => {
+      this.readFileValue(file);
+      filesListCopy.push(file);
+      this.setState({ filesList: filesListCopy });
+    });
+  };
+
+  readFileValue = (file) => {
+    const reader = new FileReader();
+    reader.onload = function (readerEvent) {
+      const content = readerEvent.target.result;
+      file.content = content;
+    };
+    reader.readAsText(file, 'UTF-8');
   };
 
   render() {
     return (
       <section>
         <File
-          uploaded={this.readFile}
-          ref={(element) => (this.fileRead = element)}
+          ref={(element) => (this.fileReader = element)}
+          changed={this.saveFileIntoState}
         />
-        {/*   <input
-          type='file'
-          multiple
-          ref={(element) => (this.fileRead = element)}
-          onChange={this.readFile}
-        /> */}
-        <List />
+        <List elements={this.state.filesList} />
       </section>
     );
   }
