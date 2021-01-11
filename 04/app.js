@@ -11,12 +11,12 @@ class App extends React.Component {
 
   saveFileIntoState = () => {
     const fileList = this.fileReader.uploadFiles();
-    const filesListCopy = [...this.state.filesList];
+    const filesInStateCopy = [...this.state.filesList];
 
     fileList.map((file) => {
       this.readFileValue(file);
-      filesListCopy.push(file);
-      this.setState({ filesList: filesListCopy });
+      filesInStateCopy.push(file);
+      this.setState({ filesList: filesInStateCopy });
     });
   };
 
