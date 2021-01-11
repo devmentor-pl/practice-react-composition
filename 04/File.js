@@ -1,7 +1,7 @@
 import React from 'react';
 
 class File extends React.Component {
-  uploadFiles = () => {
+  uploadedFiles = () => {
     return [...this.fileReader.files];
   };
 

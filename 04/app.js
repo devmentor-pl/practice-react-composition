@@ -10,23 +10,25 @@ class App extends React.Component {
   };
 
   saveFileIntoState = () => {
-    const fileList = this.fileReader.uploadFiles();
-    const filesInStateCopy = [...this.state.filesList];
+    const uploadedFiles = this.fileReader.uploadedFiles();
 
-    fileList.map((file) => {
-      this.readFileValue(file);
-      filesInStateCopy.push(file);
-      this.setState({ filesList: filesInStateCopy });
+    uploadedFiles.map((file) => {
+      if (file && file.type.includes('text')) {
+        const reader = new FileReader();
+        reader.readAsText(file, 'UTF-8');
+        reader.onload = () => {
+          const fileToPushIntoState = {
+            name: file.name,
+            content: reader.result,
+            size: file.size,
+          };
+
+          this.setState({
+            filesList: [...this.state.filesList, fileToPushIntoState],
+          });
+        };
+      }
     });
-  };
-
-  readFileValue = (file) => {
-    const reader = new FileReader();
-    reader.onload = function (readerEvent) {
-      const content = readerEvent.target.result;
-      file.content = content;
-    };
-    reader.readAsText(file, 'UTF-8');
   };
 
   render() {
