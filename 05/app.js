@@ -8,10 +8,18 @@ class App extends React.Component {
         text: '',
     }
 
+
+    changeTextArea = (newContent) => {
+        this.setState({
+            text: newContent
+        })
+    }
+
+
     render() {
         const { text } = this.state;
         return (
-            <Textarea content={ text } />
+            <Textarea content={ text }  changeTextArea={this.changeTextArea}/>
         )
     }
 }
