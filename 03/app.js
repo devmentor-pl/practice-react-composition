@@ -33,12 +33,14 @@ class App extends React.Component {
   render() {
     const productsList = data.map((product) => {
       return (
-        <Product
-          item={product}
-          key={uuid()}
-          addToTheCart={() => this.addToTheCart(product)}
-          isCategory={true}
-        />
+        <li>
+          <Product
+            item={product}
+            key={uuid()}
+            addToTheCart={() => this.addToTheCart(product)}
+            isCategory={true}
+          />
+        </li>
       );
     });
 
