@@ -1,4 +1,4 @@
-const taskNumber = '04';
+const taskNumber = '02';
 //number przerabianego zadania
 
 const path = require('path');
