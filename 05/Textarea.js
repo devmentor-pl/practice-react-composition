@@ -2,7 +2,8 @@ import React from 'react';
 
 class Textarea extends React.Component {
     render() {
-        return <textarea></textarea>
+        const {content, func, refProp} = this.props
+        return <textarea ref={refProp} onChange={func} >{content}</textarea>
     }
 }
 
