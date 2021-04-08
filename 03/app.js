@@ -9,7 +9,6 @@ import data from './data.json';
 class App extends React.Component {
     state = {
         cart: [],
-        isDisabled: false,
     }
 
     handleClickAdd = e => {
@@ -34,7 +33,6 @@ class App extends React.Component {
         this.setState(state => {
             return {
                 cart: [...state.cart, cart],
-                isDisabled: false,
             };
         });
     }
@@ -60,10 +58,10 @@ class App extends React.Component {
 
 
     render() {
-        const { cart, isDisabled } = this.state;
+        const { cart } = this.state;
         return (
             <section>
-                <Category data={data} onClick={this.handleClickAdd} isDisabled={isDisabled} />
+                <Category data={data} onClick={this.handleClickAdd} itemsCart={cart} />
                 <Cart items={cart} onClick={this.handleClickRemove} />
             </section>
         )

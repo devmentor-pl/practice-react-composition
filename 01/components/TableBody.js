@@ -4,14 +4,13 @@ import TableRow from './TableRow';
 
 class TableBody extends React.Component {
     render() {
-        const { data } = this.props;
-        return data.map(row => {
-            return (
-                <tbody key={row.id}>
-                    <TableRow row={row} />
-                </tbody>
-            )
-        });
+        const { row } = this.props;
+
+        return (
+            <tbody>
+                <TableRow row={row} />
+            </tbody>
+        )
     }
 }
 

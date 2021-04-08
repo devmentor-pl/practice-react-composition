@@ -9,17 +9,24 @@ class Table extends React.Component {
         const { data } = this.props;
         console.log(data);
 
+        const arrHeader = [];
+        for (const key in data[0]) {
+            arrHeader.push(key.toUpperCase())
+        }
+        arrHeader.push('TOTAL PRICE');
+
+        const totalPrice = data.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+
         return (
             <table>
-                <TableHeader
-                    id={'Id'}
-                    name={'Name'}
-                    price={'Price'}
-                    quantity={'Quantity'}
-                    totalPrice={'Total Price'}
-                />
-                <TableBody data={data} />
-                <TableFooter data={data} />
+                <TableHeader columnName={arrHeader} />
+                {
+                    data.map(
+                        row => <TableBody key={row.id} row={row} />
+                    )
+                }
+                <TableFooter price={totalPrice} />
             </table>
         )
     }

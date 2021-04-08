@@ -11,7 +11,6 @@ class List extends React.Component {
                 </React.Fragment>
             )
         });
-
         return <ul>{list}</ul>
     }
 }

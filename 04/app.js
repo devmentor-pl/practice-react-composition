@@ -17,7 +17,7 @@ class App extends React.Component {
             let infoFile = {};
             if (file && file.type.includes('text')) {
                 const reader = new FileReader();
-                reader.onload = function (readerEvent) {
+                reader.onload = (readerEvent) => {
                     const content = readerEvent.target.result;
 
                     infoFile = {
@@ -26,10 +26,10 @@ class App extends React.Component {
                         size: file.size,
                         content: content,
                     }
+
+                    this.addFile(infoFile);
                 };
                 reader.readAsText(file, 'UTF-8');
-
-                setTimeout(() => { this.addFile(infoFile) }, 500);
             }
         }
     }

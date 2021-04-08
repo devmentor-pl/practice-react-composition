@@ -6,13 +6,13 @@ import Textarea from './Textarea';
 class App extends React.Component {
     state = {
         text: '',
-        height: 30,
+        height: 40,
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('getSnapshotBeforeUpdate');
 
-        if (this.refTextarea.getHeight() < 100) {
+        if (this.refTextarea.getHeight() < this.refTextarea.getScrollHeight() && this.refTextarea.getScrollHeight() < 100) {
             return {
                 resize: true
             }
@@ -25,10 +25,8 @@ class App extends React.Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('componentDidUpdate');
 
-        if (this.refTextarea.getScrollHeight() > this.refTextarea.getHeight() || snapshot.resize === true) {
-            if (this.refTextarea.getScrollHeight() < 100) {
-                this.state.height = this.refTextarea.getScrollHeight() + 'px';
-            }
+        if (snapshot.resize) {
+            this.state.height = this.refTextarea.getScrollHeight() + 'px';
         }
 
     }
