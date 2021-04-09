@@ -3,6 +3,7 @@ import React from 'react';
 import TableHeader from './components/TableHeader';
 import TableBody from './components/TableBody';
 import TableFooter from './components/TableFooter';
+import TableRow from './components/TableRow';
 
 class Table extends React.Component {
     render() {
@@ -21,11 +22,7 @@ class Table extends React.Component {
         return (
             <table>
                 <TableHeader columnName={arrHeader} />
-                {
-                    data.map(
-                        row => <TableBody key={row.id} row={row} />
-                    )
-                }
+                <TableBody>{data.map(row => <TableRow key={row.id} data={row} />)}</TableBody>
                 <TableFooter price={totalPrice} />
             </table>
         )

@@ -2,22 +2,13 @@ import React from 'react';
 
 import Product from './Product';
 import Button from './Button';
-import Cart from './Cart';
 
 
 function Category(props) {
     const { data, onClick, itemsCart } = props;
 
     const list = data.map(row => {
-        let disabled = false;
-
-        if (itemsCart.length > 0) {
-            itemsCart.forEach(el => {
-                if (row.id === el.id) {
-                    disabled = true;
-                }
-            });
-        }
+        const disabled = itemsCart.some(item => item.id === row.id);
 
         return (
             <React.Fragment key={row.id}>

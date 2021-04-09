@@ -3,14 +3,14 @@ import React from 'react';
 
 class TableRow extends React.Component {
     render() {
-        const { row } = this.props;
-        const totalPrice = row.price * row.quantity;
+        const { data } = this.props;
+        const totalPrice = data.price * data.quantity;
         return (
             <tr>
-                <td>{row.id}</td>
-                <td>{row.name}</td>
-                <td>{row.price}</td>
-                <td>{row.quantity}</td>
+                <td>{data.id}</td>
+                <td>{data.name}</td>
+                <td>{data.price}</td>
+                <td>{data.quantity}</td>
                 <td>{totalPrice}</td>
             </tr>
         )
