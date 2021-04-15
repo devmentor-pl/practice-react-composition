@@ -12,7 +12,7 @@ export default class TableBody extends React.Component {
 
         const productsItem = products.map(product => {
             return(
-                    <TableRow price={product.price} name={product.name} quatity={product.quantity}/>
+                    <TableRow {...product}/>
                 )
             });
 

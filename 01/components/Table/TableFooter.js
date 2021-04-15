@@ -2,9 +2,9 @@ import React from 'react';
 
 const TableFooter = (props) => {
 
-    const {sum} = props;
+    const {data} = props;
 
-    const sumItem = sum.reduce((acc, item) => {
+    const sumItem = data.reduce((acc, item) => {
         return acc + item.price;
     }, 0);
 

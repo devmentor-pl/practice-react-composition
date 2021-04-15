@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-const TableRow = (props) => {
+const TableRow = ({name, price, quantity}) => {
     return(
         <tr>
-            <td>{props.name}</td>
-            <td>{props.price}</td>
-            <td>{props.quatity}</td>
+            <td>{name}</td>
+            <td>{price}</td>
+            <td>{quantity}</td>
         </tr>
     )
 }

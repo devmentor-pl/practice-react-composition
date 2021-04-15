@@ -12,7 +12,7 @@ class Table extends React.Component {
             <table>
                 <TableHeader/>
                 <TableBody products = {data} />
-                <TableFooter sum = {data}/>
+                <TableFooter data = {data}/>
             </table>
         )
     }

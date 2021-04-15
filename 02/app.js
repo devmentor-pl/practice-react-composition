@@ -13,7 +13,7 @@ class App extends React.Component {
         event.preventDefault();
         const [name] = event.target.elements;
   
-        const addNewUser = this.addUser(name.value);
+        this.addUser(name.value);
 
         name.value = '' ;
     }

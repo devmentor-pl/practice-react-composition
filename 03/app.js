@@ -14,7 +14,7 @@ class App extends React.Component {
 
     addItem = (product) => {
         product.isCart = true;
-
+        
         this.setState({
             cart: [...this.state.cart, product]
         });
