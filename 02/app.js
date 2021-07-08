@@ -1,24 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import List from './List';
-import Form from './Form';
+import List from "./List";
+import Form from "./Form";
 
 class App extends React.Component {
-    state = {
-        usersList: [],
-    }
+  state = {
+    usersList: [],
+  };
 
-    render() {
-        const  { usersList } = this.state;
+  handleAddUser = (user) => {
+    this.setState(({ usersList }) => {
+      return {
+        usersList: [...usersList, user],
+      };
+    });
+  };
 
-        return (
-            <section>
-                <Form />
-                <List items={ usersList } />
-            </section>
-        )
-    }
+  render() {
+    const { usersList } = this.state;
+
+    return (
+      <section>
+        <Form onAddUser={this.handleAddUser} />
+        <List items={usersList} />
+      </section>
+    );
+  }
 }
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector("#root"));
