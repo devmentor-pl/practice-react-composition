@@ -1,13 +1,24 @@
 import React from 'react';
 
+
 class Form extends React.Component {
+ 
+        
+   
+ 
     render() {
+const {handleEvent} = this.props;
         return (
-            <section>
-                <input /><input type="submit" />
-            </section>
+            <form onSubmit={handleEvent}>
+                <input name="input"/><input type="submit" />
+               
+            </form>
         )
     }
 }
 
+
 export default Form;
+
+
+
