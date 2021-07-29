@@ -7,10 +7,10 @@ import TableFooter from './TableFooter';
 class Table extends React.Component {
     render() {
 
-
+        console.log(this.props.dataProp);
         return <table>
             <TableHeader />
-            <TableBody />
+            <TableBody data={this.props.dataProp} />
             <TableFooter />
         </table>
     }

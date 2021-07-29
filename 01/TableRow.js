@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import data from './data.json';
-
-
-
-
 
 class TableRow extends React.Component {
 
     render() {
+
+        // const data = this.props.data;
+        const { data } = this.props;
+
         const taskList = data.map(t => {
             return (
                 <tr>

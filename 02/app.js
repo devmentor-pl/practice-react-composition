@@ -11,30 +11,21 @@ class App extends React.Component {
                 name:'Anna Wanna',
             },
            
-        ],
-        newUser: '',
+        ]
     }
 
-    handleSubmit = e => {
-        e.preventDefault();
-        console.log(e.target.firstElementChild.value)
-        console.log(this.state.usersList)
-
+    addNewUser = (newUser) => {
         this.setState({
-            usersList: [...this.state.usersList, {name: e.target.firstElementChild.value} ]
+            usersList: [...this.state.usersList, {name: newUser} ]
         })
-
-        e.target.firstElementChild.value = '';
-        
     }
 
     render() {
         const  { usersList } = this.state;
-        console.log(usersList)
 
         return (
             <section>
-                <Form handleEvent={this.handleSubmit} />
+                <Form addNewUser={this.addNewUser} />
                 <List items={ usersList } />
             </section>
         )
