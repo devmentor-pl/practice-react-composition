@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { v4 as uuid } from 'uuid';
 
 import File from './File';
 import List from './List';
@@ -9,11 +10,34 @@ class App extends React.Component {
         filesList: [],
     }
 
+    getFile = (e) => {
+        const file = e.target.files[0];
+
+        if(file && file.type.includes('text')) {
+            const reader = new FileReader();
+            reader.readAsText(file);
+
+            reader.onload = () => {
+
+                const dataFile = {
+                    id: uuid(),
+                    name: file.name,
+                    content: reader.result,
+                    size: file.size
+                }
+
+                this.setState({
+                    filesList: [...this.state.filesList, dataFile]
+                });
+            }
+        }
+    }
+
     render() {
         return (
             <section>
-                <File />
-                <List />
+                <File fileHandle = {this.getFile}/>
+                <List data={this.state.filesList}/>
             </section>
         )
     }
