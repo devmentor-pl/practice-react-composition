@@ -2,7 +2,6 @@ import React from 'react'
 
 class TableHeader extends React.Component {
     render () {
-        const {data} = this.props
 
         return (
             <thead>

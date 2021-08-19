@@ -11,19 +11,20 @@ class App extends React.Component {
     }
 
     getFile = (e) => {
-        const file = e.target.files[0];
-
-        if(file && file.type.includes('text')) {
+        const file = Array.from(e.target.files);
+        file.forEach(element => {
+            
+            if(element && element.type.includes('text')) {
             const reader = new FileReader();
-            reader.readAsText(file);
+            reader.readAsText(element);
 
             reader.onload = () => {
 
                 const dataFile = {
                     id: uuid(),
-                    name: file.name,
+                    name: element.name,
                     content: reader.result,
-                    size: file.size
+                    size: element.size
                 }
 
                 this.setState({
@@ -31,6 +32,7 @@ class App extends React.Component {
                 });
             }
         }
+        }); 
     }
 
     render() {

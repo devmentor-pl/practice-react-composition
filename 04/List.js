@@ -5,13 +5,12 @@ class List extends React.Component {
         const {data} = this.props;
         const dataItem = data.map((item) => {
             return (
-                <React.Fragment key ={item.id}>
-                     <li>
-                        <p>Nazwa: {item.name}</p>
-                        <p>Rozmiar: {item.size}</p>
-                        <p>Zawartość: {item.content}</p>
-                    </li>
-                </React.Fragment>
+                <li key ={item.id}>
+                    <p>Nazwa: {item.name}</p>
+                    <p>Rozmiar: {item.size}</p>
+                    <p>Zawartość: {item.content}</p>
+                </li>
+                
             )
         } );
         return <ul>{dataItem}</ul>;

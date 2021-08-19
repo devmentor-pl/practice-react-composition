@@ -3,19 +3,19 @@ import React from 'react';
 class Textarea extends React.Component {
     textAreaReference = React.createRef();
     state = {
-        height: 50,
+        height: 30,
     }
 
     getSnapshotBeforeUpdate() {
         const { offsetHeight, scrollHeight } = this.textAreaReference.current;
-        if (offsetHeight < scrollHeight && offsetHeight < 100) {
+        if (offsetHeight < scrollHeight && offsetHeight <= 100) {
             return {resize: true}
         } else {
             return {resize: false}
         }
     }
 
-    componentDidUpdate(snapshot) {
+    componentDidUpdate(prevProps, prevState, snapshot) {
         console.log("componentDidUpdate");
 
         if (snapshot.resize) {
