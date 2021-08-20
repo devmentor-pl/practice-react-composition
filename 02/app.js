@@ -34,15 +34,6 @@ class App extends React.Component {
             </section>
         )
     }
-
-    
-          
-            
-    
-
-          
-    
-    
   
 }
 ReactDOM.render(<App />, document.querySelector('#root'));

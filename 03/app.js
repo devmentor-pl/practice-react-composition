@@ -1,70 +1,70 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import Category from './Category';
-import Cart from './Cart';
-import Product from './Product'
+import Category from "./Category";
+import Cart from "./Cart";
+import Product from "./Product";
 
-import data from './data.json';
+import data from "./data.json";
+
 
 class App extends React.Component {
-    state = {
-        cart: [],
-    }
+  state = {
+    cart: [],
+  };
 
-    addProduct = product => {
-        product.isCart = true;
-        this.setState({ cart: [...this.state.cart, product] })
-    }
+  handleAddProduct = (product) => {
+    product.isAddedToCart = true;
 
-    removeProduct = product => {
-        product.isCart = false;
-        const newAddedProduct = this.state.cart.filter(cartProduct => cartProduct.id !== product.id);
-        this.setState({ cart: newAddedProduct })
-    }
+    this.setState((state) => {
+      return {
+        cart: [...state.cart, product],
+      };
+    });
+  };
 
+  handleRemoveProduct = (product) => {
+    product.isAddedToCart = false;
 
-    renderCategoryList() {
-        return data.map(product => {
+    this.setState((state) => {
+      const newCart = state.cart.filter((item) => item.id !== product.id);
 
-            return (
-                <Product
-                    key={product.id}
-                    onAdd={this.addProduct}
-                    isCategory={true}
-                    product={product} />
-            )
-        })
-    }
+      return {
+        cart: newCart,
+      };
+    });
+  };
 
+  render() {
+    const productsList = data.map((product) => {
+      return (
+        <Product
+          key={product.id}
+          product={product}
+          isCategory={true}
+          addToCart={this.handleAddProduct}
+        />
+      );
+    });
 
-    renderCartList() {
-        return this.state.cart.map(product => {
-            return (
-                <Product
-                    key={product.id}
-                    onRemove={this.removeProduct}
-                    isCategory={false}
-                    product={product} />
-            )
-        })
-    }
-    render() {
-        return (
-            <section>
-                <Category>
-                    {this.renderCategoryList()}
-                </Category>
+    const cartList = this.state.cart.map((product) => {
+      return (
+        <Product
+          key={product.id}
+          product={product}
+          isCategory={false}
+          removeFromCart={this.handleRemoveProduct}
+        />
+      );
+    });
 
-                <Cart>
-                    {this.renderCartList()}
-                </Cart>
-            </section>
-        )
-    }
+    return (
+      <section>
+        <Category>{productsList}</Category>
+        <Cart>{cartList}</Cart>
+      </section>
+    );
+  }
 }
 
-ReactDOM.render(
-    <App />,
-    document.querySelector('#root')
-);
+ReactDOM.render(<App />, document.querySelector("#root"));
