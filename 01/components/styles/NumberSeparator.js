@@ -4,4 +4,4 @@ function numberSeparator(e) {
 	return e.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 };
 
-export default numberSeparator
+export default numberSeparator;
