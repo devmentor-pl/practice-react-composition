@@ -8,7 +8,7 @@ Tym razem naszym zadaniem jest wyświetlenie zawartości wybranych plików tekst
 
 W komponencie `<App />` mamy `state`, w którym będziemy przechowywać informacje o zawartości pliku, jego nazwie oraz rozmiarze. 
 
-Pamiętaj, aby również dodać uniklane id. Możesz użyć do tego [uuid](https://www.npmjs.com/package/uuid), który opisuję w materiałach.
+Pamiętaj, aby również dodać unikalne id. Możesz użyć do tego [uuid](https://www.npmjs.com/package/uuid), który opisuję w materiałach.
 
 Zapisane dane powinniśmy przekazać do komponentu `<List />` i w nim je wyrenderować.
 

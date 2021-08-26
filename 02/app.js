@@ -1,21 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import List from './List';
-import Form from './Form';
+import List from './components/List';
+import Form from './components/Form';
 
 class App extends React.Component {
     state = {
         usersList: [],
     }
 
-    render() {
-        const  { usersList } = this.state;
+    submit = (event) => {
+        event.preventDefault();
+        const [name] = event.target.elements;
+        this.addUser(name.value);
+        name.value = '';
+    }
 
+    addUser(user) {
+        this.setState({
+            usersList: [...this.state.usersList, user]
+        });
+    }
+
+    render() {
+        const {usersList} = this.state;
         return (
             <section>
-                <Form />
-                <List items={ usersList } />
+                <Form formEl={this.submit}/>
+                <List items={usersList}/>
             </section>
         )
     }

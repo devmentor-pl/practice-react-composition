@@ -1,16 +1,16 @@
-const taskNumber = null;
+const taskNumber = '05';
 //number przerabianego zadania
 
 const path = require('path');
-// importuję bibliotękę [path] z [node.js]
+// importuję bibliotekę [path] z [node.js]
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // importuję odpowiedni plugin
 module.exports = {
     entry: `./${taskNumber}/app.js`,
-    // definiuje plik wejściowy
+    // definiuję plik wejściowy
     output: {
         path: path.resolve(__dirname, 'build'),
-        // definiuje ścieżką wyjściową
+        // definiuję ścieżkę wyjściową
         filename: 'app.min.js',
         // definiuję nazwę pliku wyjściowego
     },
@@ -32,9 +32,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: `./${taskNumber}/index.html`,
-            // wskazuje plik źródłowy
+            // wskazuję plik źródłowy
             filename: 'index.html'
-            // określan nazwę dla pliku
+            // określam nazwę dla pliku
         })
     ]
 }
