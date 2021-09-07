@@ -1,13 +1,20 @@
-import React from 'react';
+import React from "react";
+import { v4 as uuid } from "uuid";
+import ListItem from "./ListItem";
 
-import ListItem from './ListItem';
+class List extends React.Component {
+    render() {
+        const { items } = this.props;
+        console.log(items);
 
-function List(props) {
-    return (
-        <ul>
-            <ListItem />
-        </ul>
-    )
+        return (
+            <ul>
+                {items.map((item) => (
+                    <ListItem item={item} key={uuid()} />
+                ))}
+            </ul>
+        );
+    }
 }
 
-export default ListItem;
+export default List;
