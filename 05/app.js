@@ -8,6 +8,10 @@ class App extends React.Component {
         text: "",
     };
 
+    updateState = (input) => {
+        this.setState({ text: input });
+    };
+
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log("snapshot");
         const textarea = this.el;
@@ -22,7 +26,7 @@ class App extends React.Component {
 
     render() {
         const { text } = this.state;
-        return <Textarea content={text} ref={(el) => (this.refArea = el)} />;
+        return <Textarea content={text} updateState={this.updateState} />;
     }
 }
 
