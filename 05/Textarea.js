@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 class Textarea extends React.Component {
     render() {
-        return <textarea></textarea>
+        return <textarea></textarea>;
     }
 }
 
