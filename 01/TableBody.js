@@ -5,13 +5,14 @@ import TableRow from "./TableRow";
 class TableBody extends React.Component {
     render() {
         const { data } = this.props;
+        const products = data.map((p) => ({ ...p, key: uuid() }));
 
-        return data.map((p) => (
+        return products.map((p) => (
             <TableRow
-                key={uuid()}
                 name={p.name}
                 price={p.price}
                 qt={p.quantity}
+                key={p.key}
             />
         ));
     }
