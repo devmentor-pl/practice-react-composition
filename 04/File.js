@@ -1,11 +1,14 @@
 import React from "react";
+import { v4 as uuid } from "uuid";
 
 class File extends React.Component {
     handleChange = (e) => {
+        const { name, size, type } = e.target.files[0];
         const newFile = {
-            name: e.target.files[0].name,
-            size: e.target.files[0].size,
-            type: e.target.files[0].type,
+            name: name,
+            size: size,
+            type: type,
+            key: uuid(),
         };
         this.props.addFile(newFile);
     };
