@@ -14,24 +14,17 @@ const productCont = {
 };
 
 class Cart extends React.Component {
-    handleDeleteItem = (id) => {
-        console.log("handle removing from cart");
-        this.props.remove(id);
-    };
-
     render() {
+        const cart = this.props;
         const cartList = this.props.cart.map((p) => {
             return (
                 <div style={productCont} key={p.id}>
-                    <Product name={p.name} price={p.price} id={p.id} />{" "}
-                    <button
-                        style={{ height: "20px" }}
-                        onClick={() => {
-                            this.handleDeleteItem(p.id);
-                        }}
-                    >
-                        Delete
-                    </button>
+                    <Product
+                        item={p}
+                        isCart={true}
+                        cart={cart}
+                        remove={this.props.remove}
+                    />{" "}
                 </div>
             );
         });

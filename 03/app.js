@@ -31,10 +31,9 @@ class App extends React.Component {
         }));
     };
 
-    removeFromCart = (id) => {
-        console.log(id);
+    removeFromCart = (product) => {
         this.setState({
-            cart: this.state.cart.filter((item) => item.id !== id),
+            cart: this.state.cart.filter((item) => item.id !== product.id),
         });
     };
 
