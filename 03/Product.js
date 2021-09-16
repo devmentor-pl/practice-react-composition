@@ -19,7 +19,9 @@ class Product extends React.Component {
 
     render() {
         const { item, cart, isCart } = this.props;
-        console.log(cart);
+        const inCart = cart.some((i) => i.id === item.id);
+        const disabled = !isCart && inCart;
+        console.log(isCart, inCart);
         const text = isCart === false ? "Add to cart" : "Delete";
         return (
             <div>
@@ -27,6 +29,7 @@ class Product extends React.Component {
                     {item.name}: {item.price}
                 </p>
                 <button
+                    disabled={disabled}
                     style={{ height: "20px" }}
                     onClick={() => {
                         this.handleOnClick(item);

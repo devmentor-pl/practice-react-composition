@@ -15,7 +15,7 @@ const productCont = {
 
 class Cart extends React.Component {
     render() {
-        const cart = this.props;
+        const { cart } = this.props;
         const cartList = this.props.cart.map((p) => {
             return (
                 <div style={productCont} key={p.id}>
