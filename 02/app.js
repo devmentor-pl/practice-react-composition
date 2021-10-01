@@ -5,20 +5,37 @@ import List from './List';
 import Form from './Form';
 
 class App extends React.Component {
-    state = {
-        usersList: [],
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            usersList: []
+        }
+        this.renderList = this.renderList.bind(this);
     }
 
-    render() {
-        const  { usersList } = this.state;
+    renderList (e) {
+        e.preventDefault();
+        const [ value ] = e.target.children;
+        const { usersList } = this.state;
 
+        this.setState({
+            usersList: [...usersList, value.value],
+        });
+    }
+
+    render () {
+        const { usersList } = this.state;
         return (
             <section>
-                <Form />
-                <List items={ usersList } />
+                <Form onClick={ this.renderList }/>
+                <List items={ usersList }/>
             </section>
         )
     }
 }
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(
+    <App />,
+    document.querySelector('#root')
+)
