@@ -2,19 +2,22 @@
     {
         "id": 1,
         "name": "eBook",
-        "price": 49
+        "price": 49,
+        "added": false
 
     },
     {
         "id": 2,
         "name": "Mysz komputerowa",
-        "price": 249
+        "price": 249,
+        "added": false
 
     },
     {
         "id": 3,
         "name": "Klawiatura komputerowa",
-        "price": 149
+        "price": 149,
+        "added": false
 
     }
 ]
