@@ -1,21 +1,20 @@
 import React from 'react';
-
+import {v4 as uuid} from 'uuid';
 
 class Product extends React.Component {
-    state = {
-            card: this.props.items
-    }
-
-    render() {
+   render() {
         const {items} = this.props;
         return(
-           items.map(({id, name, price}) => {
+            items.map((item) => {
+                const {name, price, isAdded} = item
+                const addDisabled = isAdded === true ? true : false;
+                const removeDisabled = this.props.type === 'cart' ? false : true;
                 return (
-                    <li key={id}>
+                    <li key={uuid()}>
                         <h3>{name}</h3>
                         <p>{price} PLN</p>
-                        <button>DODAJ</button>
-                        <button>USUŃ</button>
+                        <button disabled={addDisabled} onClick={()=>this.props.onClick(item)}>DODAJ</button>
+                        <button disabled={removeDisabled} onClick={() =>{this.props.onClick(item)}}>USUŃ</button>
                     </li>
                 )
             })

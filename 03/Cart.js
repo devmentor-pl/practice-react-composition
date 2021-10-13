@@ -2,12 +2,12 @@ import React from 'react';
 import Product from './Product'
 
 function Cart(props) {
-    const {items} = props
+    const {items, onClick} = props;
 
     return (
         <>
             <h2>Cart</h2>
-            <ul><Product items ={items}/></ul>
+            <ul><Product onClick = {onClick} items ={items} type={'cart'}/></ul>
         </>
     )
 }
