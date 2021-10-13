@@ -3,8 +3,9 @@ import React from 'react';
 class Form extends React.Component {
 
     handleSubmit = e => {
-        e.preventDefault;
-        this.props.onSubmit(this.input.value)
+        e.preventDefault();
+        this.props.onSubmit(this.input.value);
+        this.input.value ='';
     }
 
     render() {

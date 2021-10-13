@@ -1,7 +1,15 @@
 import React from 'react';
+import Product from './Product'
 
 function Cart(props) {
-    return <h2>Cart</h2>
+    const {items} = props
+
+    return (
+        <>
+            <h2>Cart</h2>
+            <ul><Product items ={items}/></ul>
+        </>
+    )
 }
 
 export default Cart;
