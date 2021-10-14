@@ -9,11 +9,15 @@ class App extends React.Component {
         filesList: [],
     }
 
+    getInfo = (files) => {
+        this.setState({filesList: files}) // skoro nie robimy usuwania to rozumiem, że dane mają byc nadpisywane 
+    }
+
     render() {
         return (
             <section>
-                <File />
-                <List />
+                <File onChange={this.getInfo}/>
+                <List items ={this.state.filesList}/>
             </section>
         )
     }
