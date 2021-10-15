@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {v4 as uuid} from 'uuid';
 
 import File from './File';
 import List from './List';
@@ -10,14 +11,17 @@ class App extends React.Component {
     }
 
     getInfo = (files) => {
-        this.setState({filesList: files}) // skoro nie robimy usuwania to rozumiem, że dane mają byc nadpisywane 
+        this.setState({filesList: files})  
     }
 
     render() {
+        const copyItems = this.state.filesList.map(el=>{
+            return {...el, id:uuid()}
+        })
         return (
             <section>
                 <File onChange={this.getInfo}/>
-                <List items ={this.state.filesList}/>
+                <List items ={copyItems}/>
             </section>
         )
     }

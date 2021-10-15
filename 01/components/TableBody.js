@@ -6,7 +6,7 @@ export default class TableBody extends React.Component {
         const {item} = this.props;
         return (
             <tbody>
-                {item.map(row=><tr><TableRow item={row}/></tr>)}
+                {item.map(row=><TableRow item={row}/>)}
             </tbody>
         )
     }
