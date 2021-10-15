@@ -7,7 +7,10 @@ function Category (props) {
     return (
         <>
             <h2>Category</h2>
-            <ul><Product onClick = {onClick} items ={items} /></ul>
+            <ul> { 
+                items.map((item) =><Product onClick = {onClick} item ={item} />) 
+            }
+            </ul>
         </>
     )
 }

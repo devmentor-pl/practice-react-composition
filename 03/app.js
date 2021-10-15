@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import {v4 as uuid} from 'uuid';
 import Category from './Category';
 import Cart from './Cart';
 
 import data from './data.json';
+
 
 class App extends React.Component {
     state = {
@@ -13,34 +14,46 @@ class App extends React.Component {
     }
     
     addToCart = (item) => {
-        const newCart = [...this.state.cart, item]
-        this.setState(()=> {
-            return {cart: newCart}
+        const newCart = [...this.state.cart, {...item, isAdded: true}]
+        this.setState(()=> { 
+            const updatedCategory = this.changeIsAdded(item);
+            return {
+                category: updatedCategory,
+                cart: newCart}
         })
-        this.changeDisable(item);
     }
     
-    removeFromCart =(item) => {
+    removeFromCart = (item) => {
         const newCart = [...this.state.cart].filter(prod=> prod !== item)
-        this.setState({cart:newCart});
-        this.changeDisable(item);
+        this.setState(()=> { 
+            const updatedCategory = this.changeIsAdded(item);
+            return {
+                category: updatedCategory,
+                cart: newCart}
+        })
     }
 
-    changeDisable(item) {
-        this.setState(() => this.state.category.map(prod=>{
-            if(prod === item) {
-                item.isAdded = !item.isAdded || false;
-                return item;
+    changeIsAdded(item) {
+        return this.state.category.map(prod => {
+            if (item.name === prod.name) {
+                return {...prod, isAdded: !item.isAdded}
             }
-        }))
+            return prod;
+        })
     }
 
     render() {
+        const copyCategoryItems = this.state.category.map(el=>{ 
+            return {...el, id:uuid()} // chyba można nadpisac id ?? 
+        })
+        const copyCartItems = this.state.cart.map(el=>{ 
+            return {...el, id:uuid()}
+        })
         return (
             <section>
-                <Category items = {data} onClick={this.addToCart}> 
+                <Category items = {copyCategoryItems} onClick={this.addToCart}> 
                 </Category>
-                <Cart items = {this.state.cart} onClick={this.removeFromCart}/>
+                <Cart items = {copyCartItems} onClick={this.removeFromCart}/>
             </section>
         )
     }

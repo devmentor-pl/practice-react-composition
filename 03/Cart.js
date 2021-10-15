@@ -7,7 +7,11 @@ function Cart(props) {
     return (
         <>
             <h2>Cart</h2>
-            <ul><Product onClick = {onClick} items ={items} type={'cart'}/></ul>
+            <ul> {
+                items.map((item) =>
+                {return <Product onClick = {onClick} item ={item} type ={'cart'}/>}) 
+            }
+            </ul>
         </>
     )
 }
