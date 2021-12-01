@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Category from './Category';
-import Cart from './Cart';
+import Section from './Section';
 import Product from './Product';
 import data from './data.json';
 
@@ -33,12 +32,12 @@ class App extends React.Component {
 
         return (
             <section>
-                <Category>
+                <Section title={'Category'}>
                     {categoryProductList}
-                </Category>
-                <Cart>
+                </Section>
+                <Section title={'Cart'}>
                     {cartProductList}
-                </Cart>
+                </Section>
             </section>
         );
     };

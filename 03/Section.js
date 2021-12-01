@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Category(props) {
-    const { children } = props;
+function Section(props) {
+    const { children, title } = props;
     return (
         <>
-            <h2>Category</h2>
+            <h2>{title}</h2>
             <ul>
                 {children}
             </ul>
@@ -12,4 +12,4 @@ function Category(props) {
     );
 };
 
-export default Category;
+export default Section;
