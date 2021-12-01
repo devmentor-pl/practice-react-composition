@@ -3,29 +3,33 @@ import ReactDOM from 'react-dom';
 
 import List from './List';
 import Form from './Form';
+import Info from './Info';
 
 class App extends React.Component {
     state = {
         usersList: [],
+        msg: null,
     };
 
     addUser = username => {
         if (this.isStringValid(username)) {
             this.setState(state => {
                 return {
-                    usersList: [...state.usersList, username]
+                    usersList: [...state.usersList, username],
+                    msg: null,
                 };
             });
         } else {
-            alert('User name must be at least 3 characters long!');
+            this.setState({ msg: 'Username must be at least 3 characters long!' });
         };
     };
 
     render() {
-        const { usersList } = this.state;
+        const { usersList, msg } = this.state;
         return (
             <section>
                 <Form onSubmit={this.addUser} />
+                <Info msg={msg} />
                 <List items={usersList} />
             </section>
         );
