@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import Table from './Table';
-import data from './data.json';
+import Table from "./Table";
+import data from "./data.json";
 
-function App()  {
-    return <Table data={ data }/>
+function App() {
+  return <Table data={data} />;
 }
 
-ReactDOM.render(<App/>, document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector("#root"));
