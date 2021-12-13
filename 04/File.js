@@ -25,10 +25,10 @@ class File extends React.Component {
           id: uuidv4(),
         };
         objList.push(obj);
+
+        this.sendTasks(objList);
       };
     });
-
-    this.sendTasks(objList);
   };
 
   sendTasks = (objList) => {

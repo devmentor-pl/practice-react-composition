@@ -20,7 +20,7 @@ class App extends React.Component {
 
   loadFilesToState = (filesList) => {
     this.setState({
-      filesList: filesList,
+      filesList: this.state.filesList.concat(filesList),
     });
   };
 }
