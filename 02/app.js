@@ -11,13 +11,19 @@ class App extends React.Component {
 
     render() {
         const  { usersList } = this.state;
-
         return (
             <section>
-                <Form />
+                <Form formHandle={this.getUserData}/>
                 <List items={ usersList } />
             </section>
         )
+    }
+
+    getUserData = value => {
+        const {usersList} = this.state;
+        this.setState({
+            usersList: [...usersList, value]
+        })
     }
 }
 

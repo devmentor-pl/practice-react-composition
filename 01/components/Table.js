@@ -8,6 +8,7 @@ class Table extends React.Component {
     render() {
 
         const {data, style} = this.props;
+        console.log(data);
         const tableRows = data.map((product) => {
             const {id, name, price, quantity} = product;
             
@@ -19,9 +20,7 @@ class Table extends React.Component {
         return (
             <table style={style}>
                 <TableHeader />
-                <TableBody data={data}>
-                    {tableRows}
-                </TableBody>
+                <TableBody data={data}>{tableRows}</TableBody>
                 <TableFooter data={data}/>
             </table>
         )
