@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Category from './Category';
-import Cart from './Cart';
-import Product from './Product';
+import Category from './components/Category';
+import Cart from './components/Cart';
+
 import data from './data.json';
 
 class App extends React.Component {
@@ -12,32 +12,31 @@ class App extends React.Component {
     }
     
     render() {
+        const {cart} = this.state;
         return (
             <section>
-                <Category data={data}>
-                    <Product data={data} isCategory={true} products={this.state} addItem={(e) => this.addToCart(e.target)}/>
-                </Category>
-                <Cart data={data}>
-                    <Product data={data} isCategory={false} products={this.state} removeItem={(e) => this.removeItem(e.target)}/>
-                </Cart>
+                <Category data={data} cart={cart} addItem={this.buyItem}/>
+                <Cart data={data} cart={cart} remove={this.removeItem}/>
             </section>
         )
     }
 
-    addToCart(curr) {
-        const {cart} = this.state;
-        const item = curr.parentElement.firstChild.innerText;
-
+    buyItem = (id) => {
+        const {cart} = this.state
         this.setState({
-            cart:[...this.state.cart, item]
+            cart:[...cart, id]
         })
-        // curr.disabled=true;
     }
 
-    removeItem(curr){
-        console.log(this.state.cart.id)
-        console.log(curr.parentElement);
+    removeItem = (id) => {
+        const {cart} = this.state;
+        const newBasket = cart.filter((el) => {
+            return el !== id;
+        });
 
+        this.setState({
+            cart:newBasket,
+        });
     }
 }
 
