@@ -1,3 +1,4 @@
+import { func } from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -11,8 +12,15 @@ class App extends React.Component {
     render() {
         const { text } = this.state;
         return (
-            <Textarea content={ text } />
+            <Textarea content={text} event={this.stateUpdated} />
         )
+    }
+
+    stateUpdated = (value) => {
+        const {text} = this.state;
+        this.setState({
+            text: value,
+        })
     }
 }
 
