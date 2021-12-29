@@ -11,11 +11,35 @@ class App extends React.Component {
 
     render() {
         return (
-            <section>
-                <File />
-                <List />
+            <section >
+                <File event={this.fileHandle}/>
+                <List data={this.state.filesList}/>
             </section>
         )
+    }
+
+    fileHandle = (file) => {
+        const {filesList} = this.state;
+
+        if(file && file.type.includes('text')) {
+
+            const reader = new FileReader();
+            reader.readAsText(file, 'UTF-8');
+
+            reader.onload = (readEvent) => {
+                const newTextFile = {
+                    name: file.name,
+                    size: file.size,
+                    text: readEvent.target.result,
+                }
+                this.setState({
+                    filesList:[...filesList, newTextFile]
+                });
+            }
+        }
+        else {
+            alert('Please, choose text type file');
+        }
     }
 }
 
