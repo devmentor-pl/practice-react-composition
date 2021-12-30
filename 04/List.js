@@ -1,5 +1,4 @@
 import React from 'react';
-import {v4 as uuid} from 'uuid';
 
 class List extends React.Component {
     render() {
@@ -8,7 +7,7 @@ class List extends React.Component {
         if(data.length > 0) {
             return data.map((file) =>{
                 return (
-                    <ul key={uuid()}>
+                    <ul key={file.uuid}>
                         <li>
                             <header>{file.name}
                                 <p>Size: {file.size}</p>

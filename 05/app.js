@@ -17,7 +17,6 @@ class App extends React.Component {
     }
 
     stateUpdated = (value) => {
-        const {text} = this.state;
         this.setState({
             text: value,
         })
