@@ -1,4 +1,4 @@
-const taskNumber = null;
+const taskNumber = '03';
 //number przerabianego zadania
 
 const path = require('path');
@@ -25,7 +25,15 @@ module.exports = {
                 use: 'babel-loader',
                 // określam jaki [loader]
                 // ma być wykorzystany
-            }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                { loader: "style-loader" },
+                { loader: "css-loader" }
+                ]
+              },
+              
         ]
         // obecnie brak dodatkowych ustawień
     },
@@ -37,5 +45,6 @@ module.exports = {
             // określan nazwę dla pliku
         })
     ]
+    
 }
 // eksportuję ustawienia dla webpack-a

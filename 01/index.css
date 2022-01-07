@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: arial;
+}
+
+.table {
+    border-collapse: collapse;
+  } 
+
+.td{
+  padding: 10px;
+  width: 120px;
+  border: 2px solid black;
+  font-size: 20px;
+  text-align: center;
+}
+.tr {
+    padding: 10px;
+    color: green;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+}
+
+.total {
+    color: red;
+}
+.th {
+    border: 2px solid black;
+}
