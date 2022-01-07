@@ -1,11 +1,12 @@
 import React from 'react';
 
 class Form extends React.Component {
-    render() {
+    render() { 
+        const {eventHandler} = this.props
         return (
-            <section>
-                <input /><input type="submit" />
-            </section>
+            <form onSubmit={eventHandler}>
+                <input name='input' /><input type='submit'/>
+            </form>
         )
     }
 }
