@@ -8,12 +8,42 @@ class App extends React.Component {
         text: '',
     }
 
+    textareaRef = React.createRef();
+
+    onChange = (text) => {
+        this.setState( state => {
+            return {
+                text: [...state.text , text]
+            }
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+        const { scrollHeight , style } = this.textareaRef.current
+
+        if(snapshot.isResize) {
+            style.height = `${scrollHeight}px`;
+        }
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+
+        const { offsetHeight , scrollHeight } = this.textareaRef.current;
+
+        return {
+            isResize: ( offsetHeight < scrollHeight && offsetHeight <= 100) ? true : false
+        }
+    }
+
     render() {
         const { text } = this.state;
+
         return (
-            <Textarea content={ text } />
+            <Textarea onChange={this.onChange} content={ text } ref={this.textareaRef}/>
         )
     }
+
 }
 
 ReactDOM.render(<App/>, document.querySelector('#root'));
