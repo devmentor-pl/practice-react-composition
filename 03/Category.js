@@ -1,6 +1,5 @@
 import React from 'react';
 import Product from './Product';
-import { v4 as uuid } from 'uuid';
 
 function Category(props) {
 
@@ -9,10 +8,10 @@ function Category(props) {
     const productList = data.map(
         item =>
             <Product
-                key={ uuid() }
+                key={ data.id }
                 item={item}
                 onClick={onClick}
-                disabled={ cart.includes(item) }
+                disabled={ cart.includes(item.id) }
                 content={'AddToCart'}
             />
     )

@@ -1,13 +1,17 @@
 import React from "react";
-import { v4 as uuid } from 'uuid';
 
 export default class TableRow extends React.Component {
     render() {
-        const { rowContent } = this.props
+        const { rowData } = this.props
 
         return(
             <tr>
-                { rowContent.map( row => <td className='column' key={ uuid() }> {row} </td> )}
+                { rowData.map( data => {
+                    const value = data[0];
+                    const id = data[1];
+
+                    return <td className='column' key={id}> {value} </td>
+                })}
             </tr>
         )
     }

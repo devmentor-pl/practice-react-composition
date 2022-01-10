@@ -3,11 +3,16 @@ import TableRow from './TableRow';
 
 export default class TableBody extends React.Component {
     render() {
-        const { bodyContent } = this.props;
+        const { bodyData } = this.props;
 
         return (
             <tbody>
-                { bodyContent.map( itemData => <TableRow rowContent={itemData} /> )}
+                { bodyData.map( data => {
+                    const content = data[0];
+                    const id = data[1];
+
+                    return <TableRow key={id} rowData={content} /> }
+                )}
             </tbody>
         )
     }

@@ -7,7 +7,7 @@ function Button(props) {
 
     return (
         <button
-            onClick={ () => onClick(data)}
+            onClick={ () => onClick(data.id)}
             disabled={disabled}
         >
             {content}

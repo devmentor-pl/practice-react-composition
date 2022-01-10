@@ -1,14 +1,18 @@
 import React from "react";
-import { v4 as uuid } from 'uuid';
 
 export default class TableHeader extends React.Component {
     render() {
-        const { columnNames } = this.props;
+        const { columnData } = this.props;
 
         return (
             <thead>
                 <tr>
-                    {columnNames.map(name => <th className='column' key={uuid()}> {name} </th>)}
+                    {columnData.map( item => {
+                        const name = item[0];
+                        const id = item[1];
+
+                        return <th className='column' key={id}> {name} </th>
+                    })}
                 </tr>
             </thead>
         )

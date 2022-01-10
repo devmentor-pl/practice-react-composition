@@ -12,27 +12,28 @@ class App extends React.Component {
     }
 
     render() {
+        console.log(this.state)
         return (
             <section>
                 <Category data={data} cart={this.state.cart} onClick={this.addToCart} />
-                <Cart cart={this.state.cart} onClick={this.removeFromCart} />
+                <Cart data={data} cart={this.state.cart} onClick={this.removeFromCart} />
             </section>
         )
     }
 
-    addToCart = (product) => {
+    addToCart = (id) => {
         this.setState( state => {
             return {
-                cart: [...state.cart, product]
+                cart: [...state.cart, id ]
             }
         })
     }
 
-    removeFromCart = (product) => {
+    removeFromCart = (id) => {
         this.setState( state => {
             return {
                 cart: [...state.cart.filter(
-                    item => item !== product
+                    item => item !== id
                 )]
             }
         })
