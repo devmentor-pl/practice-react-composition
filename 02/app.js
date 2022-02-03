@@ -1,24 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import List from './List';
-import Form from './Form';
+import List from "./List";
+import Form from "./Form";
 
 class App extends React.Component {
-    state = {
-        usersList: [],
-    }
+  state = {
+    usersList: ["Rafał Kazik"],
+  };
 
-    render() {
-        const  { usersList } = this.state;
+  // componentDidMount(e) {
+  //   console.log(this.formRef.handleSubmit);
+  // }
 
-        return (
-            <section>
-                <Form />
-                <List items={ usersList } />
-            </section>
-        )
-    }
+  addNameToState = (value) => {
+    const listItem = value;
+    this.setState((state) => {
+      return {
+        usersList: [...state.usersList, listItem],
+      };
+    });
+  };
+
+  render() {
+    const { usersList } = this.state;
+
+    return (
+      <section>
+        <Form passToParent={this.addNameToState} />
+        <List items={this.state.usersList} />
+      </section>
+    );
+  }
 }
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector("#root"));
