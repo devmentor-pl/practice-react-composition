@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
+import { v4 as uuid } from "uuid";
+function List(props) {
+  const uploadFileDatas = props.items.map((i) => (
+    <li key={uuid()}>
+      <b>{i[0]}</b> to: {i[1]}
+    </li>
+  ));
 
-class List extends React.Component {
-    render() {
-        return <ul>Lista plików</ul>
-    }
+  return <ul>{uploadFileDatas}</ul>;
 }
 
 export default List;

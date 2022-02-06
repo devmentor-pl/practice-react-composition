@@ -1,7 +1,9 @@
-import React from 'react';
+import React from "react";
+import { v4 as uuid } from "uuid";
 
 function ListItem(props) {
-    return <li>Przykład 1</li>
+  const list = props.items.map((i) => <li key={uuid()}>{i}</li>);
+  return <li>{list}</li>;
 }
 
 export default ListItem;
