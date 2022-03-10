@@ -12,10 +12,17 @@ class App extends React.Component {
     render() {
         return (
             <section>
-                <File />
-                <List />
+                <File addFileData={this.addFileData}/>
+                <List data={this.state.filesList}/>
             </section>
         )
+    }
+
+    addFileData = newFile => {
+        const {filesList} = this.state;
+        this.setState({
+            filesList:[...filesList,newFile] 
+        })
     }
 }
 
