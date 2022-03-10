@@ -2,9 +2,9 @@ import React from 'react';
 import Product from './Product';
 
 function Cart(props) {
-    const {data,removeProduct,cart} = props;
-    const list =  data.map(item =>
-        <Product data={item} key={item.id} removeProduct={removeProduct} cart={cart} />
+    const {removeProduct,cart} = props;
+    const list = cart.map(item =>
+        <Product data={item} key={item.id} removeProduct={removeProduct} textButton={'Usuń'} isCart={true} cart={cart}/>
     )
     return (
         <>
