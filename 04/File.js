@@ -11,17 +11,19 @@ class File extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         const file = this.input.files[0];
-        const reader = new FileReader();
-        reader.readAsText(file, 'UTF-8');
-        reader.onload = () => {
-            const newFile = {
-                name:file.name,
-                size:file.size,
-                text:reader.result,
-                id:uuid()
+        if(file && file.type.includes('text')){
+            const reader = new FileReader();
+            reader.readAsText(file, 'UTF-8');
+            reader.onload = () => {
+                const newFile = {
+                    name:file.name,
+                    size:file.size,
+                    text:reader.result,
+                    id:uuid()
+                }
+            const {addFileData} = this.props;
+            addFileData(newFile);
             }
-        const {addFileData} = this.props;
-        addFileData(newFile);
         }
     }
 }
