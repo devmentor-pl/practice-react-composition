@@ -11,6 +11,7 @@ class Table extends React.Component {
             return acc + item.price * item.quantity;
         },0);
     }
+    
     render() {
         const {data} = this.props;
         return (

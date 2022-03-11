@@ -14,25 +14,31 @@ class App extends React.Component {
     render() {
         return (
             <section>
-                <Category data={data} cart={this.state.cart} addProduct={this.addProduct}/>
+                <Category data={data} cart={this.state.cart} addProduct={this.addProduct} isInCart={this.isInCart}/>
                 <Cart data={data} cart={this.state.cart} removeProduct={this.removeProduct} />
             </section>
         )
     }
 
-    addProduct = productId => {
+    addProduct = product => {
         const {cart} = this.state;
         this.setState({
-                cart: [...cart, productId],
+                cart: [...cart, product],
         })
     }
 
-    removeProduct = productId => {
+    removeProduct = product => {
         const {cart} = this.state;
-        const currProduct = cart.filter(item => item !== productId);
+        const currProduct = cart.filter(item => item !== product);
         this.setState({
                 cart: currProduct,
         })
+    }
+
+    isInCart = id => {
+        console.log(id);
+
+
     }
 }
 
