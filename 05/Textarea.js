@@ -2,8 +2,13 @@ import React from 'react';
 
 class Textarea extends React.Component {
 
+    state = {
+        height: 31 + 'px'
+    }
+
     render() {
-        return <textarea style={{height:'31px'}} onChange={this.handleTextarea} ref={el => this.textarea = el}></textarea>
+        const {height} = this.state;
+        return <textarea style={{height}} onChange={this.handleTextarea} ref={el => this.textarea = el}></textarea>
     }
 
     handleTextarea = () => {
@@ -18,7 +23,7 @@ class Textarea extends React.Component {
         console.log('height:' + height);
         console.log('scroll:' + scroll);
 
-        if(height < scroll || height <= 100){
+        if(height < scroll && height <= 100){
             return {resize:true};
         }
         return {resize:false};
@@ -27,13 +32,11 @@ class Textarea extends React.Component {
     componentDidUpdate(prevProps,prevState,snapshot){
         console.log(snapshot.resize);
         if(snapshot.resize){
-            {this.resizeTextarea}
+            this.setState({
+                height:this.textarea.scrollHeight
+            })
         }
         return null
-    }
-
-    resizeTextarea = () =>{
-        this.textarea.style.height // nie wiem jak zwiekszyc wysokosc 
     }
 }
 
