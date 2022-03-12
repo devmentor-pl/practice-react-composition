@@ -14,8 +14,8 @@ class App extends React.Component {
     render() {
         return (
             <section>
-                <Category data={data} cart={this.state.cart} addProduct={this.addProduct} isInCart={this.isInCart}/>
-                <Cart data={data} cart={this.state.cart} removeProduct={this.removeProduct} />
+                <Category data={data} addProduct={this.addProduct} isInCart={this.isInCart}/>
+                <Cart cart={this.state.cart} removeProduct={this.removeProduct} />
             </section>
         )
     }
@@ -37,8 +37,16 @@ class App extends React.Component {
 
     isInCart = id => {
         console.log(id);
-
-
+        const {cart} = this.state;
+        console.log(cart);
+        return cart.find(item => {
+            if(item.id === id){
+                console.log('true');
+                return true
+            }
+            console.log('false');
+            return false
+        })
     }
 }
 

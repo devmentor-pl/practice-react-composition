@@ -8,7 +8,7 @@ const Product = props => {
             <li>
                 <h4>{name}</h4>
                 <p>Cena: {price}</p>
-                <button onClick={() => handleClick(data)} disabled={disable(id)}>{textButton}</button>
+                <button onClick={() => handleClick(data)} disabled={isInCart(id)}>{textButton}</button>
             </li>
         </>
     )
@@ -16,10 +16,6 @@ const Product = props => {
     function handleClick(data) {
         const {isCart} = props;
         isCart ? removeProduct(data) : addProduct(data)
-    }
-
-    function disable(id){
-        console.log(id);
     }
 }
 

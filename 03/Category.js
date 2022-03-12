@@ -5,7 +5,7 @@ const Category = props => {
     const {addProduct,data,isInCart} = props;
 
     const list = data.map(item =>
-        <Product data={item} key={item.id} addProduct={addProduct} textButton={'Dodaj'} isCart={false} disabled={isInCart}/>
+        <Product data={item} key={item.id} addProduct={addProduct} textButton={'Dodaj'} isCart={false} isInCart={isInCart}/>
     )
 
     return (
