@@ -6,7 +6,7 @@ const Category = props => {
     console.log(props, 'Category props');
 
     const list = data.map(item =>
-        <Product data={item} key={item.id} addProduct={addProduct} textButton={'Dodaj'} isCart={false} isInCart={isInCart}/>
+        <Product data={item} key={item.id} addProduct={addProduct} textButton={'Dodaj'} isCart={false} isInCart={isInCart} type={'category'}/>
     )
 
     return (

@@ -35,7 +35,7 @@ class App extends React.Component {
         })
     }
 
-    isInCart = id => {
+    isInCart = id => { 
         console.log(id);
         const {cart} = this.state;
         console.log(cart);

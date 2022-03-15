@@ -6,9 +6,7 @@ function Cart(props) {
     console.log(props, 'Cart props');
 
     const list = cart.map(item =>
-        <Product data={item} key={item.id} removeProduct={removeProduct} 
-                 textButton={'Usuń'} isCart={true} isInCart={isInCart}
-        />
+        <Product data={item} key={item.id} removeProduct={removeProduct} textButton={'Usuń'} isCart={true} isInCart={isInCart} type={'cart'}/>
     )
     return (
         <>
