@@ -15,7 +15,7 @@ class App extends React.Component {
         return (
             <section>
                 <Category data={data} addProduct={this.addProduct} isInCart={this.isInCart}/>
-                <Cart cart={this.state.cart} removeProduct={this.removeProduct} />
+                <Cart cart={this.state.cart} addProduct={this.addProduct} isInCart={this.isInCart} />
             </section>
         )
     }

@@ -3,6 +3,7 @@ import React from 'react';
 const Product = props => {
     const {name,price,id} = props.data;
     const {addProduct,removeProduct,textButton,data,isInCart} = props;
+    console.log(props, 'Product props');
     return (
         <>
             <li>
