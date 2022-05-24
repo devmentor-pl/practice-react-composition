@@ -3,11 +3,13 @@ import React from 'react';
 import ListItem from './ListItem';
 
 function List(props) {
+    const {items} = props;
+    const usersList = items.map(user => <ListItem text={user}/>)
     return (
         <ul>
-            <ListItem />
+            {usersList}
         </ul>
     )
 }
 
-export default ListItem;
+export default List;

@@ -14,10 +14,31 @@ class App extends React.Component {
 
         return (
             <section>
-                <Form />
+                <Form onClick={this.onClick} ref={ref => this.formRef = ref}/>
                 <List items={ usersList } />
             </section>
         )
+    }
+
+    onClick = e => {
+        e.preventDefault();
+        const user = this.formRef.input.value;
+        if(user) {
+            this.setState({
+                usersList: [...this.state.usersList, user],
+            }, () => {
+                // Dlaczego to działa?
+                this.formRef.input.value = ''
+
+                //A to nie?
+                // user = '';
+            });
+
+
+
+        } else {
+            alert('Wprowadź dane!')
+        }
     }
 }
 
