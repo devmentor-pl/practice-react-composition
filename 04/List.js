@@ -1,5 +1,4 @@
 import React from 'react';
-import {v4 as uuid} from 'uuid';
 
 class List extends React.Component {
     createElements = () => {

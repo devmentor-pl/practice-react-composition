@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class Product extends React.Component{
    addToBasket = () => {
-        this.props.addToCart(this.props.product.name);
+        this.props.addToCart(this.props.product);
    }
 
    removeFromBasket = () => {
@@ -10,19 +10,12 @@ export default class Product extends React.Component{
    }
 
     render() {
-        if(this.props.isCategory === true) {
-            if(this.props.cart.includes(this.props.product.name)) {
-                return <li>{this.props.product.name} <button disabled onClick={this.addToBasket}>BUY</button> </li>
-            }
-
-            return <li>{this.props.product.name} <button onClick={this.addToBasket}>BUY</button> </li>
-        }
-
-        if(this.props.isCart === true) {
-            
-            return <li>{this.props.product} <button onClick={this.removeFromBasket}>Remove</button> </li>
-        }
-        
+        if(this.props.isCategory) {
+            const isElInCart = this.props.cart.some(el => el.name === this.props.product.name);
+            return <li>{this.props.product.name} <button disabled={isElInCart} ref={el => this.butRef = el} onClick={this.addToBasket}>BUY</button></li>
+        } else {
+            return <li>{this.props.product.name} <button onClick={this.removeFromBasket}>Remove</button></li>
+        }   
     }
 }
 

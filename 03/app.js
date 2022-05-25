@@ -28,20 +28,23 @@ class App extends React.Component {
             cart: updatedCart
         });
     }
-    
+
+    renderCategories = () => {
+        return data.map( item => <Product key={item.id} isCategory = 'true' product = {item} addToCart = {this.addToCart}  cart = {this.state.cart}/> )
+    }
+
+    renderCart = () => {
+        return this.state.cart.map( item => <Product key={item.id} product = {item} removeFromCart = {this.removeFromCart}/> )
+    }
+
     render() {
-        const productList = (arr, type, cartItems) => {
-            return arr.map( item => <Product key={arr.indexOf(item)} isCategory = {type==='category'?true:false} isCart = {type==='product'?true:false} product = {item}
-            addToCart = {this.addToCart} removeFromCart = {this.removeFromCart} cart = {cartItems}/> )
-        }
-       
         return ( 
             <section>
                     <Category>
-                        {productList(data,'category', this.state.cart)}
+                       {this.renderCategories()}
                     </Category>
                     <Cart>
-                        {productList(this.state.cart, 'product')}
+                        {this.renderCart()}
                     </Cart>
             </section> 
         )
@@ -49,6 +52,5 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-    <App />, 
-    document.querySelector('#root')
+    <App />, document.querySelector('#root')
 );

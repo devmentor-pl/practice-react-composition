@@ -5,7 +5,7 @@ import {TableRow} from './index';
 
 export default class TableBody extends React.Component{
     render() {
-        const products = this.props.data;
+        const {data:products} = this.props;
         
         return (
             <tbody>{products.map(item => <TableRow key={item.name } product={item} />)}</tbody>

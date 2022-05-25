@@ -10,8 +10,8 @@ class App extends React.Component {
     }
 
     addUser= (newUser) => {
-        const newUsersList = [...this.state.usersList, newUser]
         if(newUser) {
+            const newUsersList = [...this.state.usersList, newUser];
             this.setState({
                 usersList: newUsersList
             });

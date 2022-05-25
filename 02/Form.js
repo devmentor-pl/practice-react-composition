@@ -11,7 +11,7 @@ class Form extends React.Component {
         return (
             <section>
                 <form onSubmit={this.onSubmit}>
-                <input ref={ node => this.input = node } /><input  type="submit" />
+                    <input ref={ node => this.input = node } /><input  type="submit" />
                 </form>
             </section>
         )
