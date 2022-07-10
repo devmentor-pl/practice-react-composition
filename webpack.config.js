@@ -1,4 +1,4 @@
-const taskNumber = null;
+const taskNumber = '01';
 //number przerabianego zadania
 
 const path = require('path');
@@ -29,6 +29,7 @@ module.exports = {
         ]
         // obecnie brak dodatkowych ustawień
     },
+    devtool: 'inline-source-map',
     plugins: [
         new HtmlWebpackPlugin({
             template: `./${taskNumber}/index.html`,
