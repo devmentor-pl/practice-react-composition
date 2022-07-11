@@ -17,7 +17,8 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                // test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 // określam jakie pliki 
                 // będą brane pod uwagę
                 exclude: /node_modules/,
