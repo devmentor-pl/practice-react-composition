@@ -9,12 +9,20 @@ class App extends React.Component {
         usersList: [],
     }
 
+    addUser = (user) => {
+        // console.log('addUser')
+        // console.log( user )
+        this.setState({ usersList: [...this.state.usersList, user] });
+    }
+
     render() {
         const  { usersList } = this.state;
 
+        window.addUser = this.addUser
+
         return (
             <section>
-                <Form />
+                <Form addUser={this.addUser} />
                 <List items={ usersList } />
             </section>
         )
