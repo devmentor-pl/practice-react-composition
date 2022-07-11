@@ -21,7 +21,7 @@ class App extends React.Component {
     addToCart = id => {
         console.log('addToCart', id)
         const addProduct = this.state.product.filter(item => item.id === id)
-        console.log( addProduct )
+        console.log(addProduct)
         this.setState({ cart: [...this.state.cart, ...addProduct] });
     }
 
@@ -29,25 +29,39 @@ class App extends React.Component {
         console.log('removeFromCart', id)
         const newCart = this.state.cart.filter(item => item.id !== id)
         console.log(newCart)
-        this.setState({ cart: newCart});
+        this.setState({ cart: newCart });
     }
-    
+
     render() {
-        const list = this.state.product.map(item => {
-            return <Product 
-                    item={item} 
-                    isCategory={true} 
-                    addToCart={this.addToCart}
-                    removeFromCart={this.removeFromCart}
-                />
+        const listProduct = this.state.product.map(item => {
+            return <Product
+                item={item}
+                isCategory={true}
+                addToCart={this.addToCart}
+                removeFromCart={this.removeFromCart}
+            />
+        })
+        const listCart = this.state.cart.map(item => {
+            return <Product
+                item={item}
+                isCategory={false}
+                addToCart={this.addToCart}
+                removeFromCart={this.removeFromCart}
+            />
         })
         return (
             <section>
                 <Category>
-                    {list}
+                    {listProduct}
+                    {/* <Product
+                        item={this.state.product[0]}
+                        isCategory={true}
+                        addToCart={this.addToCart}
+                        removeFromCart={this.removeFromCart}
+                    /> */}
                 </Category>
                 <Cart>
-                    {list}
+                    {listCart}
                 </Cart>
             </section>
         )
@@ -55,6 +69,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-    <App />, 
+    <App />,
     document.querySelector('#root')
 );

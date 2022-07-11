@@ -11,7 +11,7 @@ function Product(props) {
                 >Dodaj do koszyka</button>
             }
             {
-                isCategory && <button
+                !isCategory && <button
                     onClick={() => removeFromCart(item.id)}
                 >Usuń z koszyka</button>
             }
