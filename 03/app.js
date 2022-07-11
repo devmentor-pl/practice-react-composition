@@ -9,26 +9,46 @@ import data from './data.json';
 
 class App extends React.Component {
     state = {
-        cart: [
-                {
-                    "id": 1,
-                    "name": "eBook",
-                    "price": 49
-            
-                }
-        ],
+        product: [],
+        cart: []
+    }
+
+    componentDidMount() {
+        console.log(data)
+        this.setState({ product: [...data] });
+    }
+
+    addToCart = id => {
+        console.log('addToCart', id)
+        const addProduct = this.state.product.filter(item => item.id === id)
+        console.log( addProduct )
+        this.setState({ cart: [...this.state.cart, ...addProduct] });
+    }
+
+    removeFromCart = id => {
+        console.log('removeFromCart', id)
+        const newCart = this.state.cart.filter(item => item.id !== id)
+        console.log(newCart)
+        this.setState({ cart: newCart});
     }
     
     render() {
-        const list = this.state.cart.map(item => {
-            return <Product item={item} />
+        const list = this.state.product.map(item => {
+            return <Product 
+                    item={item} 
+                    isCategory={true} 
+                    addToCart={this.addToCart}
+                    removeFromCart={this.removeFromCart}
+                />
         })
         return (
             <section>
                 <Category>
-                    {/* <Product item={this.state.cart[0]} /> */}
+                    {list}
                 </Category>
-                <Cart />
+                <Cart>
+                    {list}
+                </Cart>
             </section>
         )
     }
