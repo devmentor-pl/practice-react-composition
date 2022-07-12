@@ -1,9 +1,50 @@
 import React from 'react';
 
 class File extends React.Component {
+    refFile = React.createRef()
+    handleClick = (e) => {
+        const files = this.refFile.current.files
+        console.log( files )
+        const file1 = this.refFile.current.files[0]
+        console.log( file1 )
+        window.file1 = file1
+        const fileName = file1.name
+        const fileSize = file1.size
+        const fileType = file1.type
+        console.log( fileName )
+        console.log( fileSize )
+        console.log( fileType )
+        if(file1 && file1.type.includes('text')) {
+            const reader = new FileReader()
+            reader.onload = function(readerEvent) {
+                console.log(readerEvent)
+                const content = readerEvent.target.result
+                console.log( content )
+            }
+            // reader.readAsDataURL(file1)
+            reader.readAsText(file1, 'UTF-8');
+        } else {
+            console.log('File not text')
+        }
+    }
     render() {
-        return <input type="file" multiple />
+        
+        return (
+            <input
+                name='names[]'
+                type="file" 
+                multiple 
+                accept=".txt"
+                ref={this.refFile} 
+                onChange={this.handleClick}
+            />
+        )
     }
 }
 
 export default File;
+
+
+// PDF
+// JS Form - input - 34-40
+// React - kompozycja 76
