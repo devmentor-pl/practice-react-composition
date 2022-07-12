@@ -9,10 +9,20 @@ class App extends React.Component {
         filesList: [],
     }
 
+    getDataFiles = () => {
+        this.setState({ 
+            filesList: [...this.state.filesList, {
+                name: 'ala.txt',
+                size: '100',
+                content: 'Ala ma kota'
+            }] 
+        });
+    }
+
     render() {
         return (
             <section>
-                <File />
+                <File getDataFiles={this.getDataFiles} />
                 <List />
             </section>
         )
