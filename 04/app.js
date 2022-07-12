@@ -9,13 +9,9 @@ class App extends React.Component {
         filesList: [],
     }
 
-    getDataFiles = () => {
+    getDataFiles = (dataFiles) => {
         this.setState({ 
-            filesList: [...this.state.filesList, {
-                name: 'ala.txt',
-                size: '100',
-                content: 'Ala ma kota'
-            }] 
+            filesList: [...this.state.filesList, dataFiles] 
         });
     }
 

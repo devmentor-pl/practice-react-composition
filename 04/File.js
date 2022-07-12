@@ -27,7 +27,12 @@ class File extends React.Component {
                 console.log('File not text')
             }
         })
-        this.props.getDataFiles()
+        const dataFiles = {
+            name: 'ala.txt',
+            size: '100',
+            content: 'Ala ma kota' 
+        }
+        this.props.getDataFiles(dataFiles)
     }
     render() {
         
