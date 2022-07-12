@@ -4,16 +4,20 @@ class List extends React.Component {
     
     render() {
         const styleUL = {
-            border: '1px dotted gray',
+            border: '1px solid gray',
             listStyle: 'none',
             padding: 0,
+        }
+        const styleLI = {
+            paddingBottom: '5px',
+            borderBottom: '1px dotted red'
         }
         const {filesData} = this.props
         const fileShow = filesData.map(file => {
             return(
                 <ul style={styleUL}>
-                    <li>{file.name}</li>
-                    <li>{file.size} B</li>
+                    <li style={styleLI}>{file.name}</li>
+                    <li style={styleLI}>{file.size} B</li>
                     <li>{file.content}</li>
                 </ul>
             )
