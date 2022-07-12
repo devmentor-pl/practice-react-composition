@@ -8,10 +8,23 @@ class App extends React.Component {
         text: '',
     }
 
+    addText = (newText) => {
+        console.log(newText)
+        this.setState({ text: newText });
+    }
+
     render() {
+        console.log(this.state)
         const { text } = this.state;
+        window.addText = this.addText
         return (
-            <Textarea content={ text } />
+            <div>
+                <Textarea content={ text } addText={this.addText} />
+                <br />
+                {this.state.text}
+                <br />
+                <button onClick={() => this.addText('Ala')}>add text</button>
+            </div>
         )
     }
 }
