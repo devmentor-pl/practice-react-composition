@@ -14,11 +14,30 @@ class Textarea extends React.Component {
         const height = this.refArea.current.offsetHeight
         console.log(height)
     }
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('getSnapshotBeforeUpdate')
+        return {
+            height: this.refArea.current.offsetHeight
+        }
+    }
+    componentDidUpdate(prevProps, prevState, snapshot){
+        console.log('componentDidUpdate')
+        console.log(snapshot.height)
+        const height = this.refArea.current.offsetHeight
+        console.log(height)
+        const scroll = this.refArea.current.scrollHeight
+        console.log(scroll)
+        if(height < scroll) {
+            this.refArea.current.style.height = scroll + 'px'
+        }
+    }
     render() {
         return (
             <form onSubmit={this.onSubmit}>
-                <input type="text" />
-                <textarea ref={this.refArea}></textarea>
+                <textarea 
+                    ref={this.refArea} 
+                    // style={{height: '60px'}}
+                ></textarea>
                 <button>Send</button>
             </form>
         )

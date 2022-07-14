@@ -22,8 +22,6 @@ class App extends React.Component {
                 <Textarea content={ text } addText={this.addText} />
                 <br />
                 {this.state.text}
-                <br />
-                <button onClick={() => this.addText('Ala')}>add text</button>
             </div>
         )
     }
