@@ -2,6 +2,9 @@ import React from 'react';
 
 class Textarea extends React.Component {
     refArea = React.createRef()
+    state = {
+        value: ''
+    }
     onSubmit = (e) => {
         e.preventDefault()
         console.log('Submit')
@@ -9,6 +12,10 @@ class Textarea extends React.Component {
         console.log(value)
         console.log(this.props)
         this.props.addText(value)
+    }
+    onTextArea = (e) => {
+        console.log('onTextArea')
+        this.setState({ value: e.target.value });
     }
     componentDidMount() {
         const height = this.refArea.current.offsetHeight
@@ -35,8 +42,9 @@ class Textarea extends React.Component {
         return (
             <form onSubmit={this.onSubmit}>
                 <textarea 
-                    ref={this.refArea} 
-                    // style={{height: '60px'}}
+                    ref={this.refArea}
+                    value={this.state.value}
+                    onChange={this.onTextArea}
                 ></textarea>
                 <button>Send</button>
             </form>
