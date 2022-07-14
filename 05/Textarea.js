@@ -14,27 +14,25 @@ class Textarea extends React.Component {
         this.props.addText(value)
     }
     onTextArea = (e) => {
-        console.log('onTextArea')
         this.setState({ value: e.target.value });
     }
     componentDidMount() {
         const height = this.refArea.current.offsetHeight
-        console.log(height)
+        console.log('textarea height', height)
     }
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('getSnapshotBeforeUpdate')
         return {
-            height: this.refArea.current.offsetHeight
+            height: this.refArea.current.offsetHeight,
+            risize: true
         }
     }
     componentDidUpdate(prevProps, prevState, snapshot){
         console.log('componentDidUpdate')
-        console.log(snapshot.height)
-        const height = this.refArea.current.offsetHeight
-        console.log(height)
+        console.log('snapshot.height', snapshot.height)
         const scroll = this.refArea.current.scrollHeight
-        console.log(scroll)
-        if(height < scroll) {
+        console.log('scroll', scroll)
+        if(snapshot.height < scroll && snapshot.risize) {
             this.refArea.current.style.height = scroll + 'px'
         }
     }
