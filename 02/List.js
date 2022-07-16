@@ -1,11 +1,10 @@
 import React from 'react';
-
 import ListItem from './ListItem';
 
 function List(props) {
     return (
         <ul>
-            <ListItem />
+            <ListItem items = {props.items} />
         </ul>
     )
 }
