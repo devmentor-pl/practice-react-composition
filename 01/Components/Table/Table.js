@@ -2,11 +2,10 @@ import React from 'react';
 
 class Table extends React.Component {
     render() {
-        const {data} = this.props;
-        console.log(data);
+        const {children} = this.props;
 
-        return <table></table>
-    }
-}
+        return <table>{children}</table>
+    };
+};
 
 export default Table;
