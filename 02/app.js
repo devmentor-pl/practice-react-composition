@@ -9,12 +9,16 @@ class App extends React.Component {
         usersList: [],
     }
 
+    addUserName = (user) => {
+        this.setState(prevState=>({usersList:[...prevState.usersList,user]}))
+     };
+
     render() {
         const  { usersList } = this.state;
 
         return (
             <section>
-                <Form />
+                <Form addUserName={this.addUserName} />
                 <List items={ usersList } />
             </section>
         )
