@@ -1,4 +1,4 @@
-const taskNumber = null;
+const taskNumber = '03';
 //number przerabianego zadania
 
 const path = require('path');
@@ -14,17 +14,26 @@ module.exports = {
         filename: 'app.min.js',
         // definiuję nazwę pliku wyjściowego
     },
+    target: 'web',
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
                 test: /\.js$/,
-                // określam jakie pliki 
+                // określam jakie pliki
                 // będą brane pod uwagę
                 exclude: /node_modules/,
                 // określam wykluczenia
                 use: 'babel-loader',
                 // określam jaki [loader]
                 // ma być wykorzystany
+            },
+            {
+                test: /\.css$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                ],
             }
         ]
         // obecnie brak dodatkowych ustawień

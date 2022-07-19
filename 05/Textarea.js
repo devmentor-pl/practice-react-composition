@@ -1,9 +1,17 @@
 import React from 'react';
 
-class Textarea extends React.Component {
-    render() {
-        return <textarea></textarea>
-    }
-}
+const Textarea = React.forwardRef( (props, ref) => {
+
+    const { onChange } = props;
+
+    return (
+        <textarea
+            ref={ref}
+            onChange={ () => onChange(ref.current.value) }
+        >
+        </textarea>
+    )
+});
 
 export default Textarea;
+
