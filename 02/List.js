@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import ListItem from './ListItem';
+import ListItem from "./ListItem";
 
 function List(props) {
-    return (
-        <ul>
-            <ListItem />
-        </ul>
-    )
+  const itemsList = props.items.map((item, key) => {
+    return <ListItem key={key} item={item} />;
+  });
+
+  return <ul>{itemsList}</ul>;
 }
 
-export default ListItem;
+export default List;
