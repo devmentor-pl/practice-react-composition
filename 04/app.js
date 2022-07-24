@@ -9,11 +9,23 @@ class App extends React.Component {
         filesList: [],
     }
 
+    getDataTxtFile = (name, size, txt) => {
+        const data = {
+            name: name,
+            size: size,
+            txt, txt
+        };
+
+        this.setState(prevState => ({
+            filesList: [...prevState.filesList, data]
+        }));
+     };
+
     render() {
         return (
             <section>
-                <File />
-                <List />
+                <File getDataTxtFile={this.getDataTxtFile} />
+                <List data={this.state.filesList} />
             </section>
         )
     }

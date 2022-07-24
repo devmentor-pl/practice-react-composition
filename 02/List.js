@@ -1,13 +1,14 @@
 import React from 'react';
-
 import ListItem from './ListItem';
 
-function List(props) {
+import { v4 as uuidv4 } from 'uuid';
+
+function List({ items }) {
     return (
         <ul>
-            <ListItem />
+            {items.map(user => <ListItem key={uuidv4()} userName={user} />)}
         </ul>
     )
 }
 
-export default ListItem;
+export default List;
