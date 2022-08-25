@@ -1,5 +1,5 @@
 import React from 'react';
-import { readFiles } from './readFiles'
+import { readFiles } from  './mutliFiles'
 
 class File extends React.Component {
 
@@ -8,7 +8,7 @@ class File extends React.Component {
                         
         readFiles(this.input.files)
             .then(files => addFiles(files))
-            .catch(err => console.log(err));
+            .catch(err => alert(err));
     }
 
     render() {

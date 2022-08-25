@@ -11,7 +11,7 @@ class App extends React.Component {
 
     addFiles = files => {
         this.setState(state => {
-            return { filesList : [...state.filesList,...files]}
+            return { filesList : [...state.filesList, ...files]}
         })
     }
 

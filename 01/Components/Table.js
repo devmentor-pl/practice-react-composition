@@ -1,7 +1,7 @@
 import React from 'react';
-import TableHeader from './Components/TableHeader';
-import TableFooter from './Components/TableFooter';
-import TableBody from './Components/TableBody';
+import TableHeader from './TableHeader';
+import TableFooter from './TableFooter';
+import TableBody from './TableBody';
 
 class Table extends React.Component { 
 

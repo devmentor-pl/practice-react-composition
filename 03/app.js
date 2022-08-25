@@ -25,20 +25,11 @@ class App extends React.Component {
         })
     }
 
-    increasePrice = () => {
-        this.setState(state => {
-            const newProducts = [...state.products];
-            newProducts.forEach(product => product.price+=50)
-            return { products : newProducts }
-        })
-    }
-
     render() {
         return (
             <section>
                 <Panel title='Category' data={ this.state.products } clickButton={ this.addProduct } isCart= {false} />
-                <Panel title='Cart' data={ this.state.cart } clickButton={ this.delProduct } isCart= {true} />
-                <button onClick = { this.increasePrice }> Increase products price +50 PLN (for testing)</button>
+                <Panel title='Cart' data={ this.state.cart } clickButton={ this.delProduct } isCart= {true} />              
             </section>
         )
     }
