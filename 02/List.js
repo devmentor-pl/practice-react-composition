@@ -5,9 +5,9 @@ import ListItem from './ListItem';
 function List(props) {
     return (
         <ul>
-            <ListItem />
+            { props.items.map(item => <ListItem key={ item } userName={ item }/> )}
         </ul>
     )
 }
 
-export default ListItem;
+export default List;
