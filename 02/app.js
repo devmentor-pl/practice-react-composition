@@ -9,12 +9,20 @@ class App extends React.Component {
         usersList: [],
     }
 
+    updateList(user) {
+        this.setState(prevState => {
+            return {
+                usersList: [...prevState.usersList, user]
+            }
+        })
+    }
+
     render() {
         const  { usersList } = this.state;
 
         return (
             <section>
-                <Form />
+                <Form updateList={(user) => this.updateList(user)}/>
                 <List items={ usersList } />
             </section>
         )
