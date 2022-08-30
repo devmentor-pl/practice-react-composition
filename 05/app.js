@@ -5,13 +5,19 @@ import Textarea from './Textarea';
 
 class App extends React.Component {
     state = {
-        text: '',
+        text: 'dsadsadas',
+    }
+
+    changeText = (content) => {
+        this.setState({
+            text: content,
+        })
     }
 
     render() {
         const { text } = this.state;
         return (
-            <Textarea content={ text } />
+            <Textarea handleChange={this.changeText} content={ text } />
         )
     }
 }
