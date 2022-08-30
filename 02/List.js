@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 
 import ListItem from './ListItem';
 
 function List(props) {
+    const {items} = props
+    
     return (
-        <ul>
-            <ListItem />
+        
+        <ul> 
+            <ListItem users={items}/>
         </ul>
     )
 }
 
-export default ListItem;
+export default List;

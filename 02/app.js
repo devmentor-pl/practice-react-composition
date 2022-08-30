@@ -14,10 +14,20 @@ class App extends React.Component {
 
         return (
             <section>
-                <Form />
+                <Form onSubmit={(e) => this.updateState(e)}/>
                 <List items={ usersList } />
             </section>
         )
+    }
+    
+    updateState = (e) => {
+        e.preventDefault()
+        const user = e.target.firstElementChild.value
+        this.setState(state => {
+            return {
+                usersList: [...state.usersList, user]
+            }
+        })
     }
 }
 
