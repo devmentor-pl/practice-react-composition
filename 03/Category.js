@@ -1,7 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-function Category(props) {
-    return <h2>Category</h2>
+function Category (props) {
+  const { children } = props
+  return (
+    <div>
+        <h3>{'Category: '}</h3>
+        <div>
+            {children}
+        </div>
+    </div>
+  )
 }
 
-export default Category;
+export default Category
