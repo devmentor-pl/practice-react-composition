@@ -1,11 +1,26 @@
 import React from 'react';
 
 class Form extends React.Component {
+    inputRef = React.createRef()
+
+    handleSubmit = e => {
+        e.preventDefault()
+
+        const { addItem } = this.props
+        const input = this.inputRef.current
+
+        addItem(input.value)
+        input.value = ''
+    }
+
     render() {
         return (
-            <section>
-                <input /><input type="submit" />
-            </section>
+            <form onSubmit={ this.handleSubmit }>
+                <input 
+                    ref={ this.inputRef }
+                />
+                <input type="submit" />
+            </form>
         )
     }
 }

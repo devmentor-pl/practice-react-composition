@@ -3,11 +3,15 @@ import React from 'react';
 import ListItem from './ListItem';
 
 function List(props) {
+    const { items } = props
+
     return (
         <ul>
-            <ListItem />
+            {items.map((item, index) => 
+                <ListItem key={index} content={item} />
+            )}
         </ul>
     )
 }
 
-export default ListItem;
+export default List;
