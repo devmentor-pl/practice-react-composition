@@ -9,8 +9,13 @@ class Form extends React.Component {
         const { addItem } = this.props
         const input = this.inputRef.current
 
-        addItem(input.value)
-        input.value = ''
+        if(typeof addItem === 'function') {
+            addItem(input.value)
+            input.value = ''
+        } else {
+            console.error('You must pass a function to the component.')
+        }
+        
     }
 
     render() {
