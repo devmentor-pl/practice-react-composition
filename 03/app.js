@@ -9,56 +9,48 @@ import data from './data.json';
 
 class App extends React.Component {
     state = {
-        product: [],
-        cart: []
+        cart: [],
     }
 
-    componentDidMount() {
-        console.log(data)
-        this.setState({ product: [...data] });
+    addProduct = id => {
+        const product = data && data.find(item => item.id === id)
+        console.log(product)
+        this.setState({ cart: [...this.state.cart, product] });
     }
-
-    addToCart = id => {
-        console.log('addToCart', id)
-        const addProduct = this.state.product.filter(item => item.id === id)
-        console.log(addProduct)
-        this.setState({ cart: [...this.state.cart, ...addProduct] });
+    removeProduct = id => {
+        console.log('removeProduct', id)
+        this.setState({ cart: this.state.cart.filter(item => item.id !== id) });
     }
-
-    removeFromCart = id => {
-        console.log('removeFromCart', id)
-        const newCart = this.state.cart.filter(item => item.id !== id)
-        console.log(newCart)
-        this.setState({ cart: newCart });
+    inCart = id => {
+        const disabled = !!this.state.cart.find(item => item.id === id)
+        return disabled
     }
 
     render() {
-        const listProduct = this.state.product.map(item => {
-            return <Product
-                item={item}
-                isCategory={true}
-                addToCart={this.addToCart}
-                removeFromCart={this.removeFromCart}
-            />
+        // Product to Category
+        const list = data && data.map(item => {
+            const disabled = this.inCart(item.id)
+            return (
+                <Product key={item.id} item={item} 
+                    addProduct={this.addProduct} disabled={disabled}
+                />
+            )
         })
-        const listCart = this.state.cart.map(item => {
-            return <Product
-                item={item}
-                isCategory={false}
-                addToCart={this.addToCart}
-                removeFromCart={this.removeFromCart}
-            />
+
+        // Product to Cart from state
+        const { cart } = this.state
+        const listCart = cart && cart.map(item => {
+            return (
+                <Product key={item.id} item={item} isCart={true}
+                    removeProduct={this.removeProduct} 
+                />
+            )
         })
+
         return (
             <section>
                 <Category>
-                    {listProduct}
-                    {/* <Product
-                        item={this.state.product[0]}
-                        isCategory={true}
-                        addToCart={this.addToCart}
-                        removeFromCart={this.removeFromCart}
-                    /> */}
+                    {list}
                 </Category>
                 <Cart>
                     {listCart}

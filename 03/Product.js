@@ -1,22 +1,30 @@
-import React from 'react';
+import React from 'react'
 
-function Product(props) {
-    const { item, isCategory, addToCart, removeFromCart } = props
+const Product = (props) => {
+    const { id, name, price } = props.item
+    const { disabled, isCart } = props
     return (
-        <div>
-            {item.name} - {item.price}{' '}
+        <li>
+            <span>
+                {name} : {price} zł
+            </span>{' '}
             {
-                isCategory && <button 
-                    onClick={() => addToCart(item.id)}
-                >Dodaj do koszyka</button>
+                isCart ?
+                    <button 
+                        onClick={() => props.removeProduct(id)}
+                    >
+                        REMOVE
+                    </button>
+                    :
+                    <button 
+                        onClick={() => props.addProduct(id)}
+                        disabled={disabled}
+                    >
+                        BUY
+                    </button>
             }
-            {
-                !isCategory && <button
-                    onClick={() => removeFromCart(item.id)}
-                >Usuń z koszyka</button>
-            }
-        </div>
+        </li>
     )
 }
 
-export default Product;
+export default Product
