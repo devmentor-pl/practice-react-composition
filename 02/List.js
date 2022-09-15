@@ -3,9 +3,15 @@ import React from 'react';
 import ListItem from './ListItem';
 
 function List(props) {
+
+    const { items } = props
+
     return (
         <ul>
-            <ListItem />
+            {items.map(element => {
+              return  <ListItem item={element} />
+            })}
+
         </ul>
     )
 }
