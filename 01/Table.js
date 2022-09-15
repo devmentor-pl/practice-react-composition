@@ -19,15 +19,6 @@ class
         })
     }
 
-    // priceAll() {
-    //     let result = 0
-    //     this.props.data.forEach(item => {
-    //         console.log(item.price * item.quantity)
-    //         result += item.price * item.quantity 
-    //     })
-    //     console.log(result)
-    //     return result
-    // }
     priceAll() {
         const {data} = this.props
         console.log(data)
