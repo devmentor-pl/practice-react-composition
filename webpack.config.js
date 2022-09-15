@@ -1,4 +1,4 @@
-const taskNumber = null;
+const taskNumber = '03';
 //number przerabianego zadania
 
 const path = require('path');
@@ -20,7 +20,8 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                // test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 // określam jakie pliki 
                 // będą brane pod uwagę
                 exclude: /node_modules/,
@@ -32,6 +33,7 @@ module.exports = {
         ]
         // obecnie brak dodatkowych ustawień
     },
+    devtool: 'inline-source-map',
     plugins: [
         new HtmlWebpackPlugin({
             template: `./${taskNumber}/index.html`,
