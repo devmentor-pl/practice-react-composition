@@ -1,13 +1,21 @@
 import React from 'react';
 
 const TableRow = (props) => {
-    const { data, value } = props
+    const { items } = props
+    console.log( items )
     const style = {
         border: '1px solid black',
         borderCollapse: 'collapse'
     }
     return (
-        <td style={style}>{value}</td>
+        <tr>
+            {
+            items.map((item, index) => (
+                <td key={index} style={style}>{item}</td>
+            ))    
+            }            
+        </tr>
+
     );
 }
 

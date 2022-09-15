@@ -9,7 +9,7 @@ const TableHeader = (props) => {
     return ( 
         <tr>
             {data.map(item => (
-                <th style={style}>{item.name}</th>
+                <th style={style}>{item}</th>
             ) )}
         </tr>
      );

@@ -1,17 +1,25 @@
 import React from 'react';
 
 const TableFooter = (props) => {
-    const {data} = props
+    const {items} = props
+    const style = {
+        border: '1px solid black',
+        borderCollapse: 'collapse'
+    }
     return ( 
-        <div>
-            <span>
+        <tfoot>
+            <tr>
             {
-                data.reduce((prev, next) => {
-                    return prev + next.price * next.quantity
-                }, 0)
-            }
-            </span>
-        </div>
+                items.map(item => (
+                    <td 
+                        style={item !== '' ? style : null}
+                    >
+                    {item}
+                    </td>
+                ))
+            }                
+            </tr>
+        </tfoot>
      );
 }
  
