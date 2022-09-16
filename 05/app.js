@@ -5,7 +5,7 @@ import Textarea from './Textarea'
 
 class App extends React.Component {
   state = {
-    text: ''
+    text: 'abcdef'
   }
 
   updateText = text => {
