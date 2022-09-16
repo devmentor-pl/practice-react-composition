@@ -9,9 +9,9 @@ class App extends React.Component {
         filesList: [],
     }
 
-    addFile(file){
+    addFile = file => {
         this.setState(prevState => {
-            return {filesList: [...prevState, ...file]}
+            return {filesList: [...prevState.filesList, file]}
         })
     }
 
@@ -19,7 +19,7 @@ class App extends React.Component {
         const {filesList} = this.state
         return (
             <section>
-                <File addFile={(file) => this.addFile(file)}/>
+                <File addFile={this.addFile}/>
                 <List files={filesList} />
             </section>
         )

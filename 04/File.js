@@ -1,41 +1,30 @@
 import React from 'react'
+import {v4 as uuidv4} from 'uuid'
 
 class File extends React.Component {
+
   handleChange = e => {
-    const { addFile } = this.props
     e.preventDefault()
+    const {addFile} = this.props
+    const filesArray = [...this.input.files]
 
-    const files = Array.from(this.input.files)
+    filesArray.forEach(file => {
+      if(file.type.includes('text')){
+        const reader = new FileReader()
 
-    this.readFiles(files)
-    .then(data => addFile(data))
-
-  }
-
-  readFiles = (files) => {
-    let filesPromises = []
-
-    files.forEach(file => filesPromises.push(this.readFile(file)))
-
-    return Promise.all(filesPromises)
-  }
-
-  readFile = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.onload = (e) => {
-
-        resolve({
+        reader.addEventListener('load', () => {
+          const fileData = {
             name: file.name,
             size: file.size,
-            text: e.target.result
-        })
+            content: reader.result,
+            id: uuidv4()
+          }
+          addFile(fileData)
+        },false)
+        reader.readAsText(file)
       }
-      reader.onerror = reject
-      reader.readAsText(file)
     })
   }
-  
 
   render () {
     return (
