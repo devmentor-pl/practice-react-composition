@@ -7,7 +7,7 @@ class TableHeader extends React.Component {
     return (
         <thead>
             <tr>
-            {headerData.map((product, index) => <th key={index}>{product}</th>)}
+              {headerData.map((col,index) => <th key={index}>{col}</th>)}
             </tr>
         </thead>
     )

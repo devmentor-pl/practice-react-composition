@@ -1,6 +1,7 @@
 import React from 'react'
 
 class Form extends React.Component {
+  
   onSubmit = e => {
     e.preventDefault()
     const { updateList } = this.props

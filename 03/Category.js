@@ -3,12 +3,12 @@ import React from 'react'
 function Category (props) {
   const { children } = props
   return (
-    <div>
+    <section>
         <h3>{'Category: '}</h3>
-        <div>
+        <ul>
             {children}
-        </div>
-    </div>
+        </ul>
+    </section>
   )
 }
 

@@ -7,9 +7,7 @@ class TableBody extends React.Component {
 
     return (
         <tbody>
-            <tr>
-                {bodyData.map((product, index) => <TableRow key={index} rowData = {product} />)}
-            </tr>
+          {bodyData.map(({id,name,price,quantity}, index) => <TableRow key={index} rowData = {[id,name,price,quantity,price*quantity]} />)}
         </tbody>
     )
   }

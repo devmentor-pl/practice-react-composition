@@ -6,7 +6,7 @@ class TableRow extends React.Component {
 
     return (
         <tr>
-            <td>{rowData}</td>
+            {rowData.map((col,index) => <td key={index}>{col}</td>)}
         </tr>
     )
   }

@@ -9,7 +9,7 @@ class App extends React.Component {
         usersList: [],
     }
 
-    updateList(user) {
+    updateList = user => {
         this.setState(prevState => {
             return {
                 usersList: [...prevState.usersList, user]
@@ -22,7 +22,7 @@ class App extends React.Component {
 
         return (
             <section>
-                <Form updateList={(user) => this.updateList(user)}/>
+                <Form updateList={this.updateList}/>
                 <List items={ usersList } />
             </section>
         )

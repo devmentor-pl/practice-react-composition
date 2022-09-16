@@ -7,7 +7,7 @@ class TableFooter extends React.Component {
     return (
         <tfoot>
             <tr>
-                <td>{`Sum of the Products: ${footerData}`}</td>
+              {footerData.map((col,index) => <td key={index}>{col}</td>)}
             </tr>
         </tfoot>
     )

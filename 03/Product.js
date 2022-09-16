@@ -1,13 +1,12 @@
 import React from 'react'
 
 function Product (props) {
-  const { product, addProduct, deleteProduct, isCart } = props
+  const { product, clickHandler , isCart, inCart, buttonValue } = props
   return (
-    <div>
+    <li>
         {`${product.name} : ${product.price}`}
-        <button onClick={() => addProduct(product)} disabled={isCart}>Dodaj do koszyka</button>
-        <button onClick={() => deleteProduct(product)} disabled={!isCart}>Usuń z koszyka</button>
-    </div>
+        <button onClick={() => clickHandler(product)} disabled={isCart ? false : inCart ? true : false}>{buttonValue}</button>
+    </li>
   )
 }
 
