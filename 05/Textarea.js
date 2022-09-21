@@ -1,8 +1,14 @@
 import React from 'react';
 
 class Textarea extends React.Component {
+
+
+
     render() {
-        return <textarea></textarea>
+
+        const { onChange, secRef, content, height } = this.props
+
+        return <textarea style={{ height: height }} ref={secRef} onChange={onChange}></textarea>
     }
 }
 
