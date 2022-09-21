@@ -7,15 +7,42 @@ import Form from './Form';
 class App extends React.Component {
     state = {
         usersList: [],
+        inputValue: ''
+    }
+
+    onChange = (e) => {
+        const inputValue = e.target.value
+        this.setState({
+            inputValue: inputValue
+        })
+    }
+
+    onClick = (e) => {
+        console.log(e)
+
+        if (this.state.inputValue !== '') {
+            this.setState(
+                {
+                    usersList: [...this.state.usersList, this.state.inputValue]
+                }
+            )
+            console.log(this.state.usersList)
+        }
+        else(
+            alert('Wpisz dane!')
+        )
+       
+
+
     }
 
     render() {
-        const  { usersList } = this.state;
+        const { usersList } = this.state;
 
         return (
             <section>
-                <Form />
-                <List items={ usersList } />
+                <Form onChange={this.onChange} onClick={this.onClick} />
+                <List items={usersList} />
             </section>
         )
     }

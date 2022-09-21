@@ -1,7 +1,11 @@
 import React from 'react';
 
 function ListItem(props) {
-    return <li>Przykład 1</li>
+    const {item} = props
+
+    console.log(item)
+
+    return <li>{item}</li>
 }
 
 export default ListItem;
