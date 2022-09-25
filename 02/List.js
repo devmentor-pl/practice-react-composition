@@ -3,14 +3,11 @@ import React from 'react';
 import ListItem from './ListItem';
 
 function List(props) {
-    //const {usersList} = props;
-    const list = props.items.map(n => <ListItem name={n}/>);
+    let id = 0;
+    const list = props.items.map(n=> 
+        {id++;
+        return <ListItem key={id} name={n}/> });
     return <ul>{ list }</ul>
-    /*return (
-        <ul>
-            <ListItem items={usersList}/>
-        </ul>
-    )*/
 }
 
 /*function List(props) {
