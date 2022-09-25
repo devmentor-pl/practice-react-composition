@@ -9,12 +9,24 @@ class App extends React.Component {
         usersList: [],
     }
 
+    input = React.createRef();
+
+    addUser = (name) => {
+        this.setState(state => {
+            return{
+        usersList: [...state.usersList, name]
+            };
+        });
+    }
+
+
     render() {
         const  { usersList } = this.state;
+        console.log(usersList);
 
         return (
             <section>
-                <Form />
+                <Form add={this.addUser} ref={this.input}/>
                 <List items={ usersList } />
             </section>
         )
@@ -22,3 +34,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.querySelector('#root'));
+
