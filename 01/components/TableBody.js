@@ -1,13 +1,14 @@
 import React from "react";
 import TableRow from './TableRow'
+import { v4 as uuid } from "uuid";
 
 class TableBody extends React.Component{
     render(){
-        const {body} = this.props
+        const {bodyData} = this.props
         return(
             <tbody>
-                {body.map(data=>{
-                    return <TableRow rowData={data[0]}></TableRow>
+                {bodyData.map(data=>{
+                    return <TableRow key={uuid()} rowData={data}></TableRow>
                 })}
             </tbody>
         )
