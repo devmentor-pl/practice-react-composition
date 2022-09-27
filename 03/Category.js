@@ -1,10 +1,6 @@
 import React from 'react';
 import Product from './Product';
 
-function addNumbers() {
-    return 2;
-}
-
 function Category(props) {
     const {buttonPress} = props;
     const {data} = props;
