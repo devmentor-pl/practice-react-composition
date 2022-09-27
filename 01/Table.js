@@ -1,26 +1,36 @@
 import React from "react";
 import TableHeader from "./components/TableHeader";
-import TableBody from './components/TableBody'
+import TableBody from "./components/TableBody";
+import TableFooter from "./components/TableFooter";
+
 class Table extends React.Component {
   render() {
-    const { data } = this.props;
-    console.log(data[0]);
     return (
       <table>
-        <TableHeader headerNames={this.setHeader()}/>
-        <TableBody bodyData={this.setBody()}/>
+        <TableHeader headerNames={this.getHeader()} />
+        <TableBody bodyData={this.getBody()} />
+        <TableFooter data={this.getTotalPrice()}></TableFooter>
       </table>
     );
   }
-  setHeader(){
+  getHeader() {
     const { data } = this.props;
-    return [...Object.keys(data[0]), 'total price']
+    const { id, ...names } = data[0];
+    return [...Object.keys(names), "total price"];
   }
-  setBody(){
-    const {data} = this.props;
-    return [...Object.keys(data[0])]
+  getBody() {
+    const { data } = this.props;
+    const content = data.map((item) => {
+      const { id, ...content } = item;
+      const price = item.price * item.quantity;
+      return [...Object.values(content), price];
+    });
+    return content;
   }
-
+  getTotalPrice() {
+    const { data } = this.props;
+    return data.reduce((total, item) => total + item.price * item.quantity, 0);
+  }
 }
 
 export default Table;
