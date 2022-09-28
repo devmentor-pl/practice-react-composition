@@ -5,7 +5,6 @@ const buttonHandle = (props, e) => {
     const{buttonPress} = props;
     const {id} = props;
     buttonPress(id);
-    console.log(id);
     e.target.disabled = true;
 }
 

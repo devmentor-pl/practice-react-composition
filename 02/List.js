@@ -10,23 +10,4 @@ function List(props) {
     return <ul>{ list }</ul>
 }
 
-/*function List(props) {
-    const {usersList} = props;
-    return (
-        <ul>
-            <ListItem items={usersList}/>
-        </ul>
-    )
-}*/
-
-/*function List(props) {
-    const users = props.items.map(i=>
-        <li key={i}>{i}</li>
-    )
-    return (
-        <ul>{users}
-        </ul>
-    )
-}*/
-
 export default List;

@@ -7,7 +7,6 @@ class File extends React.Component {
         const file = this.input.files[0];
         const fileName = this.input.files[0].name;
         const fileSize = this.input.files[0].size;
-        console.log(this.input.files[0].name, this.input.files[0].size)
         if(file && file.type.includes('text')) {
             const reader = new FileReader();
             reader.onload = function(readerEvent) {

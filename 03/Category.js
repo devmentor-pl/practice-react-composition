@@ -4,7 +4,6 @@ import Product from './Product';
 function Category(props) {
     const {buttonPress} = props;
     const {data} = props;
-    //add('Asia');
     const productsList = data.map(n=> {
         return(<Product isCategory={true} buttonPress={buttonPress} id={n.id} key={n.id} name = {n.name} price = {n.price}/>)
     })

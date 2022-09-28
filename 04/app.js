@@ -19,7 +19,6 @@ class App extends React.Component {
 
     render() {
         const  { filesList } = this.state;
-        console.log(filesList);
         return (
             <section>
                 <File add={this.addFile} />
