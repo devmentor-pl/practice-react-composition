@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 function Product(props) {
   const { name, price, isCart, isCategory, id, addItem, deleteItem } = props;
@@ -6,18 +7,16 @@ function Product(props) {
     <li>
       <p>{name}</p>
       <p>{price}</p>
-      <button
-        onClick={()=>addItem(id, name, price, isCart)}
+      <Button
+        onClick={() => addItem(id, name, price, isCart)}
         disabled={isCategory ? false : true}
-      >
-        Dodaj
-      </button>
-      <button
+        name={"Dodaj"}
+      ></Button>
+      <Button
+        onClick={() => deleteItem(id)}
         disabled={isCart ? false : true}
-        onClick={()=> deleteItem(id)}
-      >
-        Usuń
-      </button>
+        name={"Usuń"}
+      ></Button>
     </li>
   );
 }

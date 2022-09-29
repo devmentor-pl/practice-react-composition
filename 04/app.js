@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import { v4 as uuid } from "uuid";
 import File from "./File";
 import List from "./List";
 
@@ -29,6 +29,7 @@ class App extends React.Component {
           name: file.name,
           size: this.formatFileSize(file.size),
           content: content,
+          id: uuid()
         };
         this.setState({
           filesList: [...filesList, newFile],

@@ -9,7 +9,7 @@ class Table extends React.Component {
       <table>
         <TableHeader headerNames={this.getHeader()} />
         <TableBody bodyData={this.getBody()} />
-        <TableFooter data={this.getTotalPrice()}></TableFooter>
+        <TableFooter footerData={['Total price:', '', '', this.getTotalPrice()]}></TableFooter>
       </table>
     );
   }

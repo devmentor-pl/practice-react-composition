@@ -10,7 +10,7 @@ class List extends React.Component {
 
     return data.map((file) => {
       return (
-        <li key={uuid()}>
+        <li key={file.id}>
           <p>Name:{file.name}</p>
           <p>Size:{file.size}</p>
           <p>Content:{file.content}</p>

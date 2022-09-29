@@ -3,12 +3,13 @@ import TableRow from "./TableRow";
 
 class TableFooter extends React.Component {
   render() {
-    const { data } = this.props;
+    const { footerData} = this.props;
     return (
       <tfoot>
         <tr>
-            <td colSpan='3'>Total Price:</td>
-            <td colSpan='1'>{data}</td>
+          
+              <TableRow rowData={footerData}></TableRow>
+         
         </tr>
       </tfoot>
     );
