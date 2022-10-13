@@ -6,6 +6,7 @@ class List extends React.Component {
     const { items } = this.props
     return (
       <ul>
+        {" "}
         {items.map(({ id, name, size, content }) => (
           <li key={id}>
             {name}: {content} ({size})

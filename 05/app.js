@@ -1,19 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react"
+import ReactDOM from "react-dom"
 
-import Textarea from './Textarea';
+import Textarea from "./Textarea"
 
 class App extends React.Component {
-    state = {
-        text: '',
-    }
-
-    render() {
-        const { text } = this.state;
-        return (
-            <Textarea content={ text } />
-        )
-    }
+  state = {
+    text: 'dsadsadas',
 }
 
-ReactDOM.render(<App/>, document.querySelector('#root'));
+changeText = (content) => {
+    this.setState({
+        text: content,
+    })
+}
+
+render() {
+    const { text } = this.state;
+    return (
+        <Textarea handleChange={this.changeText} content={ text } />
+    )
+}
+}
+
+ReactDOM.render(<App />, document.querySelector("#root"))
