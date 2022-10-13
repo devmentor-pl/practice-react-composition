@@ -1,27 +1,56 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react"
+import ReactDOM from "react-dom"
 
-import Category from './Category';
-import Cart from './Cart';
+import Category from "./Category"
+import Cart from "./Cart"
+import Product from "./Product"
 
-import data from './data.json';
+import data from "./data.json"
 
 class App extends React.Component {
-    state = {
-        cart: [],
+  state = {
+    cart: [],
+  }
+
+  addProduct = id => {
+    const product = data.find(item => item.id === id)
+
+    if (product) {
+      this.setState({
+        cart: [...this.state.cart, product],
+      })
     }
-    
-    render() {
-        return (
-            <section>
-                <Category />
-                <Cart />
-            </section>
-        )
-    }
+  }
+
+  removeProduct = id => {
+    const cart = this.state.cart.filter(item => item.id !== id)
+    this.setState({
+      cart,
+    })
+  }
+
+  inCart = id => {
+    return !!this.state.cart.find(item => item.id === id)
+  }
+
+  render() {
+    const { cart } = this.state
+
+    return (
+      <section>
+        <Category>
+          {data.map(item => {
+            return <Product inCart={this.inCart(item.id)} key={item.id} data={item} clickHandler={this.addProduct} />
+          })}
+        </Category>
+        <Cart>
+          {cart.map(item => {
+            return <Product isCart={true} key={item.id} data={item} clickHandler={this.removeProduct} />
+          })}
+        </Cart>
+      </section>
+    )
+  }
 }
 
-ReactDOM.render(
-    <App />, 
-    document.querySelector('#root')
-);
+ReactDOM.render(<App />, document.querySelector("#root"))
