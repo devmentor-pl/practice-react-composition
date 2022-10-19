@@ -1,16 +1,22 @@
 import React from "react";
 
-export class Product  extends React.Component {
-  render() {
-    const { item, isCategory, addItem, removeItem } = this.props;
-    return (
-        <div>
-            <p>Nazwa: {item.name}</p>
-            <p>Cena: {item.price} PLN</p>
-            {isCategory ? <button onClick={addItem}>DODAJ</button> : <button onClick={removeItem}>USUŃ</button>}
-        </div>
-    )
+function Product(props) {
+  const {data, inCart, isCart, clickHandler} = props;
+
+  function handleClick(id) {
+    if(typeof clickHandler === 'function') {
+      clickHandler(id);
+    }
   }
+
+  return (
+      <li>
+          {data.name} ({data.price})
+          {
+            isCart ? <button onClick={() => handleClick(data.id)}>Usuń</button> : <button disabled={inCart ? true : false} onClick={() => handleClick(data.id)}>Dodaj</button>
+          }
+      </li>
+  )
 }
 
 export default Product;

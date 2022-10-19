@@ -11,61 +11,55 @@ import data from './data.json';
 class App extends React.Component {
     state = {
         cart: [],
-        product: []
     }
 
-    componentDidMount() {
-        this.setState(() => ({
-            cart: data
-        }))
-    }
 
-    addItem = (e, id) => {
-        const clickedButton = e.target;
-        clickedButton.setAttribute('disabled', 'true');
-        clickedButton.setAttribute('id', `button-${id}`);
-        const newItem = this.state.cart.find(item => item.id === id)
+    addItem = (id) => {
+        const product = data.find(item => item.id === id);
 
-        this.setState((state) => ({
-            product: [...state.product, newItem]
-        }))
+        if(product) {
+            this.setState({
+                cart: [...this.state.cart, product]
+            })
+        }
     }
 
     removeItem = (id) => {
-        const newCart = this.state.product.filter(item => item.id !== id);
+        const cart = this.state.cart.filter(item => item.id !== id);
         this.setState(() => ({
-            product: [...newCart]
+            cart
         }))
 
-        const disabledButton = document.querySelector(`#button-${id}`);
-        disabledButton.removeAttribute('disabled');
+    }
+
+    inCart = (id) => {
+        return !!this.state.cart.find(item => item.id === id)
     }
     
     render() {
-        const productToBuy = this.state.cart.map(item => {
-            return (
-                <Product
-                item = {item}
-                isCategory={true}
-                addItem={(e) => this.addItem(e, item.id)}/>
-            )
-        })
-        const productInBasket = this.state.product.map(item => {
-            return (
-                <Product
-                item={item}
-                isCategory={false}
-                removeItem={() => this.removeItem(item.id)}/>
-            )
-        })
+        const {cart} = this.state;
 
         return (
             <section>
                 <Category>
-                    {productToBuy}
+                    {data.map(item => {
+                        return <Product
+                            inCart={this.inCart(item.id)}
+                            key={item.id}
+                            data={item}    
+                            clickHandler={this.addItem}
+                        />
+                    })}
                 </Category>
                 <Cart>
-                    {productInBasket}
+                    {cart.map(item => {
+                        return <Product 
+                            isCart={true} 
+                            key={item.id}
+                            data={item} 
+                            clickHandler={this.removeItem}
+                        />
+                    })}
                 </Cart>
             </section>
         )
