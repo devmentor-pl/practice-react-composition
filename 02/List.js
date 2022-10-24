@@ -1,13 +1,9 @@
 import React from 'react';
-
 import ListItem from './ListItem';
 
 function List(props) {
-    return (
-        <ul>
-            <ListItem />
-        </ul>
-    )
+    const list = props.items.map(n => <ListItem name={n}/>);
+    return <ul>{ list }</ul>
 }
 
 export default List;
