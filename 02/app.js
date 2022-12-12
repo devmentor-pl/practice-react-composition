@@ -11,8 +11,6 @@ class App extends React.Component {
     addUser = newUser => {
         this.setState(state => {
             return {usersList: [...state.usersList, newUser]}
-        }, () => {
-            console.log(this.state);
         })
     }
     render() {
