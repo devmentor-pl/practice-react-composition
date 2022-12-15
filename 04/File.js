@@ -2,7 +2,8 @@ import React from 'react';
 
 class File extends React.Component {
     render() {
-        return <input type="file" multiple />
+        const {add} = this.props;
+        return <input onChange={(e)=> add(e)} type="file" accept="text/plain" multiple />
     }
 }
 
