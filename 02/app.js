@@ -10,9 +10,10 @@ class App extends React.Component {
     }
     addUser = (e, newUser) => {
         e.preventDefault();
-        console.log(newUser)
         this.setState(state => {
             return {usersList: [...state.usersList, newUser]}
+        },()=>{
+            e.target.reset();
         })
     }
     render() {
