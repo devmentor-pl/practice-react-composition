@@ -8,7 +8,9 @@ class App extends React.Component {
     state = {
         usersList: [],
     }
-    addUser = newUser => {
+    addUser = (e, newUser) => {
+        e.preventDefault();
+        console.log(newUser)
         this.setState(state => {
             return {usersList: [...state.usersList, newUser]}
         })
