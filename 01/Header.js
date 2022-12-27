@@ -4,13 +4,13 @@ import data from './data.json';
 
 class Header extends React.Component {
     render() {
+        const {detail} = this.props;
         return (
             
             <div>
-            <h1>Table Header</h1>
-            {data.map((detail , index) => {
+            {data.map((detail) => {
                 return (
-                <h1>{detail.price}</h1>
+                <h2>{detail.name}</h2>
                 )
             })}
             </div>
