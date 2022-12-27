@@ -6,7 +6,14 @@ import Form from './Form';
 
 class App extends React.Component {
     state = {
-        usersList: [],
+        usersList: ['Jacek', 'Malwina']
+    }
+
+
+    addPerson=(name) => {
+        this.setState({
+            usersList: [...this.state.usersList, name]
+        })
     }
 
     render() {
@@ -14,7 +21,7 @@ class App extends React.Component {
 
         return (
             <section>
-                <Form />
+                <Form addUser={this.addPerson} />
                 <List items={ usersList } />
             </section>
         )
