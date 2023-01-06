@@ -6,13 +6,19 @@ import List from './List';
 
 class App extends React.Component {
     state = {
-        filesList: [{id: 'Some Number' , name: 'Some File', size: '1 mb'}],
+        filesList: [],
+    }
+
+    addFiles = (file) => {
+        this.setState({
+            filesList: [...this.state.filesList, file],
+        })
     }
 
     render() {
         return (
             <section>
-                <File />
+                <File addSomething = {this.addFiles}/>
                 <List items={this.state.filesList}/>
             </section>
         )
