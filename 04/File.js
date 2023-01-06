@@ -18,6 +18,7 @@ class File extends React.Component {
                 }
 
                 console.log(data);
+                
             }, false);
 
             reader.readAsText(file);
