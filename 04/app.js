@@ -6,14 +6,14 @@ import List from './List';
 
 class App extends React.Component {
     state = {
-        filesList: [],
+        filesList: [{id: 'Some Number' , name: 'Some File', size: '1 mb'}],
     }
 
     render() {
         return (
             <section>
                 <File />
-                <List />
+                <List items={this.state.filesList}/>
             </section>
         )
     }
