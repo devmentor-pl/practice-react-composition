@@ -5,14 +5,11 @@ import TableBody from './components/TableBody';
 
 class Table extends React.Component {
     render() {
-        const {data} = this.props;
-        console.log(data);
-
         return (
         <table>
-            <TableHeader />
-            <TableBody />
-            <TableFooter />
+            <TableHeader headers={}/>
+            <TableBody rows={}/>
+            <TableFooter totalPrice={} />
         </table>
         )
     }
