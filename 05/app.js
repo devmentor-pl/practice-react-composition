@@ -8,9 +8,9 @@ class App extends React.Component {
         text: '',
     }
 
-    handleTextAreaChange = content => {
+    changeText = content => {
         this.setState({ 
-            text: content
+            text: content,
         })
     }
 
@@ -18,8 +18,8 @@ class App extends React.Component {
         const { text } = this.state;
         return (
             <Textarea 
+                handleChange={this.changeText}
                 content={ text } 
-                handleTextAreaChange={ this.handleTextAreaChange }
             />
         )
     }
