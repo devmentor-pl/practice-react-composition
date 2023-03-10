@@ -1,7 +1,13 @@
 import React from 'react';
 
 function Cart(props) {
-    return <h2>Cart</h2>
+	const { children } = props;
+	return (
+		<div>
+			<h2>Cart</h2>
+			<ul>{children}</ul>
+		</div>
+	);
 }
 
 export default Cart;
