@@ -46,7 +46,7 @@ class App extends React.Component {
 			<Product
 				item={item}
 				key={item.id}
-				isCategory={this.inCategory(item) ? true : false}
+				isCart={true}
 				handleClick={
 					this.inCategory(item) ? this.addToCart : this.removeFromCart
 				}

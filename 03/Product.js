@@ -1,15 +1,22 @@
 ﻿import React from 'react';
 
 function Product(props) {
-	const { isCategory, item, handleClick } = props;
+	const { isCategory, isCart, item, handleClick } = props;
 
 	return (
 		<li style={{ display: 'flex', gap: '10px' }}>
 			<h3>{item.name}</h3>
 			<p>{item.price}</p>
-			<button disabled={!isCategory} onClick={() => handleClick(item)}>
-				{isCategory ? 'Dodaj do koszyka' : 'Usuń'}
-			</button>
+
+			{isCategory ? (
+				<button disabled={isCart} onClick={() => handleClick(item)}>
+					{isCart ? 'Usuń' : 'Dodaj do koszyka'}
+				</button>
+			) : (
+				<button disabled={!isCart} onClick={() => handleClick(item)}>
+					{isCart ? 'Usuń' : 'Dodaj do koszyka'}
+				</button>
+			)}
 		</li>
 	);
 }
