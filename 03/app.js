@@ -26,8 +26,8 @@ class App extends React.Component {
 		});
 	};
 
-	inCategory = (item) => {
-		return !this.state.cart.find((el) => el.id === item.id);
+	inCart = (item) => {
+		return this.state.cart.find((el) => el.id === item.id);
 	};
 
 	render() {
@@ -35,10 +35,9 @@ class App extends React.Component {
 			<Product
 				item={item}
 				key={item.id}
-				isCategory={this.inCategory(item) ? true : false}
-				handleClick={
-					this.inCategory(item) ? this.addToCart : this.removeFromCart
-				}
+				handleClick={this.addToCart}
+				disabled={this.inCart(item) ? true : false}
+				text={'Dodaj do koszyka'}
 			/>
 		));
 
@@ -46,10 +45,9 @@ class App extends React.Component {
 			<Product
 				item={item}
 				key={item.id}
-				isCart={true}
-				handleClick={
-					this.inCategory(item) ? this.addToCart : this.removeFromCart
-				}
+				handleClick={this.removeFromCart}
+				disabled={this.inCart(item) ? false : true}
+				text={'Usuń'}
 			/>
 		));
 
