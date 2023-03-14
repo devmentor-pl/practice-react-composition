@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuid } from 'uuid';
 
 class File extends React.Component {
 	handleChange = () => {
@@ -6,18 +7,21 @@ class File extends React.Component {
 		const files = this.input.files;
 		if (files) {
 			Object.keys(files).forEach((i) => {
-				const file = files[i];
-				if (file.type.includes('text')) {
+				const { name, type, size } = files[i];
+
+				if (type.includes('text')) {
 					const reader = new FileReader();
 					reader.onload = (readerEvent) => {
 						const fileData = {
-							name: file.name,
-							size: file.size,
+							name: name,
+							size: size,
 							content: readerEvent.target.result,
+							id: uuid(),
 						};
 						onChange(fileData);
 					};
-					reader.readAsText(file);
+
+					reader.readAsText(files[i]);
 				}
 			});
 		}
