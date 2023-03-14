@@ -2,8 +2,8 @@
 
 const TableHeader = (props) => {
 	const { columnNames } = props;
-	const tableHeaders = columnNames.map((name, index) => {
-		return <th key={index}>{name}</th>;
+	const tableHeaders = columnNames.map((name) => {
+		return <th key={name}>{name}</th>;
 	});
 
 	return (
