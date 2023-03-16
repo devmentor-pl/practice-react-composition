@@ -1,12 +1,12 @@
 ﻿import React from 'react';
 
 const TableRow = (props) => {
-	const { product } = props;
+	const { product, columns } = props;
 
 	return (
 		<tr>
-			{product.map((i, index) => (
-				<td key={index}>{i}</td>
+			{columns.map((i, index) => (
+				<td key={index}>{product[i.propName]}</td>
 			))}
 		</tr>
 	);

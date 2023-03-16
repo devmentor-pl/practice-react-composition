@@ -6,15 +6,10 @@ import TableRow from './TableRow';
 
 class Table extends React.Component {
 	renderRows() {
-		const { data } = this.props;
+		const { data, columns } = this.props;
 
-		return data.map(({ id, name, price, quantity }) => {
-			return (
-				<TableRow
-					product={[id, name, price, quantity, price * quantity]}
-					key={id}
-				/>
-			);
+		return data.map((item) => {
+			return <TableRow product={item} columns={columns} key={item.id} />;
 		});
 	}
 
@@ -27,11 +22,16 @@ class Table extends React.Component {
 	}
 
 	render() {
+		const { columns } = this.props;
+
 		return (
 			<table>
-				<TableHeader columnNames={['id', 'nazwa', 'cena', 'ilość', 'razem']} />
+				<TableHeader colNames={columns.map((name) => name.label)} />
 				<TableBody>{this.renderRows()}</TableBody>
-				<TableFooter totalPrice={this.getTotalPrice()} />
+				<TableFooter
+					totalPrice={this.getTotalPrice()}
+					colQuantity={columns.length}
+				/>
 			</table>
 		);
 	}

@@ -1,12 +1,12 @@
 ﻿import React from 'react';
 
 const TableFooter = (props) => {
-	const { totalPrice } = props;
+	const { totalPrice, colQuantity } = props;
 
 	return (
 		<tfoot>
 			<tr>
-				<td colSpan={5}>Cena całkowita: {totalPrice} zł</td>
+				<td colSpan={colQuantity}>Cena całkowita: {totalPrice} zł</td>
 			</tr>
 		</tfoot>
 	);

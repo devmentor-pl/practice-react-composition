@@ -1,8 +1,8 @@
 ﻿import React from 'react';
 
 const TableHeader = (props) => {
-	const { columnNames } = props;
-	const tableHeaders = columnNames.map((name) => {
+	const { colNames } = props;
+	const tableHeaders = colNames.map((name) => {
 		return <th key={name}>{name}</th>;
 	});
 
