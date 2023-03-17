@@ -1,7 +1,10 @@
 import React from 'react';
+import Box from './Box';
 
 function Category(props) {
-    return <h2>Category</h2>
+	const { children } = props;
+
+	return <Box title='Category'>{children}</Box>;
 }
 
 export default Category;
