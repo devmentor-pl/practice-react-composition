@@ -7,15 +7,30 @@ import Form from './Form';
 class App extends React.Component {
     state = {
         usersList: [],
+        draft: '',
+    }
+
+    updateList = e => {
+        this.setState({ draft: e.target.value })
+    }
+
+    addUser = () => {
+        const { usersList, draft } = this.state;
+        this.setState(() => {
+            return {
+                usersList: [...usersList, draft],
+                draft: '',
+            }
+        });
     }
 
     render() {
-        const  { usersList } = this.state;
+        const { usersList } = this.state;
 
         return (
             <section>
-                <Form />
-                <List items={ usersList } />
+                <Form onChange={this.updateList} onClick={this.addUser} />
+                <List items={usersList} />
             </section>
         )
     }
