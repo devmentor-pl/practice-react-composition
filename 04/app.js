@@ -10,12 +10,8 @@ class App extends React.Component {
     state = {
         filesList: [],
     }
-    showFile = async (e) => {
-        const { filesList } = this.state;
+    showFile = (e) => {
         const files = [...e.target.files];
-        const updatedFilesList = [];
-        let loadedFiles = 0;
-
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
             const reader = new FileReader();
@@ -27,26 +23,24 @@ class App extends React.Component {
                     content: content,
                     id: uuid(),
                 };
-                updatedFilesList.push(fileData);
-                loadedFiles++;
-                if (loadedFiles === files.length) {
-                    const newFilesList = [...filesList, ...updatedFilesList];
-                    this.setState({ filesList: newFilesList });
-                }
+                this.setState((state) => {
+                    return {
+                        filesList: [...state.filesList, fileData]
+                    };
+                })
             };
             reader.readAsText(file);
         }
+
     }
 
     render() {
         const { filesList } = this.state;
         return (
             <section>
-                <File onChange={this.showFile} />
+                <File handleChange={this.showFile} />
                 <List data={filesList} />
             </section>
-
-
         )
     }
 }
