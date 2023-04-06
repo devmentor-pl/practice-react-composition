@@ -9,13 +9,29 @@ class App extends React.Component {
         usersList: [],
     }
 
+    addUser(userName) {
+        this.setState(state => {
+            return {
+                usersList: [...state.usersList, userName],
+            };
+        });
+    }
+
+    handleSubmit = event => {
+        event.preventDefault();
+        const formElement = event.target;
+        const { userName } = formElement.elements;
+
+        this.addUser(userName.value)
+    }
+
     render() {
-        const  { usersList } = this.state;
+        const { usersList } = this.state;
 
         return (
             <section>
-                <Form />
-                <List items={ usersList } />
+                <Form onSubmit={this.handleSubmit} />
+                <List items={usersList} />
             </section>
         )
     }
