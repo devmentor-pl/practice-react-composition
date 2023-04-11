@@ -30,15 +30,15 @@ export default class App extends React.Component {
         reader.onload = () => {
             const { name: fileName, size: fileSize } = file;
             const fileContent = reader.result;
-            const fileObject = { fileName, fileSize, fileContent };
+            const fileObject = { id: uuid(), fileName, fileSize, fileContent };
 
-            this.setFilesListState(fileObject);
+            this.insertFilesListState(fileObject);
         }
 
         reader.readAsText(file);
     }
 
-    setFilesListState(fileData) {
+    insertFilesListState(fileData) {
         this.setState(state => {
             return {
                 filesList: [...state.filesList, fileData],
@@ -49,8 +49,8 @@ export default class App extends React.Component {
     render() {
         const { filesList } = this.state;
         const filesItems = filesList.map(
-            ({ fileName, fileSize, fileContent }) =>
-                <li key={uuid()}>
+            ({ id, fileName, fileSize, fileContent }) =>
+                <li key={id}>
                     <h3>File name: {fileName}</h3>
                     <small>File Size: {fileSize} bytes</small>
                     <p>File content: {fileContent}</p>
