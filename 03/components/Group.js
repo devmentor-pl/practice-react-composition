@@ -1,13 +1,12 @@
 import React from 'react';
 
-function Category({children}) {
-
+function Group({ children, title }) {
     return (
         <>
-            <h2>Category</h2>
+            <h2>{title}</h2>
             {children}
         </>
     );
 }
 
-export default Category;
+export default Group;

@@ -1,10 +1,9 @@
 import React from 'react';
 
-import Category from './Category';
-import Cart from './Cart';
 import Product from './Product';
 
 import data from '.././data.json';
+import Group from './Group';
 
 export default class App extends React.Component {
     state = {
@@ -69,16 +68,16 @@ export default class App extends React.Component {
 
         return (
             <section>
-                <Category>
+                <Group title={'Category'}>
                     <ul>
                         {categoryItems}
                     </ul>
-                </Category>
-                <Cart>
+                </Group>
+                <Group title={'Cart'}>
                     <ul>
                         {cartItems}
                     </ul>
-                </Cart>
+                </Group>
             </section >
         );
     }
