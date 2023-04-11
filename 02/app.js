@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { v4 as uuid } from 'uuid';
 
 import List from './List';
 import Form from './Form';
@@ -12,7 +13,7 @@ class App extends React.Component {
     addUser(userName) {
         this.setState(state => {
             return {
-                usersList: [...state.usersList, userName],
+                usersList: [...state.usersList, { id: uuid(), userName }],
             };
         });
     }
@@ -23,6 +24,7 @@ class App extends React.Component {
         const { userName } = formElement.elements;
 
         this.addUser(userName.value)
+        userName.value = '';
     }
 
     render() {
