@@ -6,11 +6,11 @@ const TableFooter = props => {
     return (
         <tfoot>
             <tr>
-                <th colSpan='3'>Total</th>
+                <th colSpan='4'>Total</th>
                 <td>{data}</td>
             </tr>
         </tfoot>
-    )
+    );
 }
 
 export default TableFooter;

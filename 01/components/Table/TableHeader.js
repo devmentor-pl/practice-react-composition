@@ -1,8 +1,8 @@
 import React from "react";
 
 const TableHeader = props => {
-    const { data } = props;
-    const columns = data.map(column => <th key={column}>{column}</th>);
+    const { columnsNames } = props;
+    const columns = columnsNames.map(column => <th key={column.propName}>{column.label}</th>);
 
     return (
         <thead>
@@ -10,7 +10,7 @@ const TableHeader = props => {
                 {columns}
             </tr>
         </thead>
-    )
+    );
 }
 
 export default TableHeader;

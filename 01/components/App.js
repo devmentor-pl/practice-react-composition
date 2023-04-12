@@ -5,21 +5,30 @@ import data from "../data.json";
 class App extends React.Component {
 
     render() {
-        const columnNames = ['ID', 'Name', 'Quantity', 'Price'];
-        const totalPrice = data.reduce((acc, currItem) => {
-            return acc + (currItem.price * currItem.quantity);
+        const itemsArray = data.map(item => ({ ...item, totalPrice: item.price * item.quantity }));
+        const columnsNames = [
+            { propName: 'id', label: 'ID' },
+            { propName: 'name', label: 'Name' },
+            { propName: 'quantity', label: 'Quantity' },
+            { propName: 'price', label: 'Price' },
+            { propName: 'totalPrice', label: 'Total price' },
+        ];
+        const totalPrice = itemsArray.reduce((acc, currItem) => {
+            return acc + currItem.totalPrice;
         }, 0);
-        const tableRows = data.map(row => <TableRow key={row.id} data={row} />);
+        const tableRows = itemsArray.map(row => {
+            return <TableRow key={row.id} data={row} columnsNames={columnsNames} />
+        });
 
         return (
             <Table>
-                <TableHeader data={columnNames} />
+                <TableHeader columnsNames={columnsNames} />
                 <TableBody>
                     {tableRows}
                 </TableBody>
                 <TableFooter data={totalPrice} />
             </Table>
-        )
+        );
     }
 }
 export default App;
