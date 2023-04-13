@@ -2,10 +2,16 @@ import React from 'react';
 
 class Form extends React.Component {
     render() {
+        const { onSubmit } = this.props;
+
         return (
-            <section>
-                <input /><input type="submit" />
-            </section>
+            <form onSubmit={onSubmit}>
+                <input
+                    type='text'
+                    name='userName'
+                />
+                <input type="submit" />
+            </form>
         )
     }
 }
