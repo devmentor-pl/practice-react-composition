@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { v4 as uuid } from 'uuid';
 
 import List from './List';
 import Form from './Form';
@@ -16,7 +17,7 @@ class App extends React.Component {
 		const user = this.state.user;
 		this.setState((state) => {
 			return {
-				usersList: [...state.usersList, user],
+				usersList: [...state.usersList, { name: user, uuid: uuid() }],
 			};
 		});
 

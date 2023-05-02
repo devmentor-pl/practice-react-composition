@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 as uuid } from 'uuid';
 import ListItem from './ListItem';
 
 function List(props) {
@@ -8,8 +7,8 @@ function List(props) {
 	const list = items.map((item) => {
 		return (
 			<ListItem
-				key={uuid()}
-				name={item}
+				key={item.uuid}
+				name={item.name}
 			/>
 		);
 	});
