@@ -11,6 +11,7 @@ function Cart(props) {
 				key={item.id}
 				item={item}
 				onClick={() => onClick(item)}
+				disabled={false}
 			/>
 		);
 	});

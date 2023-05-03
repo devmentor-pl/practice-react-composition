@@ -28,6 +28,7 @@ class App extends React.Component {
 				<Category
 					data={data}
 					onClick={this.addProductToCart}
+					cart={this.state.cart}
 				/>
 				<Cart
 					onClick={this.removeProductFromCart}

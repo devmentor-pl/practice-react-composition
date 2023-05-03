@@ -2,7 +2,7 @@ import React from 'react';
 import Product from './Product';
 
 function Category(props) {
-	const { data, onClick } = props;
+	const { data, onClick, cart } = props;
 
 	const list = data.map((item) => {
 		return (
@@ -11,6 +11,7 @@ function Category(props) {
 				key={item.id}
 				item={item}
 				onClick={() => onClick(item)}
+				disabled={cart.find((element) => element.id === item.id) ? true : false}
 			/>
 		);
 	});
