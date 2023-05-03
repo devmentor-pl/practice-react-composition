@@ -37,8 +37,10 @@ class App extends React.Component {
 				content: content,
 			};
 
-			this.setState({
-				filesList: [...this.state.filesList, newFile],
+			this.setState((state) => {
+				return {
+					filesList: [...state.filesList, newFile],
+				};
 			});
 		};
 
