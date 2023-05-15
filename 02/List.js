@@ -1,13 +1,9 @@
-import React from 'react';
-
-import ListItem from './ListItem';
+import React from "react";
 
 function List(props) {
-    return (
-        <ul>
-            <ListItem />
-        </ul>
-    )
+	const { children } = props;
+
+	return <ul>{children}</ul>;
 }
 
 export default List;
