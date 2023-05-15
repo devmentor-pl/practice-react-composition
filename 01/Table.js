@@ -30,7 +30,7 @@ class Table extends React.Component {
 			return (
 				<tr key={uuid()}>
 					{columnNames.map(cell => {
-						return <td key={uuid()}>{row[cell.name]}</td>;
+						return <TableCell key={uuid()} cellData={row[cell.name]} />;
 					})}
 				</tr>
 			);
