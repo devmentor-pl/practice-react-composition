@@ -28,11 +28,11 @@ class Table extends React.Component {
 
 		const itemsList = totalData.map(row => {
 			return (
-				<tr key={uuid()}>
+				<TableRow key={uuid()}>
 					{columnNames.map(cell => {
 						return <TableCell key={uuid()} cellData={row[cell.name]} />;
 					})}
-				</tr>
+				</TableRow>
 			);
 		});
 
