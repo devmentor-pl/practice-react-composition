@@ -10,15 +10,10 @@ class App extends React.Component {
 		usersList: [],
 	};
 
-	addListItem = e => {
-		e.preventDefault();
-
-		const user = this.ref;
-
+	addListItem = name => {
 		this.setState(state => {
-			return { usersList: [...state.usersList, user.value] };
+			return { usersList: [...state.usersList, name] };
 		});
-		console.log(user.value);
 	};
 
 	render() {
@@ -30,8 +25,7 @@ class App extends React.Component {
 
 		return (
 			<section>
-				<Form onSubmit={this.addListItem} ref={ref => (this.ref = ref)} />
-
+				<Form onSubmit={this.addListItem} />
 				<List children={list} />
 			</section>
 		);
