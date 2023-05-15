@@ -26,18 +26,20 @@ class Table extends React.Component {
 			return <TableCell key={item.name} cellData={item.propName} />;
 		});
 
-		const bodyRow = columnNames.map(item => {
-			return <TableCell key={uuid()} cellData={item.name} />;
-		});
-
-		const bodyRows = totalData.map(item => {
-			return <TableRow key={uuid()} children={bodyRow} />;
+		const itemsList = totalData.map(row => {
+			return (
+				<tr key={uuid()}>
+					{columnNames.map(cell => {
+						return <td key={uuid()}>{row[cell.name]}</td>;
+					})}
+				</tr>
+			);
 		});
 
 		return (
 			<table>
 				<TableHeader children={headerCells} />
-				<TableBody children={bodyRows} />
+				<TableBody children={itemsList} />
 			</table>
 		);
 	}
