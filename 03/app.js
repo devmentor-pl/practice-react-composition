@@ -1,6 +1,5 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-
 import Category from "./Category";
 import Cart from "./Cart";
 import Product from "./Product";
@@ -12,14 +11,25 @@ class App extends React.Component {
 	};
 
 	addToCart = id => {
-		console.log(id);
-
-		// const product = data.find(item => item.id === id);
-
-		// console.log(product);
+		const product = data.find(item => item.id === id);
+		this.setState({ cart: [...this.state.cart, product] });
 	};
 
-	// const { item, inCart, wasClicked, removeFromCart, addToCart } = props
+	checkIfInCart = id => {
+		const product = this.state.cart.find(item => item.id === id);
+
+		if (this.state.cart.includes(product)) {
+			return true;
+		}
+		return false;
+	};
+
+	removeFromCart = id => {
+		const products = this.state.cart.find(item => item.id === id);
+		this.setState({
+			cart: [products],
+		});
+	};
 
 	render() {
 		const listInCategory = data.map(item => {
@@ -27,8 +37,18 @@ class App extends React.Component {
 				<Product
 					key={item.id}
 					item={item}
-					wasClicked={false}
-					add={this.addToCart(item.id)}
+					wasClicked={this.checkIfInCart(item.id)}
+					add={() => this.addToCart(item.id)}
+				/>
+			);
+		});
+
+		const listInCart = this.state.cart.map(item => {
+			return (
+				<Product
+					key={item.id}
+					item={item}
+					remove={() => this.removeFromCart(item.id)}
 				/>
 			);
 		});
@@ -36,7 +56,7 @@ class App extends React.Component {
 		return (
 			<section>
 				<Category productsToBuy={listInCategory} />
-				<Cart />
+				<Cart productsInCart={listInCart} />
 			</section>
 		);
 	}

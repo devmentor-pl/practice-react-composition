@@ -2,8 +2,8 @@ import React from "react";
 
 class Product extends React.Component {
 	handleRemoveFromCart(id) {
-		const { removeFromCart } = this.props;
-		removeFromCart(id);
+		const { remove } = this.props;
+		remove(id);
 	}
 
 	handleAddToCart = id => {
