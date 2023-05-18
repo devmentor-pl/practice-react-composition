@@ -14,7 +14,7 @@ class Product extends React.Component {
 	render() {
 		const { item, inCart, wasClicked } = this.props;
 		return (
-			<li>
+			<li key={item.id}>
 				{item.name} {item.price} {""}
 				{inCart === true ? (
 					<button onClick={() => this.handleRemoveFromCart(item.id)}>

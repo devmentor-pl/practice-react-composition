@@ -4,6 +4,7 @@ import Category from "./Category";
 import Cart from "./Cart";
 import Product from "./Product";
 import data from "./data.json";
+import { v4 as uuid } from "uuid";
 
 class App extends React.Component {
 	state = {
@@ -25,9 +26,10 @@ class App extends React.Component {
 	};
 
 	removeFromCart = id => {
-		const products = this.state.cart.find(item => item.id !== id);
+		const products = this.state.cart.filter(item => item.id !== id);
+
 		this.setState({
-			cart: [products],
+			cart: [...products],
 		});
 	};
 
@@ -48,7 +50,7 @@ class App extends React.Component {
 				<Product
 					key={item.id}
 					item={item}
-					remove={() => this.removeFromCart(item.id)}
+					remove={this.removeFromCart}
 					inCart={true}
 				/>
 			);
