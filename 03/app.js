@@ -25,7 +25,7 @@ class App extends React.Component {
 	};
 
 	removeFromCart = id => {
-		const products = this.state.cart.find(item => item.id === id);
+		const products = this.state.cart.find(item => item.id !== id);
 		this.setState({
 			cart: [products],
 		});
@@ -49,6 +49,7 @@ class App extends React.Component {
 					key={item.id}
 					item={item}
 					remove={() => this.removeFromCart(item.id)}
+					inCart={true}
 				/>
 			);
 		});
