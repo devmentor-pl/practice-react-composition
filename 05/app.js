@@ -36,7 +36,7 @@ class App extends React.Component {
 		console.log(textArea);
 
 		if (snapshotHeight === true) {
-			textArea.height = scrollHeight + "px";
+			textArea.ref.style.height = scrollHeight + "px";
 			console.log(this.ref.height);
 		}
 	}
