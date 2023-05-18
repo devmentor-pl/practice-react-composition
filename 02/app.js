@@ -1,25 +1,30 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-
-import List from './List';
-import Form from './Form';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import List from "./List";
+import Form from "./Form";
 
 class App extends React.Component {
-    state = {
-        usersList: [],
-    }
+	state = {
+		usersList: [],
+	};
 
-    render() {
-        const  { usersList } = this.state;
+	addListItem = name => {
+		this.setState(state => {
+			return { usersList: [...state.usersList, name] };
+		});
+	};
 
-        return (
-            <section>
-                <Form />
-                <List items={ usersList } />
-            </section>
-        )
-    }
+	render() {
+		const { usersList } = this.state;
+
+		return (
+			<section>
+				<Form onSubmit={this.addListItem} />
+				<List listFromState={usersList} />
+			</section>
+		);
+	}
 }
 
-const root = createRoot(document.querySelector('#root'));
+const root = createRoot(document.querySelector("#root"));
 root.render(<App />);

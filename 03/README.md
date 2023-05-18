@@ -1,22 +1,20 @@
-
-> :star: *Jeśli będziesz mieć problem z rozwiązaniem tego zadania, poproś o pomoc na odpowiednim kanale na Slacku, tj. `s2e03-react-composition` (dotyczy [mentee](https://devmentor.pl/mentoring-javascript/)). Pamiętaj, aby treść Twojego wpisu spełniała [odpowiednie kryteria](https://devmentor.pl/jak-prosic-o-pomoc/).*
+> :star: _Jeśli będziesz mieć problem z rozwiązaniem tego zadania, poproś o pomoc na odpowiednim kanale na Slacku, tj. `s2e03-react-composition` (dotyczy [mentee](https://devmentor.pl/mentoring-javascript/)). Pamiętaj, aby treść Twojego wpisu spełniała [odpowiednie kryteria](https://devmentor.pl/jak-prosic-o-pomoc/)._
 
 &nbsp;
 
 # `#03` React: Kompozycja
 
-
 Ponownie będziemy operować na produktach. Tym razem umożliwimy użytkownikowi wybór produktu do zakupu oraz jego usunięcie z koszyka.
 
-
 Do zrealizowania zadania potrzebujemy 3 komponentów:
-* `<Category />` – wyświetla listę dostępnych produktów. Produkty są renderowane dzięki komponentowi `<Product />`
-* `<Cart />` – wyświetla listę produktów wybranych do zakupu. Produkty te są również renderowane przez komponent `<Product />`
-* `<Product />` – wyświetla informacje o produkcie.
+
+- `<Category />` – wyświetla listę dostępnych produktów. Produkty są renderowane dzięki komponentowi `<Product />`
+- `<Cart />` – wyświetla listę produktów wybranych do zakupu. Produkty te są również renderowane przez komponent `<Product />`
+- `<Product />` – wyświetla informacje o produkcie.
 
 ## `<Product />`
 
-Zauważ, że ten komponent jest wykorzystywany w dwóch różnych miejscach. 
+Zauważ, że ten komponent jest wykorzystywany w dwóch różnych miejscach.
 
 W `<Category />` mamy mieć możliwość zakupu tego produktu, więc przydałby się przycisk „dodaj do koszyka”. Jeśli ten produkt został już dodany do koszyka, to przycisk powinien być nieaktywny (`disabled`).
 
@@ -52,6 +50,7 @@ const list = ... .map( ... );
     { list }
 </Category>
 ```
+
 &nbsp;
 
-> :arrow_left: [*poprzednie zadanie*](./../02) | [*następne zadanie*](./../04) :arrow_right:
+> :arrow_left: [_poprzednie zadanie_](./../02) | [_następne zadanie_](./../04) :arrow_right:
