@@ -1,12 +1,21 @@
 import React from 'react';
 
 class Form extends React.Component {
+
+   getValue(){
+    return this.input.value
+    
+   }
+
+  
     render() {
+         const { add } = this.props;
         return (
-            <section>
-                <input /><input type="submit" />
-            </section>
-        )
+          <form onSubmit={add}>
+            <input  ref={ el => this.input = el} />
+            <input type="submit" />
+          </form>
+        );
     }
 }
 
