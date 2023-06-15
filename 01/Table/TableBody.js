@@ -5,7 +5,7 @@ export default class TableBody extends React.Component {
   render() {
     const { tableItems } = this.props;
 
-    const rows = this.props.cells.map((r) => {
+    const rows = tableItems.map((r) => {
       return <TableRow key={r.id} price={r.price} quantity={r.quantity} />;
     });
     return (

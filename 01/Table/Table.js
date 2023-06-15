@@ -10,8 +10,8 @@ class Table extends React.Component {
 
     return (
       <table style={{ border: "1px solid blue" }}>
-        <TableHeader items={data} />
-        <TableBody cells={data} />
+        <TableHeader headerItems={data} />
+        <TableBody tableItems={data} />
         <TableFooter totalPrice={data} />
       </table>
     );
