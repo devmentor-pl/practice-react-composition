@@ -1,22 +1,24 @@
-import React from 'react';
+import React from "react";
 
 class Form extends React.Component {
+  formRef = React.createRef();
 
-   getValue(){
-    return this.input.value
+  add = (e) => {
+    e.preventDefault();
+    console.log(this.formRef.current.value);
+    this.props.addNewUser(this.formRef.current.value);
+    this.formRef.current.value = ""
+  };
+
+  render() {
     
-   }
-
-  
-    render() {
-         const { add } = this.props;
-        return (
-          <form onSubmit={add}>
-            <input  ref={ el => this.input = el} />
-            <input type="submit" />
-          </form>
-        );
-    }
+    return (
+      <form onSubmit={this.add}>
+        <input ref={this.formRef} />
+        <input type="submit" />
+      </form>
+    );
+  }
 }
 
 export default Form;

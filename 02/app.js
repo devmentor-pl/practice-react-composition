@@ -5,7 +5,6 @@ import List from "./List";
 import Form from "./Form";
 
 class App extends React.Component {
-  formRef = React.createRef();
   state = {
     usersList: [],
   };
@@ -16,11 +15,7 @@ class App extends React.Component {
     });
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.addUser(this.formRef.current.getValue());
-    this.formRef.current.value = "";
-  };
+
 
   render() {
     const { usersList } = this.state;
@@ -28,7 +23,7 @@ class App extends React.Component {
 
     return (
       <section>
-        <Form ref={this.formRef} add={this.handleSubmit} />
+        <Form  addNewUser={this.addUser}/>
         <List users={this.state.usersList} />
       </section>
     );
