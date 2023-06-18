@@ -7,14 +7,22 @@ import Cart from './Cart';
 import data from './data.json';
 
 class App extends React.Component {
+
+   
     state = {
+        btnStatus: false,
         cart: [],
+    }
+
+    addItem = () => {
+        console.log("działa")
     }
     
     render() {
+        console.log(data)
         return (
             <section>
-                <Category />
+                <Category onClick={this.addItem}  products={data} />
                 <Cart />
             </section>
         )
