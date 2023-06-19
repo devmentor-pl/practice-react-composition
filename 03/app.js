@@ -1,33 +1,33 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
+import React from "react";
+import { createRoot } from "react-dom/client";
 
-import Category from './Category';
-import Cart from './Cart';
+import Category from "./Category";
+import Cart from "./Cart";
 
-import data from './data.json';
+import data from "./data.json";
 
 class App extends React.Component {
+  state = {
+    cart: [],
+  };
 
-   
-    state = {
-        btnStatus: false,
-        cart: [],
-    }
+  addItem = (item) => {
+    this.setState({
+        cart: [...this.state.cart, item]
+    })
+  };
 
-    addItem = () => {
-        console.log("działa")
-    }
-    
-    render() {
-        console.log(data)
-        return (
-            <section>
-                <Category onClick={this.addItem}  products={data} />
-                <Cart />
-            </section>
-        )
-    }
+  render() {
+    console.log(this.state.cart);
+
+    return (
+      <section>
+        <Category disabled={true} onClick={this.addItem} products={data} />
+        <Cart />
+      </section>
+    );
+  }
 }
 
-const root = createRoot(document.querySelector('#root'));
+const root = createRoot(document.querySelector("#root"));
 root.render(<App />);

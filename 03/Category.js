@@ -4,8 +4,29 @@ import Product from "./Product";
 function Category(props) {
   const { products } = props;
 
+  
+
+
+  const addItem = (i) => {
+  
+    props.onClick(i)
+
+  }
+
+  const disabelBtn =(e) =>{
+    e.target.disabed = true
+  }
+
   const list = products.map((i, index) => {
-    return <Product key={index} id={i.id} name={i.name} price={i.price} />;
+    return (
+      <Product
+        onClick={() => addItem(i)}
+        key={index}
+        id={i.id}
+        name={i.name}
+        price={i.price}
+      />
+    );
   });
 
   return (

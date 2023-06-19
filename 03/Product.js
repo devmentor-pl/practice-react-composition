@@ -3,9 +3,9 @@ import React from "react";
 function Product(props) {
 
   const {onClick} = props
+ 
 
-  //nie rozumiem dlaczego destrukturyzacja nie działa :( wszędzie zastosowałam tą samą nazwe dla props 
-
+ 
 
 
   return (
