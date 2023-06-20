@@ -3,13 +3,29 @@ import React from "react";
 class File extends React.Component {
   inputRef = React.createRef();
 
-  showData = (e) => {
-    console.log("działa");
+  showData = () => {
+    // console.log(this.inputRef.current.files);
 
-    const files = Array.from(this.inputRef.current.files).map(
-      (file) => file.name
-    );
-    this.props.add(files);
+    const filesArray = Array.from(this.inputRef.current.files);
+
+    filesArray.forEach((file) => {
+      const reader = new FileReader();
+
+      if (file.type.includes("image")) {
+        reader.onload = (e) => {
+          const content = e.target.result;
+          this.props.add({
+            name: file.name,
+            size: file.size,
+            content: content,
+          });
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        alert("to nie jest zdjęcie!");
+      }
+    });
   };
 
   render() {
