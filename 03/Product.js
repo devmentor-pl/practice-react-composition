@@ -3,6 +3,8 @@ import React from "react";
 function Product(props) {
 
   const {onClick} = props
+
+  console.log(props)
  
 
  
@@ -11,7 +13,7 @@ function Product(props) {
   return (
     <li>
      {props.name} cena: {props.price} PLN{" "}
-      <button onClick={onClick} disabled={false}>Dodaj do koszyka</button>
+      <button onClick={onClick} disable ={props.disable}>Dodaj do koszyka</button>
     </li>
   );
 }

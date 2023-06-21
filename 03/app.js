@@ -17,12 +17,22 @@ class App extends React.Component {
     })
   };
 
+  checkCart = (productId) => {
+  console.log(this.state.cart, productId)
+    return this.state.cart.find((item)=>{
+      return item.id === productId
+    })
+
+
+
+  }
+
   render() {
     console.log(this.state.cart);
 
     return (
       <section>
-        <Category disabled={true} onClick={this.addItem} products={data} />
+        <Category checkCart={this.checkCart} onClick={this.addItem} products={data} />
         <Cart />
       </section>
     );

@@ -25,6 +25,7 @@ function Category(props) {
         id={i.id}
         name={i.name}
         price={i.price}
+        disable={props.checkCart(i.id)?true:false}
       />
     );
   });
