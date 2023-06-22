@@ -11,29 +11,25 @@ class App extends React.Component {
     cart: [],
   };
 
-  addItem = (item) => {
+  addItem = (product) => {
     this.setState({
-        cart: [...this.state.cart, item]
-    })
+      cart: [...this.state.cart, product],
+    });
   };
 
-  checkCart = (productId) => {
-  console.log(this.state.cart, productId)
-    return this.state.cart.find((item)=>{
-      return item.id === productId
-    })
-
-
-
-  }
+  removeItem = (id) => {
+    const cartArray = this.state.cart.filter((item) => item.id !== id);
+    this.setState({
+      cart: cartArray,
+    });
+  };
 
   render() {
     console.log(this.state.cart);
-
     return (
       <section>
-        <Category checkCart={this.checkCart} onClick={this.addItem} products={data} />
-        <Cart />
+        <Category cart={this.state.cart} products={data} add={this.addItem} />
+        <Cart selectedProducts={this.state.cart} remove={this.removeItem} />
       </section>
     );
   }
@@ -41,3 +37,4 @@ class App extends React.Component {
 
 const root = createRoot(document.querySelector("#root"));
 root.render(<App />);
+

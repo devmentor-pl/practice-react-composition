@@ -10,8 +10,10 @@ class App extends React.Component {
     }
 
     insertFiles = (file) => {
-        this.setState(() => {
-            return {filesList: [...this.state.filesList, file ]}
+        console.log(file, this.state.filesList, "!")
+        this.setState((currentState) => {
+            
+            return { filesList: [...currentState.filesList, file] };
 
         })
     }
@@ -21,6 +23,7 @@ class App extends React.Component {
 
     render() {
         console.log(this.state.filesList)
+        
         return (
            
             <section>

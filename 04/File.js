@@ -6,7 +6,10 @@ class File extends React.Component {
   showData = () => {
     // console.log(this.inputRef.current.files);
 
+
     const filesArray = Array.from(this.inputRef.current.files);
+
+    console.log(filesArray)
 
     filesArray.forEach((file) => {
       const reader = new FileReader();

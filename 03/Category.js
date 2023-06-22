@@ -2,39 +2,26 @@ import React from "react";
 import Product from "./Product";
 
 function Category(props) {
-  const { products } = props;
+  const { products, add } = props;
 
-  
-
-
-  const addItem = (i) => {
-  
-    props.onClick(i)
-
-  }
-
-  const disabelBtn =(e) =>{
-    e.target.disabed = true
-  }
-
-  const list = products.map((i, index) => {
-    return (
-      <Product
-        onClick={() => addItem(i)}
-        key={index}
-        id={i.id}
-        name={i.name}
-        price={i.price}
-        disable={props.checkCart(i.id)?true:false}
-      />
-    );
-  });
-
+  const list = products.map((product) => (
+    <Product
+      onClick={() => add(product)}
+      key={product.id}
+      id={product.id}
+      name={product.name}
+      price={product.price}
+      disabled={
+        props.cart.find((item) => item.id === product.id) ? true : false
+      }
+      button={"Kup teraz"}
+    ></Product>
+  ));
   return (
-    <section>
+    <>
       <h2>Category</h2>
       <ul>{list}</ul>
-    </section>
+    </>
   );
 }
 

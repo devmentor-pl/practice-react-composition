@@ -17,7 +17,7 @@ class Textarea extends React.Component {
 
   getSnapshotBeforeUpdate() {
     console.log("getSnapshotBeforeUpdate");
-    if (this.getHeight() < 100) {
+    if ((this.getHeight() < 100) && (this.getHeight() < this.getScroll())) {
       return { resize: true };
     } else {
       return { resize: false };
@@ -28,7 +28,7 @@ class Textarea extends React.Component {
     console.log("Height =", this.getHeight(), "Scroll =", this.getScroll());
     console.log(snapshot.resize)
 
-    if(snapshot.resize && this.getHeight() < this.getScroll()){
+    if(snapshot.resize ){
       this.txtAreaRef.current.style.height = `${this.getScroll()}px`;
     }
   }

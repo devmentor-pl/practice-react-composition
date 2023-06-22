@@ -1,19 +1,14 @@
 import React from "react";
 
 function Product(props) {
-
-  const {onClick} = props
-
-  console.log(props)
- 
-
- 
-
+  const { onClick, disabled, button } = props;
 
   return (
     <li>
-     {props.name} cena: {props.price} PLN{" "}
-      <button onClick={onClick} disable ={props.disable}>Dodaj do koszyka</button>
+      {props.name} {props.price}PLN{" "}
+      <button onClick={onClick} disabled={disabled}>
+        {button}
+      </button>
     </li>
   );
 }
