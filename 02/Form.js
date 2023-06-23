@@ -1,13 +1,24 @@
-import React from 'react';
+import React from "react";
 
 class Form extends React.Component {
-    render() {
-        return (
-            <section>
-                <input /><input type="submit" />
-            </section>
-        )
-    }
+  formRef = React.createRef();
+
+  add = (e) => {
+    e.preventDefault();
+    console.log(this.formRef.current.value);
+    this.props.addNewUser(this.formRef.current.value);
+    this.formRef.current.value = ""
+  };
+
+  render() {
+    
+    return (
+      <form onSubmit={this.add}>
+        <input ref={this.formRef} />
+        <input type="submit" />
+      </form>
+    );
+  }
 }
 
 export default Form;
