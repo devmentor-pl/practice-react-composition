@@ -9,12 +9,12 @@
         "id": 2,
         "name": "Mysz komputerowa",
         "price": 249
-
     },
     {
         "id": 3,
         "name": "Klawiatura komputerowa",
-        "price": 149
-
+        "price": 149,
+        "isInCart": true
     }
 ]
+
