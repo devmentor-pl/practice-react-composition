@@ -2,9 +2,17 @@ import React from 'react';
 
 class Form extends React.Component {
     render() {
+        const { addUser, reference } = this.props
         return (
             <section>
-                <input /><input type="submit" />
+                <form onSubmit={addUser}>
+                    <input
+                        ref={reference}
+                    />
+                    <input
+                        type="submit"
+                    />
+                </form>
             </section>
         )
     }
