@@ -6,16 +6,28 @@ import Form from './Form';
 
 class App extends React.Component {
     state = {
-        usersList: [],
+        usersList: ['aa', 'bb'],
+        newUser: '',
+    }
+
+    addUser = e => {
+        e.preventDefault()
+        const { usersList } = this.state
+        this.setState({
+            usersList: [...usersList, this.input.value]
+        })
     }
 
     render() {
-        const  { usersList } = this.state;
+        const { usersList } = this.state;
 
         return (
             <section>
-                <Form />
-                <List items={ usersList } />
+                <Form 
+                addUser={this.addUser}
+                reference={ref => this.input = ref}
+                />
+                <List items={usersList} />
             </section>
         )
     }
