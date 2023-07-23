@@ -2,7 +2,15 @@ import React from 'react';
 
 class Textarea extends React.Component {
     render() {
-        return <textarea></textarea>
+        const { reference, onChange, rows } = this.props
+        return (
+            <textarea
+                ref={reference}
+                onChange={onChange}
+                rows={rows}
+            >
+            </textarea>
+        )
     }
 }
 
