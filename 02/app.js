@@ -10,9 +10,17 @@ class App extends React.Component {
   };
 
   addUser = (name) => {
-    this.setState({ usersList: this.state.usersList.concat(name) }, () => {
-      console.log(this.state);
-    });
+    this.setState(
+      {
+        usersList: this.state.usersList.concat({
+          name,
+          id: crypto.randomUUID(),
+        }),
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
   };
 
   render() {

@@ -4,10 +4,10 @@ class List extends React.Component {
   render() {
     const { filesData } = this.props;
     console.log(filesData)
-    const listJSX = filesData.map((item, index) => {
-      const { name, size, content } = item;
+    const listJSX = filesData.map((item) => {
+      const { name, size, content, id } = item;
       return (
-        <li key={index}>
+        <li key={id}>
           <h4>file name: {name}</h4>
           <p>size: {size}</p>
           <p>content: {content}</p>

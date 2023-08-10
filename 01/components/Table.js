@@ -6,7 +6,10 @@ import TableFooter from "./TableFooter";
 class Table extends React.Component {
   render() {
     const { data } = this.props;
-    const headersArr = Object.keys(data[0]).concat("total");
+    const headersArr = ["id", "name", "price", "quantity", "total"];
+    const headersData = headersArr.map((title) => {
+      return { title, id: crypto.randomUUID() };
+    });
     const summary = data.reduce(
       (acc, curr) => {
         const quantity = acc.quantity + curr.quantity;
@@ -20,7 +23,7 @@ class Table extends React.Component {
       <table>
         <TableHeader data={headersArr} />
         <TableBody data={data} />
-        <TableFooter rows={headersArr} summary={summary} />
+        {/* <TableFooter rows={headersData} summary={summary} /> */}
       </table>
     );
   }

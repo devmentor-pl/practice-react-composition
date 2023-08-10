@@ -4,14 +4,12 @@ class TableRow extends Component {
   render() {
     const { item, options } = this.props;
 
-    const tdJSX = Object.keys(item).map((key) => {
-      const id = crypto.randomUUID();
-
+    const tdJSX = Object.keys(item).map((key, index) => {
       if (options === "th") {
-        return <th key={id}>{item[key]}</th>;
+        return <th key={index}>{item[key]}</th>;
       }
 
-      return <td key={id}>{item[key]}</td>;
+      return <td key={index}>{item[key]}</td>;
     });
 
     return <tr>{tdJSX}</tr>;

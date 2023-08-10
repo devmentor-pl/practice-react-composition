@@ -5,9 +5,8 @@ import ListItem from "./ListItem";
 function List({ items }) {
   return (
     <ul>
-      {items.map((user) => {
-        const id = crypto.randomUUID();
-        return <ListItem key={id} text={user} />;
+      {items.map(({ name, id }) => {
+        return <ListItem key={id} text={name} />;
       })}
     </ul>
   );
