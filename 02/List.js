@@ -4,10 +4,12 @@ import ListItem from './ListItem';
 
 function List(props) {
     return (
-        <ul>
-            <ListItem />
-        </ul>
-    )
+			<ul>
+				{props.items.map((user, index) => (
+					<ListItem key={index} name={user} />
+				))}
+			</ul>
+		);
 }
 
 export default List;
