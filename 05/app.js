@@ -7,11 +7,38 @@ class App extends React.Component {
     state = {
         text: '',
     }
+    constructor() {
+        super()
+        this.resize = false
+    }
+
+    updateState = (value) => {
+        this.setState({
+            text: value
+        })
+    }
+
+    getSnapshotBeforeUpdate = (value) => {
+        // console.log(offsetHeight < scrollHeight)
+        // if (offsetHeight < scrollHeight) {
+        //     return { resize: true }
+        // } else {
+        //     return { resize: false }
+        // }
+        this.resize = value
+        // return { resize: value }
+    }
+
+    componentDidUpdate = () => {
+        console.log(this.resize)
+        // console.log(this.getSnapshotBeforeUpdate())
+    }
 
     render() {
+
         const { text } = this.state;
         return (
-            <Textarea content={ text } />
+            <Textarea content={text} ifResize={this.getSnapshotBeforeUpdate} updateState={this.updateState} />
         )
     }
 }

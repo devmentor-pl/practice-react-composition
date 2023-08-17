@@ -4,7 +4,7 @@ import Product from './Product';
 
 function Cart(props) {
     const { items, removeFromCart } = props
-    const list = items.map(item => <Product key={item.id} name={item.name} price={item.price} isCart={true} removeFromCart={removeFromCart} id={item.id}/>)
+    const list = items.map(item => <Product key={item.id} data={item} isCart={true} removeFromCart={removeFromCart}/>)
 
     return (
         <>
