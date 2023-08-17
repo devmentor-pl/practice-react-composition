@@ -1,14 +1,22 @@
 import React from 'react';
 
 class Textarea extends React.Component {
+
     changeHandler = () => {
-        const { scrollHeight, offsetHeight, value } = this.textarea
-        
-        const resize = offsetHeight < scrollHeight
-        console.log('resize: '+ resize)
-        this.props.ifResize(resize)
-        this.props.updateState(value)
-        // this.textarea.style.height = '200px'
+        this.props.updateState(this.textarea.value)
+    }
+
+    getOffsetHeight = () => {
+        return this.textarea.offsetHeight
+    }
+
+    getScrollHeight = () => {
+        return this.textarea.scrollHeight
+    }
+    
+    changeElementHeight = () => {
+        const height = this.getScrollHeight()
+        this.textarea.style.height = `${height}px`
     }
 
     render() {
