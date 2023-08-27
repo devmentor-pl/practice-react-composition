@@ -4,13 +4,20 @@ class Form extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        
-        this.props.addUser(this.input.value)
+
+        const { value } = this.input
+
+        if (value) {
+            this.props.addUser(value)
+        }
+        else {
+            alert('Uzupełnij polę "imię"')
+        }
         this.input.value = ''
-    } 
+    }
 
     render() {
-    
+
         return (
             <section >
                 <form onSubmit={this.handleSubmit}>
