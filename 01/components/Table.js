@@ -8,8 +8,7 @@ class Table extends React.Component {
         const { data } = this.props;
         console.log(data);
 
-        const initialValue = 0
-        const total = data.reduce((acc, item) => acc + item.price * item.quantity, initialValue)
+        const total = data.reduce((acc, item) => acc + item.price * item.quantity, 0)
 
         return (
             <table>
