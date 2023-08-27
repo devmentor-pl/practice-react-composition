@@ -3,8 +3,8 @@ import Product from './Product';
 
 
 function Cart(props) {
-    const { items, removeFromCart } = props
-    const list = items.map(item => <Product key={item.id} data={item} isCart={true} removeFromCart={removeFromCart}/>)
+    const { items, onClick } = props
+    const list = items.map(item => <Product key={item.id} data={item} onClick={onClick}/>)
 
     return (
         <>

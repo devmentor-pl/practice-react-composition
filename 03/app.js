@@ -14,8 +14,6 @@ class App extends React.Component {
     }
 
     addToCart = (item) => {
-        console.log(item)
-
         this.setState(state => {
             return {
                 cart: [...state.cart, item]
@@ -23,14 +21,15 @@ class App extends React.Component {
         })
     }
 
-    removeFromCart = (id) => {
+    removeFromCart = (item) => {
         this.setState(state => {
-            const items = state.cart.filter(item => {
-                return item.id !== id
+            const items = state.cart.filter(el => {
+                return el.id !== item.id
             })
             return { cart: items }
         })
     }
+
 
     isInCart(id) {
         return this.state.cart.find(item => item.id === id)
@@ -42,7 +41,7 @@ class App extends React.Component {
             key={item.id}
             data={item}
             isCategory={true}
-            addToCart={this.addToCart}
+            onClick={this.addToCart}
             inCart={this.isInCart(item.id)}
         />)
 
@@ -52,7 +51,7 @@ class App extends React.Component {
                     <h2>Category</h2>
                     {list}
                 </Category>
-                <Cart items={this.state.cart} removeFromCart={this.removeFromCart} />
+                <Cart items={this.state.cart} onClick={this.removeFromCart} />
             </section>
         )
     }

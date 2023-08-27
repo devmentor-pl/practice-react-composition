@@ -1,18 +1,10 @@
 import React from "react";
 
 const Product = (props) => {
-    const { data, isCategory, isCart, addToCart, removeFromCart, inCart } = props
+    const { data, isCategory, onClick, inCart } = props
     const buttonHandler = () => {
-        if (isCategory) {
-            const item = data
-
-            addToCart(item)
-        }
-        if (isCart) {
-            removeFromCart(data.id)
-        }
+        onClick(data)
     }
-
 
     return (
         <li>
