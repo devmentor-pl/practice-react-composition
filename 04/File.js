@@ -27,7 +27,7 @@ class File extends React.Component {
                     reader.readAsText(file, 'UTF-8')
                 }
                 else {
-                    prompt("Wybierz plik tekstowy")
+                    alert("Wybierz plik tekstowy")
                 }
             })
 
