@@ -9,11 +9,19 @@ class App extends React.Component {
         filesList: [],
     }
 
+    updateState = (file) => {
+        this.setState(state => {
+            return {
+                filesList: [...state.filesList, file]
+            }
+        })
+    }
+
     render() {
         return (
             <section>
-                <File />
-                <List />
+                <File updateState={this.updateState} />
+                <List items={this.state.filesList} />
             </section>
         )
     }
