@@ -2,11 +2,11 @@ import React from 'react';
 import Product from './Product';
 
 function Category(props) {
-	const { items } = props;
+	const { list } = props;
 	return (
 		<>
 			<h2>Category</h2>
-			<Product onAddToCart={onAddToCart} items={items} />
+			<Product list={list} />
 		</>
 	);
 }
