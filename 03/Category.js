@@ -1,14 +1,23 @@
 import React from 'react';
 import Product from './Product';
 
-function Category(props) {
-	const { list } = props;
-	return (
-		<>
-			<h2>Category</h2>
-			<Product list={list} />
-		</>
-	);
+class Category extends React.Component {
+	render() {
+		const { products, onAddToCart } = this.props;
+
+		return (
+			<div>
+				<h2>Products</h2>
+				{products.map(product => (
+					<Product 
+					key={product.id} 
+					product={product}
+					isCategory={true}
+					onAddToCart={onAddToCart} />
+				))}
+			</div>
+		);
+	}
 }
 
 export default Category;
