@@ -9,11 +9,7 @@ class Category extends React.Component {
 			<div>
 				<h2>Products</h2>
 				{products.map(product => (
-					<Product 
-					key={product.id} 
-					product={product}
-					isCategory={true}
-					onAddToCart={onAddToCart} />
+					<Product key={product.id} product={product} isCart={false} handleClick={onAddToCart} />
 				))}
 			</div>
 		);

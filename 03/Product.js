@@ -10,36 +10,21 @@ class Product extends React.Component {
 		this.setState(prevState => ({ isDisable: !isDisable }));
 	};
 	render() {
-		const { product, isCategory, isCart, onAddToCart, onRemoveFromCart } = this.props;
+		const { product, isCart } = this.props;
 		return (
-			<div className='product'>
+			<div>
 				<h3>{product.name}</h3>
 				<p>{product.description}</p>
 				<p>Price: ${product.price}</p>
-
-				{isCategory && (
-					<button
-						onClick={() => {
-							onAddToCart(product);
-							this.handleToggleDisable();
-						}}
-						disabled={this.state.isDisable}
-					>
-						+
-					</button>
-				)}
-
-				{isCart && (
-					<button
-						onClick={() => {
-							onRemoveFromCart(product);
-							console.log('button', this.state);
-							this.handleToggleDisable();
-						}}
-					>
-						-
-					</button>
-				)}
+				<button
+					onClick={() => {
+						this.props.handleClick(product);
+						this.handleToggleDisable();
+					}}
+					disabled={this.state.isDisable}
+				>
+					{isCart ? '-' : '+'}
+				</button>
 			</div>
 		);
 	}

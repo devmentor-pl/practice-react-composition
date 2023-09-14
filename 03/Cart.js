@@ -7,7 +7,7 @@ function Cart(props) {
 		<div className='cart'>
 			<h2>Cart</h2>
 			{cartItems.map(cartItem => (
-				<Product key={cartItem.id} product={cartItem} isCart={true} onRemoveFromCart={onRemoveFromCart} />
+				<Product key={cartItem.id} product={cartItem} isCart={true} handleClick={onRemoveFromCart} />
 			))}
 		</div>
 	);
