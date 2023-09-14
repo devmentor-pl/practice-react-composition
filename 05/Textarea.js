@@ -9,13 +9,17 @@ class Textarea extends React.Component {
 		this.props.onWrite(newValue);
 	};
 	getSnapshotBeforeUpdate(prevProps, prevState) {
-		return { resize: true }; // Zwracamy obiekt z informacją o resize
-	}
-	componentDidUpdate(prevProps, prevState, snapshot) {
 		const height = this.refTA.offsetHeight;
 		const scrlHeight = this.refTA.scrollHeight;
 
-		if (height < scrlHeight && snapshot.resize && height < 100) {
+		if (height < scrlHeight && height < 100) {
+			return { resize: true };
+		}
+		return null;
+	}
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		const height = this.refTA.offsetHeight;
+		if (snapshot !== null && snapshot.resize) {
 			this.refTA.style.height = height + 10 + 'px';
 		}
 	}
