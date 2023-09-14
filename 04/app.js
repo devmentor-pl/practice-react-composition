@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { v4 as uuidv4 } from 'uuid';
 
 import File from './File';
 import List from './List';
@@ -11,7 +12,7 @@ class App extends React.Component {
 	handleFileRead = fileContent => {
 		this.setState(prevState => {
 			return {
-				filesList: [...prevState.filesList, fileContent],
+				filesList: [...prevState.filesList, { content: fileContent, id: uuidv4() }]
 			};
 		});
 	};
