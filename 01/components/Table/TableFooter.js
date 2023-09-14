@@ -2,10 +2,7 @@ import React from 'react';
 
 export default class TableFooter extends React.Component {
 	render() {
-		const { data } = this.props;
-
-		const totalSum = data.reduce((sum, row) => 
-        sum + row.price * row.quantity, 0);
+		const { totalSum } = this.props;
 
 		return (
 			<tfoot>
