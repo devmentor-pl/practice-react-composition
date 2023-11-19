@@ -7,14 +7,18 @@ import Form from './Form';
 class App extends React.Component {
     state = {
         usersList: [],
-    }
-
+    } 
+    handleFormSubmit = (inputValue) => {
+        this.setState((state) => ({
+          usersList: [...state.usersList, inputValue],
+        }));
+      };
+    
     render() {
         const  { usersList } = this.state;
-
         return (
             <section>
-                <Form />
+                <Form onSubmit={this.handleFormSubmit}/>
                 <List items={ usersList } />
             </section>
         )
