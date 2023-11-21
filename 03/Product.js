@@ -2,6 +2,7 @@ import React from "react";
 class Product extends React.Component {
   state = {
     cartArray: [],
+    productObj: {},
   };
 
   addToCart = (e, productId, productName, productPrice) => {
@@ -12,9 +13,9 @@ class Product extends React.Component {
         price: productPrice
     }
     this.setState((prevState) => ({
-        cartArray: [...prevState.cartArray, productObj],
+        cartArray: [...prevState.cartArray, { ...productObj }],
       }));
-      this.props.addToCartHandler(productObj);
+      this.props.addToCartHandler({ ...productObj });
       
   };
   removeFromCart = (id) => {

@@ -4,6 +4,7 @@ import { v4 as uuid } from "uuid";
 class File extends React.Component {
     state = {
         filesArray: [],
+        fileObj: {},
     }
     handleChangeFile = (file) => {
         let fileReader = new FileReader();
@@ -17,16 +18,16 @@ class File extends React.Component {
             content: text,
         }
         this.setState((prevState) => ({
-            filesArray: [...prevState.filesArray, fileObj],
+            filesArray: [...prevState.filesArray, { ...fileObj }],
           }));
-          this.props.addFileObject(fileObj)
+          this.props.addFileObject({ ...fileObj })
         };
      
         fileReader.readAsText(file);
       }
   render() {
     return (
-        <input type="file" multiple onChange={(e) => this.handleChangeFile(e.target.files[0])} ref={ node => this.input = node }
+        <input type="file" multiple accept=".txt, .md" onChange={(e) => this.handleChangeFile(e.target.files[0])}
         />
     )
   }
