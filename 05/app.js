@@ -7,16 +7,17 @@
         state = {
             text: '',
         }
+
         txtRef = React.createRef();
 
         componentDidMount() {
             console.log(this.txtRef.current.getHeight())
         }
-
+      
         render() {
             const { text } = this.state;
             return (
-                <Textarea ref={this.txtRef} content={ text } />
+                <Textarea content={ text } ref={this.txtRef}/>
             )
         }
     }
