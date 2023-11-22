@@ -8,16 +8,15 @@
             text: '',
         }
 
-        txtRef = React.createRef();
-
-        componentDidUpdate() {
-            console.log(this.txtRef.current.getHeight())
+        addText = (txt) => {
+            this.setState({
+                text: txt,
+            })
         }
-      
         render() {
             const { text } = this.state;
             return (
-                <Textarea content={ text } ref={this.txtRef}/>
+                <Textarea content={ text } addText={this.addText}/>
             )
         }
     }
