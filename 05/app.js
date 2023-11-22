@@ -10,7 +10,7 @@
 
         txtRef = React.createRef();
 
-        componentDidMount() {
+        componentDidUpdate() {
             console.log(this.txtRef.current.getHeight())
         }
       
