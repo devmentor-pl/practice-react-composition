@@ -3,7 +3,7 @@ import Product from './Product';
 
 class Category extends React.Component {
   render() {
-    const { products, cart, onAddToCart, onRemoveFromCart } = this.props;
+    const { products, cart, onAddToCart } = this.props;
 
     const productList = products.map((product) => (
       <Product
@@ -11,8 +11,7 @@ class Category extends React.Component {
         id={product.id}
         name={product.name}
         price={product.price}
-        onAddToCart={onAddToCart}
-        onRemoveFromCart={onRemoveFromCart}
+        handleClick={onAddToCart}
         isProductInCart={cart.some((item) => item.id === product.id)}
       />
     ));

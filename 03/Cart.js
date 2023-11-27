@@ -3,7 +3,7 @@ import Product from './Product';
 
 class Cart extends React.Component {
   render() {
-    const { cart, onAddToCart, onRemoveFromCart } = this.props;
+    const { cart, onRemoveFromCart } = this.props;
 
     const cartList = cart.map((product) => (
       <Product
@@ -11,9 +11,7 @@ class Cart extends React.Component {
         id={product.id}
         name={product.name}
         price={product.price}
-        onAddToCart={onAddToCart}
-        onRemoveFromCart={onRemoveFromCart}
-        isProductInCart={true}
+        handleClick={onRemoveFromCart}
         isCart
       />
     ));
