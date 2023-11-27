@@ -1,4 +1,3 @@
-'use strict';
 import React from 'react';
 
 class TableFooter extends React.Component {
