@@ -14,6 +14,8 @@ class App extends React.Component {
             <section>
                 <File />
                 <List />
+                <File addFile={this.addFile} />
+                <List items={this.state.filesList} />
             </section>
         )
     }
