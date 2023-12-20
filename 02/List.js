@@ -3,11 +3,10 @@ import React from 'react';
 import ListItem from './ListItem';
 
 function List(props) {
-    return (
-        <ul>
-            <ListItem />
-        </ul>
-    )
+  const userListItems = props.items.map((user, index) => (
+    <ListItem key={index} userName={user} />
+  ));
+  return <ul>{userListItems}</ul>;
 }
 
 export default List;
