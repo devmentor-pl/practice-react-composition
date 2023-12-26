@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ListItem(props) {
-    return <li>Przykład 1</li>
+    return <li>{props.name} {props.surname}</li>
 }
 
 export default ListItem;

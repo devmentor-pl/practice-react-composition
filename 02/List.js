@@ -5,7 +5,9 @@ import ListItem from './ListItem';
 function List(props) {
     return (
         <ul>
-            <ListItem />
+            {props.items.map((item, index) => (
+                <ListItem key={index} name={item.name} surname={item.surname} />
+            ))}
         </ul>
     )
 }
