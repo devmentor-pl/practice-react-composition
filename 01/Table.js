@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
+import { TableHeader, TableBody, TableFooter } from "./components/index";
+import data from "./data.json";
 
 class Table extends React.Component {
     render() {
-        const {data} = this.props;
-        console.log(data);
-
-        return <table></table>
+        return (
+            <table>
+                <TableHeader />
+                <TableBody items={data} />
+                <TableFooter items={data} />
+            </table>
+        );
     }
 }
 
