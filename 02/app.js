@@ -9,12 +9,23 @@ class App extends React.Component {
         usersList: [],
     }
 
+    updateState = (e) => {
+        e.preventDefault()
+        console.log(e.target.name)
+        const user = e.target.firstElementChild.value
+        this.setState(state => {
+            return {
+                usersList: [...state.usersList, user]
+            }
+        })
+    }
+
     render() {
         const  { usersList } = this.state;
 
         return (
             <section>
-                <Form />
+                <Form onSubmit={(e) => this.updateState(e)}/>
                 <List items={ usersList } />
             </section>
         )
