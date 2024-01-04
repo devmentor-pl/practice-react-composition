@@ -8,7 +8,6 @@ class App extends React.Component {
 	state = {
 		usersList: [],
 	}
-
 	addUser = user => {
 		this.setState(
 			state => {
