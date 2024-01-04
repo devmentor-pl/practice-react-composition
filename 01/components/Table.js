@@ -19,6 +19,7 @@ class Table extends React.Component {
 		return (
 			<table>
 				<TableHeader />
+
 				<TableBody> {renderRows} </TableBody>
 				<TableFooter product={totalPrices} />
 			</table>
