@@ -1,13 +1,22 @@
-import React from 'react';
+import React from 'react'
 
 class Form extends React.Component {
-    render() {
-        return (
-            <section>
-                <input /><input type="submit" />
-            </section>
-        )
-    }
+	secRef = React.createRef()
+
+	handleSubmit = e => {
+		e.preventDefault()
+		this.props.onSubmit(this.secRef.current.value)
+		this.secRef.current.value = ''
+	}
+
+	render() {
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<input ref={this.secRef} placeholder="Wpisz imię i nazwisko" />
+				<input type="submit" />
+			</form>
+		)
+	}
 }
 
-export default Form;
+export default Form

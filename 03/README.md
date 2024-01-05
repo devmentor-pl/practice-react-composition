@@ -10,8 +10,8 @@ Ponownie będziemy operować na produktach. Tym razem umożliwimy użytkownikowi
 
 
 Do zrealizowania zadania potrzebujemy 3 komponentów:
-* `<Category />` – wyświetla listę dostępnych produktów. Produkty są renderowane dzięki komponentowi `<Product />`
-* `<Cart />` – wyświetla listę produktów wybranych do zakupu. Produkty te są również renderowane przez komponent `<Product />`
+* `<Category />` – wyświetla listę dostępnych produktów. Produkty są renderwane dzięki komponentowi `<Product />`
+* `<Cart />` – wyświetla listę produktów wybranych do zakupu. Produkty te są również renderowane przez komponent `<Product />`o
 * `<Product />` – wyświetla informacje o produkcie.
 
 ## `<Product />`
