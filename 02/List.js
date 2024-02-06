@@ -2,12 +2,19 @@ import React from 'react';
 
 import ListItem from './ListItem';
 
-function List(props) {
-    return (
-        <ul>
-            <ListItem />
-        </ul>
-    )
-}
+class List extends React.Component {
+    render() {
+      const { items } = this.props;
+      const usersList = items.map((i) => {
+        return (
+            <React.Fragment key={ i.id }>
+                <ListItem name={ i.name }/>
+            </React.Fragment>
+)}
 
-export default List;
+      );
+      return <ul>{usersList}</ul>;
+    }
+  }
+  
+  export default List;
