@@ -1,13 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import ListItem from './ListItem';
+import ListItem from './ListItem'
 
 function List(props) {
-    return (
-        <ul>
-            <ListItem />
-        </ul>
-    )
+	const { items } = props
+
+	return (
+		<ul>
+			<ListItem users={items} />
+		</ul>
+	)
 }
 
-export default List;
+export default List

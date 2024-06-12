@@ -1,7 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 function ListItem(props) {
-    return <li>Przykład 1</li>
+	const { users } = props
+
+	const item = users.map(item => <li key={item}>{item}</li>)
+
+	return item
 }
 
-export default ListItem;
+export default ListItem
