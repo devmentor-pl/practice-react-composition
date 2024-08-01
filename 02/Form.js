@@ -1,11 +1,13 @@
 import React from 'react';
 
 class Form extends React.Component {
+    
     render() {
         return (
-            <section>
-                <input /><input type="submit" />
-            </section>
+            <form onSubmit={this.props.onSubmit}>
+                <input ref={this.props.inputRef}/>
+                <input type="submit" />
+            </form>
         )
     }
 }

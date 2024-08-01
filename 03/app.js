@@ -14,10 +14,29 @@ class App extends React.Component {
     render() {
         return (
             <section>
-                <Category />
-                <Cart />
+                <Category onClick={this.addToCart} data={data} isProductInCart={this.isProductInCart}/>
+
+                <Cart onClick={this.removeFromCart} cart={this.state.cart}/>
+
+
             </section>
         )
+    }
+
+    removeFromCart = (id) => {
+        this.setState({
+            cart: [...this.state.cart.filter(product => product.id !== id)]
+        })
+    }
+
+    addToCart = (product) => {
+        this.setState({
+            cart: [...this.state.cart, {...product}]
+        })
+    }
+
+    isProductInCart = (id) => {
+        return this.state.cart.some(product => product.id === id)
     }
 }
 
