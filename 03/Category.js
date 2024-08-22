@@ -1,7 +1,13 @@
 import React from 'react';
 
 function Category(props) {
-    return <h2>Category</h2>
+
+  return (<section>
+                <h1>Category</h1>
+                {props.children}</section>        
+
+
+            )     
 }
 
 export default Category;

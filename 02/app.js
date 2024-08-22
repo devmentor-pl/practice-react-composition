@@ -5,16 +5,28 @@ import List from './List';
 import Form from './Form';
 
 class App extends React.Component {
+    
     state = {
-        usersList: [],
+        usersList: ["Jan Kowalski"],
     }
+
+    passData = (passedData) => {
+   
+
+          this.setState ( prevState => ({
+            usersList: [...prevState. usersList,  passedData]
+        }))
+           
+          
+        
+    };
 
     render() {
         const  { usersList } = this.state;
 
         return (
             <section>
-                <Form />
+                <Form passData={this.passData} />
                 <List items={ usersList } />
             </section>
         )
