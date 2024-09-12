@@ -1,11 +1,17 @@
 import React from 'react';
+import TableHeader from './components/TableHeader';
+import TableFooter from './components/TableFooter';
+import TableBody from './components/Table';
 
 class Table extends React.Component {
     render() {
-        const {data} = this.props;
-        console.log(data);
-
-        return <table></table>
+        return (
+        <table>
+            <TableHeader headers={}/>
+            <TableBody rows={}/>
+            <TableFooter totalPrice={} />
+        </table>
+        )
     }
 }
 
