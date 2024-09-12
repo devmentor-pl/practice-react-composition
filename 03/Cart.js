@@ -1,7 +1,10 @@
 import React from 'react';
+import Box from './Box';
 
 function Cart(props) {
-    return <h2>Cart</h2>
+	const { children } = props;
+
+	return <Box title='Cart'>{children}</Box>;
 }
 
 export default Cart;
