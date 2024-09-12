@@ -1,7 +1,16 @@
-import React from 'react';
+import React from "react";
 
-function Category(props) {
-    return <h2>Category</h2>
-}
+const Category = (props) => {
+  const { children } = props;
+  const list = React.Children.map(children, (child) => {
+    return <li>{child}</li>;
+  });
+  return (
+    <>
+      <h2>Category</h2>
+      <ul>{list}</ul>
+    </>
+  );
+};
 
 export default Category;
