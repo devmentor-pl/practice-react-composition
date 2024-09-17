@@ -7,14 +7,19 @@ class App extends React.Component {
     state = {
         text: '',
     }
+    setText = (value) => {
+        this.setState({
+            text: value
+        })
+    }
 
     render() {
         const { text } = this.state;
         return (
-            <Textarea content={ text } />
+            <Textarea handleChange={this.setText} content={text} />
         )
     }
 }
 
 const root = createRoot(document.querySelector('#root'));
-root.render(<App />);
+root.render(<App />)
