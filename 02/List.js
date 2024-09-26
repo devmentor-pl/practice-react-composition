@@ -3,9 +3,10 @@ import React from 'react';
 import ListItem from './ListItem';
 
 function List(props) {
-    return (
+        const {items} = props;
+        return (
         <ul>
-            <ListItem />
+            {items.map ((i, index) => <ListItem key={index} name={i}/>)}
         </ul>
     )
 }
