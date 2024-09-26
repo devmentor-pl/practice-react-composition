@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 
 class List extends React.Component {
-    render() {
-        return <ul>Lista plików</ul>
-    }
+	render() {
+		const { list } = this.props;
+		return <ul>{list}</ul>;
+	}
 }
 
 export default List;
