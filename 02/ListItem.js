@@ -1,7 +1,16 @@
 import React from 'react';
 
 function ListItem(props) {
-    return <li>Przykład 1</li>
+    const { usersList } = props
+    return (
+        <>
+            {
+                usersList.map((user, key) => {
+                    return <li key={key}>{user}</li>
+                })
+            }
+        </>
+    )
 }
 
 export default ListItem;
