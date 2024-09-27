@@ -1,13 +1,19 @@
 import React from 'react';
 
 class Form extends React.Component {
-    render() {
-        return (
-            <section>
-                <input /><input type="submit" />
-            </section>
-        )
-    }
+	render() {
+		const { onSubmit, onChange, inpValue } = this.props;
+
+		return (
+			<form onSubmit={onSubmit}>
+				<input
+					value={inpValue}
+					onChange={onChange}
+				/>
+				<input type='submit' />
+			</form>
+		);
+	}
 }
 
 export default Form;

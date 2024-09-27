@@ -1,4 +1,4 @@
-const taskNumber = null;
+const taskNumber = '05';
 //number przerabianego zadania
 
 const path = require('path');
@@ -14,6 +14,7 @@ module.exports = {
         filename: 'app.min.js',
         // definiuję nazwę pliku wyjściowego
     },
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
