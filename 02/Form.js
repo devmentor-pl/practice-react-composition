@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
 
 class Form extends React.Component {
-    render() {
-        return (
-            <section>
-                <input /><input type="submit" />
-            </section>
-        )
-    }
+  render() {
+    const { handleClick } = this.props;
+    return (
+      <section>
+        <input ref={(node) => (this.input = node)} />
+        <input onClick={() => handleClick(this.input)} type="submit" />
+      </section>
+    );
+  }
 }
 
 export default Form;
