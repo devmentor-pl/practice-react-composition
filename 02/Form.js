@@ -1,11 +1,21 @@
 import React from 'react';
 
-class Form extends React.Component {
+class Form extends React.Component { 
+
+    handleSubmit = e => {
+
+        e.preventDefault();
+        const inputValue = this.input.value;
+        this.props.addUser(inputValue);
+        this.input.value = '';
+        }
+
     render() {
         return (
-            <section>
-                <input /><input type="submit" />
-            </section>
+            <form onSubmit={this.handleSubmit}>
+                <input ref = { node => this.input = node}/>
+                <input type="submit" />
+            </form>
         )
     }
 }
