@@ -44,3 +44,5 @@ Pamiętaj o zapisywaniu historii zmian w plikach przy pomocy komend [`git add`](
 Aby wysłać dane na zdalny serwer, wystarczy komenda [`git push`](https://github.com/git-guides/git-push).
 
 Po wysłaniu plików na GitHuba zrób [Pull Request](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork), abym mógł wykonać [Code Review](https://en.wikipedia.org/wiki/Code_review) Twoich zadań.
+
+json-server --watch ./db/data.json --port 3005

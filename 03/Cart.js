@@ -1,7 +1,21 @@
-import React from 'react';
+import React from "react";
 
-function Cart(props) {
-    return <h2>Cart</h2>
+function Cart({ children }) {
+  return (
+    <div>
+      <h2>Koszyk</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Produkt</th>
+            <th>Cena</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>{children}</tbody>
+      </table>
+    </div>
+  );
 }
-
+// ten komponent jest taki sam jak Category, nie wiem czy tak to miało wyjść
 export default Cart;
