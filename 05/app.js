@@ -4,14 +4,20 @@ import { createRoot } from 'react-dom/client';
 import Textarea from './Textarea';
 
 class App extends React.Component {
-    state = {
-        text: '',
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: '',
+        }
     }
+    
+    handleChange = e => {
+        this.setState({ text: e.target.value });
+    };
 
     render() {
-        const { text } = this.state;
         return (
-            <Textarea content={ text } />
+            <Textarea value={this.state.text} onChange={this.handleChange} />
         )
     }
 }

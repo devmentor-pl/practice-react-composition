@@ -8,17 +8,23 @@ class App extends React.Component {
     state = {
         usersList: [],
     }
+    addUser = (user) => {
+        this.setState((prevState) => ({
+            usersList: [...prevState.usersList, user],
+        }));
+    };
 
     render() {
         const  { usersList } = this.state;
 
         return (
             <section>
-                <Form />
-                <List items={ usersList } />
+                <Form addUser={this.addUser}/>
+                <List usersList={ usersList } />
             </section>
         )
     }
+    
 }
 
 const root = createRoot(document.querySelector('#root'));
