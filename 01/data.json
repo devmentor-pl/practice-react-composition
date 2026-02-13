@@ -1,23 +1,36 @@
-[
-    {
+{
+    "products": [{
         "id": 1,
         "name": "eBook",
         "price": 49,
-        "quantity": 1
-
+        "quantity": 2
     },
-    {
+{
         "id": 2,
         "name": "Mysz komputerowa",
         "price": 249,
         "quantity": 1
 
     },
-    {
+  {
         "id": 3,
         "name": "Klawiatura komputerowa",
         "price": 149,
         "quantity": 2
 
-    }
-]
+    },
+{
+        "id": 4,
+        "name": "Pamięć RAM 8GB",
+        "price": 999,
+        "quantity": 1
+
+    },
+{
+        "id": 5,
+        "name": "Dysk SSD SATA 1TB",
+        "price": 699,
+        "quantity": 1
+
+    }]
+}

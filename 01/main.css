@@ -1,0 +1,48 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.table__header {
+
+  background-color: #FFFFFF;
+  border-bottom: 2px solid #696969;
+  color: #000000;
+}
+
+.table__header-cell {
+  padding: .5rem;
+  text-align: left;
+}
+
+.table__body {
+  background-color: #FFFACD;
+}
+
+.table__row {
+  border-bottom: 1px solid #BEBEBE;
+}
+
+.table__row--even {
+  background-color: #FFF8DC;
+}
+
+.table__cell {
+  padding: .5rem;
+}
+
+.table__footer {
+  background-color: #BEBEBE;
+  color: #000000;
+  font-weight: bold;
+}
+
+.table__footer-cell {
+  padding: .5rem;
+  text-align: right;
+}
+
+.total__sum{
+ text-align: left;
+}
