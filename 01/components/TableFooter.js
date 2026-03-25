@@ -1,6 +1,6 @@
 import React from "react";
 
-class TableFooter extends React.Component {
+export class TableFooter extends React.Component {
   render() {
     const { total, style } = this.props;
     return (
@@ -17,5 +17,3 @@ class TableFooter extends React.Component {
     );
   }
 }
-
-export default TableFooter;

@@ -1,6 +1,6 @@
 import React from "react";
 
-class TableHeader extends React.Component {
+export class TableHeader extends React.Component {
   render() {
     const { headers, style } = this.props;
     return (
@@ -16,5 +16,3 @@ class TableHeader extends React.Component {
     );
   }
 }
-
-export default TableHeader;

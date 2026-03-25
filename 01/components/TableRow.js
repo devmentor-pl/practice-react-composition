@@ -1,6 +1,6 @@
 import React from "react";
 
-class TableRow extends React.Component {
+export class TableRow extends React.Component {
   render() {
     const { item, style } = this.props;
     const total = item.price * item.quantity;
@@ -16,5 +16,3 @@ class TableRow extends React.Component {
     );
   }
 }
-
-export default TableRow;
