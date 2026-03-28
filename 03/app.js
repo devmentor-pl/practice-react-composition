@@ -15,20 +15,49 @@ class App extends React.Component {
 
   componentDidMount() {
     if (this.state.products.length === 0) {
-      console.log("data", data);
       this.setState({ products: data });
     }
   }
 
+  addToCart = (id) => {
+    this.setState((prevState) => ({
+      cart: [...prevState.cart, id],
+    }));
+  };
+
+  removeFromCart = (id) => {
+    this.setState((prevState) => ({
+      cart: prevState.cart.filter((itemId) => itemId !== id),
+    }));
+  };
+
   render() {
-    const products = this.state.products;
-    const productsList = products.map((item) => (
-      <Product key={item.id} product={item} />
-    ));
+    const { products, cart } = this.state;
+    const cartItems = products.filter((product) => cart.includes(product.id));
+
     return (
       <section>
-        <Category>{productsList}</Category>
-        <Cart />
+        <Category>
+          {products.map((item) => (
+            <Product
+              key={item.id}
+              {...item}
+              isCategory={true}
+              isCart={cart.includes(item.id)}
+              addToCartClick={this.addToCart}
+            />
+          ))}
+        </Category>
+        <Cart>
+          {cartItems.map((item) => (
+            <Product
+              key={item.id}
+              {...item}
+              isCart={true}
+              removeFromCartClick={this.removeFromCart}
+            />
+          ))}
+        </Cart>
       </section>
     );
   }

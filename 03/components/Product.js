@@ -1,11 +1,21 @@
 import React from "react";
 
 const Product = (props) => {
-  const { product } = props;
-  console.log(product);
+  const handleAddToCart = () => props.addToCartClick(props.id);
+  const handleRemoveFromCart = () => props.removeFromCartClick(props.id);
+
   return (
     <div>
-      <span>{product.name}</span>
+      <span>product: {props.name} </span>
+      <span> price: ${props.price} </span>
+      {props.isCategory && (
+        <button onClick={handleAddToCart} disabled={props.isCart}>
+          Add to cart
+        </button>
+      )}
+      {props.isCart && !props.isCategory && (
+        <button onClick={handleRemoveFromCart}>Remove from cart</button>
+      )}
     </div>
   );
 };
