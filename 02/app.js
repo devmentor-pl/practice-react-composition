@@ -9,13 +9,27 @@ class App extends React.Component {
         usersList: [],
     }
 
+    addUser = (ev, el) => {
+        ev.preventDefault();
+        const newUser = el.value;
+        console.log(newUser)
+
+        this.setState((state) => {
+            return {
+                usersList: [...state.usersList, newUser]
+            };
+        });
+
+        el.value = '';
+    }
+
     render() {
-        const  { usersList } = this.state;
+        const { usersList } = this.state;
 
         return (
             <section>
-                <Form />
-                <List items={ usersList } />
+                <Form func={this.addUser} />
+                <List items={usersList} />
             </section>
         )
     }

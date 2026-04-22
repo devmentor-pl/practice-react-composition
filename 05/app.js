@@ -11,7 +11,7 @@ class App extends React.Component {
     render() {
         const { text } = this.state;
         return (
-            <Textarea content={ text } />
+            <Textarea content={text} onChange={ev => this.setState({ text: ev.target.value })} />
         )
     }
 }
