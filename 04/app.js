@@ -5,18 +5,26 @@ import File from './File';
 import List from './List';
 
 class App extends React.Component {
-    state = {
-        filesList: [],
-    }
+	state = {
+		filesList: [],
+	};
 
-    render() {
-        return (
-            <section>
-                <File />
-                <List />
-            </section>
-        )
-    }
+	getFileData = data => {
+		this.setState(prev => ({
+			filesList: [...prev.filesList, data],
+		}));
+	};
+
+	render() {
+		const { filesList } = this.state;
+
+		return (
+			<section>
+				<File onFileAdd={this.getFileData} />
+				<List list={filesList} />
+			</section>
+		);
+	}
 }
 
 const root = createRoot(document.querySelector('#root'));
